@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+  web:
+    build:
+      context: .
+    volumes:
+      - ".:/code/"
+      - "/code/node_modules"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - hot-reloader
+    command: npm run serve
+
+  hot-reloader:
+    image: bertini36/tailwind-hot-reloader
+    volumes:
+      - ".:/code/"
+    working_dir: /code/
+    tty: true
+    command: postcss src/assets/main.css -o public/css/output.css -w

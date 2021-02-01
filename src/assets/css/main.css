@@ -11,8 +11,3 @@ body {
 .title {
     @apply text-xl tracking-widest text-center uppercase;
 }
-
-.divider {
-    @apply border-0 bg-gray-300 text-gray-300 h-px w-72 mx-auto my-6;
-}
-

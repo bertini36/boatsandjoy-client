@@ -1,0 +1,12 @@
+{
+  "name": "boatsandjoy",
+  "short_name": "boatsandjoy",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}
