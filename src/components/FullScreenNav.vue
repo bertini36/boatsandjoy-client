@@ -4,7 +4,9 @@
       class="fixed inset-0 w-full h-full flex items-center justify-center z-30">
       <div class="w-full h-full bg-gray-100">
         <div class="flex flex-row justify-between">
-          <span class="mt-8 ml-8 text-gray-600 text-3xl font-bold tracking-widest">B&J</span>
+          <div class="pt-8 pl-6">
+            <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
+          </div>
           <button aria-label="close" @click.prevent="hideFullScreenNav" class="text-xl text-gray-500 mt-8 mr-8">
             <img src="../assets/icons/icon-close-big.svg" alt="close icon">
           </button>
