@@ -5,18 +5,20 @@
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-10"/>
       </router-link>
       <div class="pt-1">
-        <img src="../assets/icons/icon-menu-white.svg" alt="dropdown menu icon" class="cursor-pointer h-8" @click="showFullScreenNav"/>
+        <img src="../assets/icons/icon-menu-black.svg" alt="dropdown menu icon" class="cursor-pointer h-8" @click="showFullScreenNav"/>
       </div>
     </div>
   </div>
 
   <div class="navbar invisible md:visible h-0 md:h-20">
-    <div class="flex flex-row justify-between px-20">
+    <div class="flex flex-row justify-between md:px-32 lg:px-60 xl:px-96">
       <router-link tag="div" class="logo" :to="{ name: 'home' }">
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
       </router-link>
-      <div class="pt-3 text-white">
-        <router-link tag="span" class="ml-8 cursor-pointer font-medium" :to="{ name: 'home' }">Inicio</router-link>
+      <div class="pt-3">
+        <router-link tag="span" class="ml-8 link" :to="{ name: 'home' }">Inicio</router-link>
+        <span class="ml-8 link">Embarcaciones</span>
+        <span class="ml-8 link">Actividades</span>
       </div>
     </div>
   </div>
@@ -40,12 +42,12 @@ export default {
 <style scoped>
 .navbar {
   @apply w-full top-0 z-30;
-  @apply bg-gray-800 shadow-md;
+  @apply bg-gray-800 shadow-lg;
   @apply flex flex-col justify-center sticky;
-  @apply bg-black;
+  @apply bg-white;
 }
-
-.logo {
-  @apply text-white text-2xl font-bold tracking-widest cursor-pointer;
+.link {
+  @apply text-black text-lg font-medium;
+  @apply cursor-pointer hover:text-orange-600 hover:underline;
 }
 </style>

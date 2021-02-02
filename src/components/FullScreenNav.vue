@@ -2,7 +2,7 @@
   <Transition name="fade">
     <div v-if="showingFullScreenNav" @click.self="hideFullScreenNav"
       class="fixed inset-0 w-full h-full flex items-center justify-center z-30">
-      <div class="w-full h-full bg-gray-100">
+      <div class="w-full h-full bg-white">
         <div class="flex flex-row justify-between">
           <div class="pt-8 pl-6">
             <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
@@ -49,6 +49,6 @@ export default {
     @apply flex;
     @apply pt-4 pb-4 pl-10 xl:px-12 cursor-pointer;
     @apply text-black text-xl;
-    @apply hover:text-black hover:underline;
+    @apply hover:text-orange-600 hover:underline;
   }
 </style>
