@@ -42,12 +42,12 @@ export default {
 <style scoped>
 .navbar {
   @apply w-full top-0 z-30;
-  @apply bg-gray-800 shadow-lg;
+  @apply bg-gray-800 shadow-2xl;
   @apply flex flex-col justify-center sticky;
   @apply bg-white;
 }
 .link {
   @apply text-black text-lg font-medium;
-  @apply cursor-pointer hover:text-orange-600 hover:underline;
+  @apply cursor-pointer hover:text-orange-600 hover:text-xl;
 }
 </style>

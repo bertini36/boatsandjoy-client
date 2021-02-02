@@ -49,6 +49,6 @@ export default {
     @apply flex;
     @apply pt-4 pb-4 pl-10 xl:px-12 cursor-pointer;
     @apply text-black text-xl;
-    @apply hover:text-orange-600 hover:underline;
+    @apply hover:text-orange-600 hover:text-2xl;
   }
 </style>
