@@ -11,3 +11,22 @@ body {
 .title {
     @apply text-xl tracking-widest text-center uppercase;
 }
+
+.btn {
+  @apply py-4 px-8 rounded;
+  @apply bg-orange-600 hover:bg-orange-700 focus:outline-none;
+  @apply text-white font-bold;
+}
+
+/* Overwrite Vue Prime calendar styles */
+.p-highlight {
+  @apply bg-orange-600 !important;
+}
+
+.p-datepicker-prev {
+  @apply hover:text-orange-600 !important;
+}
+
+.p-datepicker-next {
+  @apply hover:text-orange-600 !important;
+}

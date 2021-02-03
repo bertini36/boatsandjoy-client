@@ -7,7 +7,14 @@
         </div>
       </div>
       <div class="mt-12 flex flex-row justify-center">
-        <Calendar v-model="selectedDate" :inline="true" />
+        <Calendar v-model="selectedDate"
+                  :inline="true"
+                  :minDate="todayDate"
+                  :disabledDates="noAvailDates"
+        />
+      </div>
+      <div class="mt-6 flex flex-row justify-center">
+        <button class="btn" @click="checkAvailability">Comprobar disponibilidad</button>
       </div>
     </header>
   </div>
@@ -21,11 +28,59 @@ export default {
   components: {
     Calendar,
   },
+
   data() {
     return {
-      selectedDate: null
+      selectedDate: null,
+      todayDate: new Date(),
+      noAvailDates: [
+        new Date(Date.parse('2021-02-16')),
+        new Date(Date.parse('2021-02-17')),
+        new Date(Date.parse('2021-02-18'))
+      ],
+      showedMonth: new Date().getMonth() + 1,
     }
   },
+
+  mounted() {
+    this.prevMonthButtonSetUp();
+    this.nextMonthButtonSetUp();
+  },
+
+  methods: {
+    prevMonthButtonSetUp() {
+      let prevMonthButton = document.querySelector('.p-datepicker-prev');
+      let self = this;
+      prevMonthButton.onclick = function() {
+        if (self.showedMonth === 1) {
+          self.showedMonth = 12;
+        } else {
+          self.showedMonth -= 1;
+        }
+        self.prevMonthButtonSetUp();
+        self.nextMonthButtonSetUp();
+      }
+    },
+
+    nextMonthButtonSetUp() {
+      let nextMothButton = document.querySelector('.p-datepicker-next');
+      let self = this;
+      nextMothButton.onclick = function() {
+        if (self.showedMonth === 12) {
+          self.showedMonth = 1;
+        } else {
+          self.showedMonth += 1;
+        }
+        self.prevMonthButtonSetUp();
+        self.nextMonthButtonSetUp();
+      }
+    },
+
+    checkAvailability() {
+      console.log(this.selectedDate);
+      console.log(this.showedMonth);
+    },
+  }
 }
 </script>
 
@@ -36,5 +91,13 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+button {
+  width: 421.41px;
+}
+@media only screen and (max-width: 770px) {
+  button {
+    width: 365.41px;
+  }
 }
 </style>
