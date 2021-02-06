@@ -19,6 +19,19 @@
         </div>
       </div>
     </header>
+
+    <article class="py-12 md:pt-20 flex flex-row justify-center">
+      <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
+        <h3 class="title mb-4">Rent your boat!</h3>
+        <p class="text-center">
+          Boats and Joy offers you this spacious and beautiful pleasure boat TO RENT to enjoy the amazing Mallorcan Coast.
+          This beautiful 5 meters boat is available WITHOUT LICENSE. You can enjoy it if you are above 18 years old.
+          Put off from Sant Elm and enjoy amazing views, beaches, calas and caves located in South-West Mallorca.
+          Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, birds and endemic flora
+          or have your time to relax and have a good meal in the Mediterranean.
+        </p>
+      </div>
+    </article>
   </div>
 </template>
 
