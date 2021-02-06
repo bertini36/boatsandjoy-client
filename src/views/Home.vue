@@ -6,6 +6,10 @@
           <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-2/4">
         </div>
 
+        <div class="flex flex-row justify-center mt-4">
+          <h1 class="text-white text-3xl">Rent your boat in Mallorca</h1>
+        </div>
+
         <div class="mt-12 flex flex-row justify-center">
           <Calendar v-model="selectedDate"
                     :inline="true"
