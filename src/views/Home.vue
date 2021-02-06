@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home">
     <header class="flex flex-col h-screen">
       <div class="m-auto">
         <div class="flex flex-row justify-center">

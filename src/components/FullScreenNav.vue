@@ -12,7 +12,9 @@
           </button>
         </div>
         <ul class="mb-auto mt-12">
-          <li><router-link tag="span" :to="{ name: 'home' }" @click="close">Inicio</router-link></li>
+          <li><a href="#home" @click="hideFullScreenNav" class="w-full">Home</a></li>
+          <li><a href="#boats" @click="hideFullScreenNav" class="w-full">Boats</a></li>
+          <li><a href="#watersports" @click="hideFullScreenNav" class="w-full">Watersports</a></li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="watersports">
     <article class="pt-12 pb-12 md:pb-20 md:pt-10 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
         <h3 class="title mb-4">Level up your visit with watersports!</h3>
