@@ -43,7 +43,7 @@ export default {
 .navbar {
   @apply w-full top-0 z-30;
   @apply bg-gray-800 shadow-2xl;
-  @apply flex flex-col justify-center sticky;
+  @apply flex flex-col justify-center fixed;
   @apply bg-white;
 }
 .link {

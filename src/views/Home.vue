@@ -1,20 +1,22 @@
 <template>
   <div>
     <header class="flex flex-col h-screen">
-      <div class="mx-auto z-10 pt-16">
+      <div class="m-auto">
         <div class="flex flex-row justify-center">
           <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-2/4">
         </div>
-      </div>
-      <div class="mt-12 flex flex-row justify-center">
-        <Calendar v-model="selectedDate"
-                  :inline="true"
-                  :minDate="todayDate"
-                  :disabledDates="noAvailDates"
-        />
-      </div>
-      <div class="mt-6 flex flex-row justify-center">
-        <button class="btn" @click="checkAvailability">Comprobar disponibilidad</button>
+
+        <div class="mt-12 flex flex-row justify-center">
+          <Calendar v-model="selectedDate"
+                    :inline="true"
+                    :minDate="todayDate"
+                    :disabledDates="noAvailDates"
+          />
+        </div>
+
+        <div class="mt-6 flex flex-row justify-center">
+          <button class="btn" @click="checkAvailability">Comprobar disponibilidad</button>
+        </div>
       </div>
     </header>
   </div>
