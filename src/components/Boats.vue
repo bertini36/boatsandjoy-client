@@ -2,7 +2,7 @@
   <div id="boats">
     <article class="py-12 md:pt-20 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
-        <h3 class="title mb-2 md:mb-4">Rent your boat from 180€ per day!</h3>
+        <h3 class="title mb-4">Rent your boat from 180€ per day!</h3>
         <p class="text-center">
           Boats and Joy offers you this spacious and beautiful pleasure boats <strong>to rent</strong> to enjoy the amazing Mallorcan Coast.
           These beautiful boats are available <strong>without license</strong>. You can enjoy them if you are above <strong>18 years old</strong>.

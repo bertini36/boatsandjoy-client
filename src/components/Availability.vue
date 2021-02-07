@@ -9,7 +9,7 @@
         <h1 class="text-white text-3xl">Rent your boat in Mallorca</h1>
       </div>
 
-      <div class="mt-12 flex flex-row justify-center">
+      <div class="mt-6 md:mt-12 flex flex-row justify-center">
         <Calendar v-model="selectedDate"
                   :inline="true"
                   :minDate="todayDate"
