@@ -37,9 +37,9 @@
               </div>
             </div>
 
-            <div class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-4 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
+            <div class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
               <h2 class="title text-2xl font-bold mb-6">Boats information</h2>
-              <div class="grid grid-flow-col grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4">
+              <div class="grid grid-flow-col grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4 pt-4">
                 <div>
                   <strong>Basic</strong>
                   <ul class="mt-2">
@@ -50,7 +50,7 @@
                     <li>Gas included</li>
                   </ul>
                 </div>
-                <div>
+                <div class="pt-4 md:pt-0">
                   <strong>Equiped with</strong>
                   <ul class="mt-2">
                     <li>Solarium</li>
@@ -70,7 +70,7 @@
                   </ul>
                 </div>
               </div>
-              <h3 class="md:mt-6 text-lg font-semibold mb-6 text-orange-500 text-center">Ask for more information!</h3>
+              <h3 class="mt-4 md:mt-6 text-lg font-semibold mb-6 text-orange-500 text-center">Ask for more information!</h3>
             </div>
           </div>
         </div>
