@@ -69,27 +69,27 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-    @apply group flex justify-center;
-    @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
-    position: relative;
-    text-align: center;
-    color: white;
-  }
+.container {
+  @apply group flex justify-center;
+  @apply transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+  position: relative;
+  text-align: center;
+  color: white;
+}
 
-  /* Centered text */
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  img {
-    @apply w-96 h-64 rounded-sm;
-  }
+img {
+  @apply w-96 h-64 rounded-sm;
+}
 
-  span {
-    @apply centered text-xl text-orange-600 tracking-widest;
-  }
+span {
+  @apply centered text-xl text-orange-600 tracking-widest;
+}
 </style>

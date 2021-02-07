@@ -39,18 +39,18 @@ export default {
 </script>
 
 <style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: all 0.4s;
-  }
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.4s;
+}
 
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 
-  li {
-    @apply flex;
-    @apply pt-4 pb-4 pl-10 xl:px-12 cursor-pointer;
-    @apply text-black text-xl;
-    @apply hover:text-orange-600 hover:text-2xl;
-  }
+li {
+  @apply flex;
+  @apply pt-4 pb-4 pl-10 xl:px-12 cursor-pointer;
+  @apply text-black text-xl;
+  @apply hover:text-orange-600 hover:text-2xl;
+}
 </style>
