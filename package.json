@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve --host 0.0.0.0 --port 3000",
-    "build": "NODE_ENV=production npm run build:tailwind && vue-cli-service build --modern",
+    "build": "npm run build:tailwind && vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
     "serve:tailwind": "postcss src/assets/css/main.css -o public/css/output.css -w",
     "build:tailwind": "NODE_ENV=production postcss src/assets/css/main.css -o public/css/output.css"
