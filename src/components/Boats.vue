@@ -16,13 +16,13 @@
     <article class="py-2 md:py-8 lg:py-10">
       <div class="grid grid-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 lg:gap-8 xl:gap-14 lg:px-8 xl:px-20 2xl:px-60">
         <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm">
+          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
         </div>
         <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm">
+          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
         </div>
         <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm">
+          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
         </div>
       </div>
     </article>
