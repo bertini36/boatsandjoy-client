@@ -6,7 +6,7 @@
       </div>
 
       <div class="flex flex-row justify-center mt-4">
-        <h1 class="text-white text-3xl">Rent your boat in Mallorca</h1>
+        <h1 class="text-white text-3xl">{{ i18n.$t('slogan') }}</h1>
       </div>
 
       <div class="mt-6 md:mt-12 flex flex-row justify-center">
@@ -26,6 +26,7 @@
 
 <script>
 import Calendar from 'primevue/calendar';
+import { useI18n } from '@/i18nPlugin';
 
 export default {
   name: 'Availability',
@@ -35,6 +36,7 @@ export default {
 
   data() {
     return {
+      i18n: useI18n(),
       selectedDate: null,
       todayDate: new Date(),
       noAvailDates: [
@@ -42,7 +44,7 @@ export default {
         new Date(Date.parse('2021-02-17')),
         new Date(Date.parse('2021-02-18'))
       ],
-      showedMonth: new Date().getMonth() + 1,
+      showedMonth: new Date().getMonth() + 1
     }
   },
 
