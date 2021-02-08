@@ -28,6 +28,7 @@ module.exports = {
           light: '#3f4d53',
           DEFAULT: '#2f4047',
           dark: '#27373e',
+          transparent: 'rgba(0, 0, 0, 0.75)',
         },
       },
     }

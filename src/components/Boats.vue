@@ -15,14 +15,8 @@
 
     <article class="py-2 md:py-8 lg:py-10">
       <div class="grid grid-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 lg:gap-8 xl:gap-14 lg:px-8 xl:px-20 2xl:px-60">
-        <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
-        </div>
-        <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
-        </div>
-        <div>
-          <img src="../assets/img/boats1.jpg" alt="Boat photo" class="rounded-sm cursor-pointer">
+        <div v-for="image_url in image_urls" :key="image_url">
+          <img :src="image_url" alt="Boat photo" class="rounded-sm cursor-pointer" @click="showModal(image_url)">
         </div>
       </div>
     </article>
@@ -77,15 +71,41 @@
       </div>
     </article>
 
+    <modal :showing="showingModal" :showClose="true" @close="showingModal = false">
+      <div class="flex flex-col w-full">
+        <img :src="selected_image_url" alt="Boat photo" class="rounded-sm">
+      </div>
+    </modal>
+
   </div>
 </template>
 
 <script>
+import Modal from '@/components/Modal.vue';
+
 export default {
-  name: 'Boats'
+  name: 'Boats',
+  components: {
+    Modal,
+  },
+
+  data() {
+    return {
+      image_urls: [
+        require('../assets/img/boats1.jpg'),
+        require('../assets/img/boats1.jpg'),
+        require('../assets/img/boats1.jpg'),
+      ],
+      showingModal: false,
+      selected_image_url: '',
+    }
+  },
+
+  methods: {
+    showModal(image_url) {
+      this.showingModal = true;
+      this.selected_image_url = image_url;
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>
