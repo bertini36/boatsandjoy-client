@@ -15,6 +15,7 @@
           <li><a href="#home" @click="hideFullScreenNav" class="w-full">Home</a></li>
           <li><a href="#boats" @click="hideFullScreenNav" class="w-full">Boats</a></li>
           <li><a href="#watersports" @click="hideFullScreenNav" class="w-full">Watersports</a></li>
+          <li><LanguageSwitch></LanguageSwitch></li>
         </ul>
       </div>
     </div>
@@ -24,8 +25,10 @@
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {
+  components: { LanguageSwitch },
   setup() {
     const store = useStore();
 
@@ -48,8 +51,11 @@ export default {
 
 li {
   @apply flex;
-  @apply pt-4 pb-4 pl-10 xl:px-12 cursor-pointer;
-  @apply text-black text-xl;
+  @apply pt-4 pb-4 pl-10 xl:px-12;
+}
+
+a {
+  @apply text-black text-xl cursor-pointer;
   @apply hover:text-orange-600 hover:text-2xl;
 }
 </style>
