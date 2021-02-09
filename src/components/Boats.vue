@@ -2,14 +2,8 @@
   <div id="boats">
     <article class="py-12 md:pt-20 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
-        <h3 class="title mb-4">Rent your boat from 180€ per day!</h3>
-        <p class="text-center">
-          Boats and Joy offers you this spacious and beautiful pleasure boats <strong>to rent</strong> to enjoy the amazing Mallorcan Coast.
-          These beautiful boats are available <strong>without license</strong>. You can enjoy them if you are above <strong>18 years old</strong>.
-          Put off from Sant Elm and enjoy amazing views, beaches, calas and caves located in South-West Mallorca.
-          Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, birds and endemic flora
-          or have your time to relax and have a good meal in the Mediterranean.
-        </p>
+        <h3 class="title mb-4">{{ i18n.$t('boats_title') }}</h3>
+        <p class="text-center">{{ i18n.$t('boats_description') }}</p>
       </div>
     </article>
 
@@ -32,39 +26,41 @@
             </div>
 
             <div class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
-              <h2 class="title text-2xl font-bold mb-6">Boats information</h2>
+              <h2 class="title text-2xl font-bold mb-6">{{ i18n.$t('boats_information_title') }}</h2>
               <div class="grid grid-flow-col grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4 pt-4">
                 <div>
-                  <strong>Basic</strong>
+                  <strong>{{ i18n.$t('boats_basic') }}</strong>
                   <ul class="mt-2">
-                    <li>Max.capacicy: 5 or 6 people</li>
-                    <li>Power: 15HP</li>
-                    <li>Location: Sant Elm</li>
-                    <li>Caution: 300€</li>
-                    <li>Gas included</li>
+                    <li>{{ i18n.$t('boats_capacity') }}</li>
+                    <li>{{ i18n.$t('boats_power') }}</li>
+                    <li>{{ i18n.$t('boats_location') }}</li>
+                    <li>{{ i18n.$t('boats_caution') }}</li>
+                    <li>{{ i18n.$t('boats_gas') }}</li>
                   </ul>
                 </div>
                 <div class="pt-4 md:pt-0">
-                  <strong>Equiped with</strong>
+                  <strong>{{ i18n.$t('boats_equiped_with') }}</strong>
                   <ul class="mt-2">
-                    <li>Solarium</li>
-                    <li>Bimini</li>
-                    <li>Portable fridge</li>
-                    <li>Waterproof bag</li>
+                    <li>{{ i18n.$t('boats_solarium') }}</li>
+                    <li>{{ i18n.$t('boats_bimini') }}</li>
+                    <li>{{ i18n.$t('boats_fridge') }}</li>
+                    <li>{{ i18n.$t('boats_bag') }}</li>
                   </ul>
                 </div>
                 <div>
-                  <strong>Extras available</strong>
+                  <strong>{{ i18n.$t('boats_extras') }}</strong>
                   <ul class="mt-2">
-                    <li>Snorkeling masks</li>
-                    <li>Catering</li>
-                    <li>Soft drinks</li>
-                    <li>Cava & wine</li>
-                    <li>Watersports pack</li>
+                    <li>{{ i18n.$t('boats_masks') }}</li>
+                    <li>{{ i18n.$t('boats_catering') }}</li>
+                    <li>{{ i18n.$t('boats_drinks') }}</li>
+                    <li>{{ i18n.$t('boats_alcohol') }}</li>
+                    <li>{{ i18n.$t('boats_watersports') }}</li>
                   </ul>
                 </div>
               </div>
-              <h3 class="mt-4 md:mt-6 text-lg font-semibold mb-6 text-orange-500 text-center">Ask for more information!</h3>
+              <h3 class="mt-4 md:mt-6 text-lg font-semibold mb-6 text-orange-500 text-center">
+                {{ i18n.$t('boats_ask') }}
+              </h3>
             </div>
           </div>
         </div>
@@ -82,12 +78,14 @@
 
 <script>
 import { ref } from 'vue';
+import { useI18n } from '@/i18nPlugin';
 import Modal from '@/components/Modal.vue';
 
 export default {
   components: { Modal },
 
   setup() {
+    const i18n = ref(useI18n());
     const image_urls = [
       require('../assets/img/boats1.jpg'),
       require('../assets/img/boats1.jpg'),
@@ -102,6 +100,7 @@ export default {
     };
 
     return {
+      i18n,
       image_urls,
       showingModal,
       selected_image_url,
