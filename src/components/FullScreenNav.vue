@@ -26,7 +26,6 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 export default {
-  name: 'FullScreenNav',
   setup() {
     const store = useStore();
 

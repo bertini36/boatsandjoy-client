@@ -85,10 +85,7 @@ import { ref } from 'vue';
 import Modal from '@/components/Modal.vue';
 
 export default {
-  name: 'Boats',
-  components: {
-    Modal,
-  },
+  components: { Modal },
 
   setup() {
     const image_urls = [

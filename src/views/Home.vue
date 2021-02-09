@@ -21,7 +21,6 @@ import WaterSports from '@/components/WaterSports';
 import Footer from '@/components/Footer';
 
 export default {
-  name: 'Home',
   components: {
     Availability,
     Boats,

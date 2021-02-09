@@ -30,10 +30,7 @@ import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
 
 export default {
-  name: 'Availability',
-  components: {
-    Calendar,
-  },
+  components: { Calendar },
 
   setup() {
     const i18n = ref(useI18n());

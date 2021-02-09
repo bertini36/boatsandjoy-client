@@ -15,20 +15,22 @@
       <a href="#home">
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
       </a>
-      <div class="pt-3">
-        <span class="ml-8 link"><a href="#home">Home</a></span>
-        <span class="ml-8 link"><a href="#boats">Boats</a></span>
-        <span class="ml-8 link"><a href="#watersports">Watersports</a></span>
-      </div>
+      <ul class="pt-3 flex flex-row">
+        <li class="ml-8 link"><a href="#home">Home</a></li>
+        <li class="ml-8 link"><a href="#boats">Boats</a></li>
+        <li class="ml-8 link"><a href="#watersports">Watersports</a></li>
+        <li class="ml-8 "><LanguageSwitch></LanguageSwitch></li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
 import { useStore } from 'vuex';
+import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {
-  name: 'Navbar',
+  components: { LanguageSwitch },
   setup() {
     const store = useStore();
 

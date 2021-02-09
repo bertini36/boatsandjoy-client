@@ -41,12 +41,6 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer'
-}
-</script>
-
 <style scoped>
 footer {
   @apply flex flex-row justify-center;

@@ -62,12 +62,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'WaterSports'
-}
-</script>
-
 <style scoped>
 .container {
   @apply group flex justify-center;
