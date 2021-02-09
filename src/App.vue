@@ -56,6 +56,26 @@ export default {
           boats_alcohol: 'Cava & wine',
           boats_watersports: 'Watersports pack',
           boats_ask: 'Ask for more information!',
+
+          watersports_title: 'Level up your visit with watersports!',
+          watersports_description: 'Do you want to enjoy the Sea? Looking for something different? We help you to ' +
+            'make it the best way it fits you! We work with various companies with which you ' +
+            'can enjoy your activity with your friends and family. From a relaxing row ' +
+            'with a Stand up Paddle Surf or Kayak to an exciting Jetski excursion or ' +
+            'flying on the sea with Flyboard.',
+          watersports_diving: 'Diving',
+          watersports_jetski: 'Jetski',
+          watersports_rent_and_excursion: 'Rent & excursion',
+          watersports_kayak: 'Kayak',
+          watersports_kitesurf: 'Kitesurf',
+          watersports_rent_and_lessons: 'Rent & lessons',
+          watersports_sup: 'Paddle surf / SUP',
+          watersports_fishing: 'Fishing',
+          watersports_excursion: 'Excursion',
+          watersports_surf: 'Surf',
+          watersports_sailing: 'Sailing',
+          watersports_windsurf: 'Windsurf',
+          watersports_flyboard: 'Flyboard',
         },
 
         es: {
@@ -87,6 +107,22 @@ export default {
           boats_alcohol: '',
           boats_watersports: '',
           boats_ask: '',
+
+          watersports_title: '',
+          watersports_description: '',
+          watersports_diving: '',
+          watersports_jetski: '',
+          watersports_rent_and_excursion: '',
+          watersports_kayak: '',
+          watersports_kitesurf: '',
+          watersports_rent_and_lessons: '',
+          watersports_sup: '',
+          watersports_fishing: '',
+          watersports_excursion: '',
+          watersports_surf: '',
+          watersports_sailing: '',
+          watersports_windsurf: '',
+          watersports_flyboard: '',
         }
       }
     });
