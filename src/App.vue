@@ -76,6 +76,17 @@ export default {
           watersports_sailing: 'Sailing',
           watersports_windsurf: 'Windsurf',
           watersports_flyboard: 'Flyboard',
+
+          footer_about_me_title: 'About me',
+          footer_about_me_content: 'bla bla bla',
+          footer_links_title: 'Links',
+          footer_legal_advice: 'Legal advice',
+          footer_terms: 'Terms and Conditions',
+          footer_cookies: 'Cookies policy',
+          footer_contact_title: 'Contact',
+          footer_company_address: 'C/Omelades 2A 2º 1ª 07012 Palma de Mallorca',
+          footer_rights: 'All rights reserved',
+          footer_created: 'Created by',
         },
 
         es: {
@@ -123,6 +134,17 @@ export default {
           watersports_sailing: '',
           watersports_windsurf: '',
           watersports_flyboard: '',
+
+          footer_about_me_title: '',
+          footer_about_me_content: '',
+          footer_links_title: '',
+          footer_legal_advice: '',
+          footer_terms: '',
+          footer_cookies: '',
+          footer_contact_title: '',
+          footer_company_address: '',
+          footer_rights: '',
+          footer_created: '',
         }
       }
     });

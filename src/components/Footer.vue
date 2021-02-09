@@ -3,30 +3,26 @@
     <div class="w-full px-6 lg:w-1/2 lg:px-0 flex flex-col">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
         <div class="flex flex-col text-xs">
-          <h4>About me</h4>
-          <div class="pt-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
+          <h4>{{ i18n.$t('footer_about_me_title') }}</h4>
+          <div class="pt-3">{{ i18n.$t('footer_about_me_content') }}</div>
         </div>
 
         <div class="flex flex-col text-xs">
-          <h4>Links</h4>
+          <h4>{{ i18n.$t('footer_links_title') }}</h4>
           <div class="pt-3">
             <ul>
-              <li><a href="#" target="_blank">Legal advice</a></li>
-              <li><a href="#" target="_blank"> Terms and Conditions</a></li>
-              <li><a href="#" target="_blank">Cookies policy</a></li>
+              <li><a href="#" target="_blank">{{ i18n.$t('footer_legal_advice') }}</a></li>
+              <li><a href="#" target="_blank">{{ i18n.$t('footer_terms') }}</a></li>
+              <li><a href="#" target="_blank">{{ i18n.$t('footer_cookies') }}</a></li>
             </ul>
           </div>
         </div>
 
         <div class="flex flex-col">
-          <h4>Contact</h4>
+          <h4>{{ i18n.$t('footer_contact_title') }}</h4>
           <div class="pt-3">
             <ul>
-              <li>C/Omelades 2A 2º 1ª 07012 Palma de Mallorca</li>
+              <li>{{ i18n.$t('footer_company_address') }}</li>
               <li>(+34) 722 333 428</li>
               <li>info@boatsandjoy.com</li>
             </ul>
@@ -35,11 +31,26 @@
       </div>
 
       <div class="flex flex-row justify-center pt-6 pb-3">
-        © boatsandjoy &nbsp;&nbsp;|&nbsp;&nbsp; All rights reserved &nbsp;&nbsp;|&nbsp;&nbsp; Created by&nbsp;<a href="https://albertopou.dev/" target="_blank">Alberto Pou</a>
+        © boatsandjoy &nbsp;&nbsp;|&nbsp;&nbsp; {{ i18n.$t('footer_rights') }} &nbsp;&nbsp;|&nbsp;&nbsp; {{ i18n.$t('footer_created') }}&nbsp;<a href="https://albertopou.dev/" target="_blank">Alberto Pou</a>
       </div>
     </div>
   </footer>
 </template>
+
+<script>
+import { ref } from 'vue';
+import { useI18n } from '@/i18nPlugin';
+
+export default {
+  setup() {
+    const i18n = ref(useI18n());
+
+    return {
+      i18n,
+    }
+  }
+}
+</script>
 
 <style scoped>
 footer {
