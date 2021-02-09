@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
 
@@ -34,58 +35,56 @@ export default {
     Calendar,
   },
 
-  data() {
-    return {
-      i18n: useI18n(),
-      selectedDate: null,
-      todayDate: new Date(),
-      noAvailDates: [
+  setup() {
+    const i18n = ref(useI18n());
+    const selectedDate = ref(null);
+    const todayDate = new Date();
+    const noAvailDates = [
         new Date(Date.parse('2021-02-16')),
         new Date(Date.parse('2021-02-17')),
         new Date(Date.parse('2021-02-18'))
-      ],
-      showedMonth: new Date().getMonth() + 1
-    }
-  },
+    ];
+    let showedMonth = new Date().getMonth() + 1;
 
-  mounted() {
-    this.prevMonthButtonSetUp();
-    this.nextMonthButtonSetUp();
-  },
+    const setupCalendarButtons = () => {
+      prevMonthButtonSetUp();
+      nextMonthButtonSetUp();
+    };
 
-  methods: {
-    prevMonthButtonSetUp() {
+    const prevMonthButtonSetUp = () => {
       let prevMonthButton = document.querySelector('.p-datepicker-prev');
-      let self = this;
-      prevMonthButton.onclick = function() {
-        if (self.showedMonth === 1) {
-          self.showedMonth = 12;
-        } else {
-          self.showedMonth -= 1;
-        }
-        self.prevMonthButtonSetUp();
-        self.nextMonthButtonSetUp();
+      prevMonthButton.onclick = () => {
+        if (self.showedMonth === 1) showedMonth = 12;
+        else showedMonth -= 1;
+        setupCalendarButtons();
       }
-    },
+    };
 
-    nextMonthButtonSetUp() {
+    const nextMonthButtonSetUp = () => {
       let nextMothButton = document.querySelector('.p-datepicker-next');
-      let self = this;
-      nextMothButton.onclick = function() {
-        if (self.showedMonth === 12) {
-          self.showedMonth = 1;
-        } else {
-          self.showedMonth += 1;
-        }
-        self.prevMonthButtonSetUp();
-        self.nextMonthButtonSetUp();
+      nextMothButton.onclick = () => {
+        if (showedMonth === 12) showedMonth = 1;
+        else showedMonth += 1;
+        setupCalendarButtons();
       }
-    },
+    }
 
-    checkAvailability() {
-      console.log(this.selectedDate);
-      console.log(this.showedMonth);
-    },
+    onMounted(() => {
+      setupCalendarButtons();
+    });
+
+    const checkAvailability = () => {
+      console.log(selectedDate.value);
+      console.log(showedMonth);
+    };
+
+    return {
+      i18n,
+      selectedDate,
+      todayDate,
+      noAvailDates,
+      checkAvailability,
+    }
   }
 }
 </script>
