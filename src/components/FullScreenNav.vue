@@ -12,9 +12,9 @@
           </button>
         </div>
         <ul class="mb-auto mt-12">
-          <li><a href="#home" @click="hideFullScreenNav" class="w-full">Home</a></li>
-          <li><a href="#boats" @click="hideFullScreenNav" class="w-full">Boats</a></li>
-          <li><a href="#watersports" @click="hideFullScreenNav" class="w-full">Watersports</a></li>
+          <li><a href="#home" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('home') }}</a></li>
+          <li><a href="#boats" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('boats') }}</a></li>
+          <li><a href="#watersports" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('watersports') }}</a></li>
           <li><LanguageSwitch></LanguageSwitch></li>
         </ul>
       </div>
@@ -23,16 +23,19 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
+import { useI18n } from '@/i18nPlugin';
 import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {
   components: { LanguageSwitch },
   setup() {
+    const i18n = ref(useI18n());
     const store = useStore();
 
     return {
+      i18n,
       showingFullScreenNav: computed(() => store.state.showingFullScreenNav),
       hideFullScreenNav: () => store.commit('hideFullScreenNav'),
     }
