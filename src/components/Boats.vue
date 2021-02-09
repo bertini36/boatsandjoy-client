@@ -71,7 +71,7 @@
       </div>
     </article>
 
-    <modal :showing="showingModal" :showClose="true" @close="showingModal = false">
+    <modal :showing="showingModal" @close="showingModal = false">
       <div class="flex flex-col w-full">
         <img :src="selected_image_url" alt="Boat photo" class="rounded-sm">
       </div>
@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import Modal from '@/components/Modal.vue';
 
 export default {
@@ -89,23 +90,35 @@ export default {
     Modal,
   },
 
-  data() {
+  setup() {
+    const image_urls = [
+      require('../assets/img/boats1.jpg'),
+      require('../assets/img/boats1.jpg'),
+      require('../assets/img/boats1.jpg')
+    ];
+    const showingModal = ref(false);
+    const selected_image_url = ref('');
+
+    const showModal = (image_url) => {
+      showingModal.value = true;
+      selected_image_url.value = image_url;
+      disableScrolling();
+    };
+
+    const disableScrolling = () => {
+      let x = window.scrollX;
+      let y = window.scrollY;
+      window.onscroll = function () {
+        window.scrollTo(x, y);
+      };
+    };
+
     return {
-      image_urls: [
-        require('../assets/img/boats1.jpg'),
-        require('../assets/img/boats1.jpg'),
-        require('../assets/img/boats1.jpg'),
-      ],
-      showingModal: false,
-      selected_image_url: '',
+      image_urls,
+      showingModal,
+      selected_image_url,
+      showModal
     }
   },
-
-  methods: {
-    showModal(image_url) {
-      this.showingModal = true;
-      this.selected_image_url = image_url;
-    }
-  }
 }
 </script>
