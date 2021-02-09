@@ -102,15 +102,6 @@ export default {
     const showModal = (image_url) => {
       showingModal.value = true;
       selected_image_url.value = image_url;
-      disableScrolling();
-    };
-
-    const disableScrolling = () => {
-      let x = window.scrollX;
-      let y = window.scrollY;
-      window.onscroll = function () {
-        window.scrollTo(x, y);
-      };
     };
 
     return {

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { watch } from 'vue';
+
 export default {
   name: 'Modal',
   props: {
@@ -23,6 +25,19 @@ export default {
     const close = () => {
       enableScrolling();
       emit('close');
+    };
+
+    watch(() => props.showing, (newValue, previousValue) => {
+      if (previousValue === false && newValue === true)
+        disableScrolling();
+    });
+
+    const disableScrolling = () => {
+      let x = window.scrollX;
+      let y = window.scrollY;
+      window.onscroll = function () {
+        window.scrollTo(x, y);
+      };
     };
 
     return {
