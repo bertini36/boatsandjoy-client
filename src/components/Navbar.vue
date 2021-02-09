@@ -16,9 +16,9 @@
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
       </a>
       <ul class="pt-3 flex flex-row">
-        <li class="ml-8 link"><a href="#home">Home</a></li>
-        <li class="ml-8 link"><a href="#boats">Boats</a></li>
-        <li class="ml-8 link"><a href="#watersports">Watersports</a></li>
+        <li class="ml-8 link"><a href="#home">{{ i18n.$t('home') }}</a></li>
+        <li class="ml-8 link"><a href="#boats">{{ i18n.$t('boats') }}</a></li>
+        <li class="ml-8 link"><a href="#watersports">{{ i18n.$t('watersports') }}</a></li>
         <li class="ml-8 "><LanguageSwitch></LanguageSwitch></li>
       </ul>
     </div>
@@ -26,15 +26,19 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import { useStore } from 'vuex';
+import { useI18n } from '@/i18nPlugin';
 import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {
   components: { LanguageSwitch },
   setup() {
+    const i18n = ref(useI18n());
     const store = useStore();
 
     return {
+      i18n,
       showFullScreenNav: () => store.commit('showFullScreenNav'),
     }
   }

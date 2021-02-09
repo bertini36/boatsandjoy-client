@@ -24,9 +24,19 @@ export default {
       locale: 'en',
       messages: {
         en: {
+          home: 'Home',
+          boats: 'Boats',
+          watersports: 'Watersports',
+          english: 'English',
+          spanish: 'Spanish',
           slogan: 'Rent your boat in Mallorca'
         },
         es: {
+          home: 'Inicio',
+          boats: 'Embarcaciones',
+          watersports: 'Deportes acuáticos',
+          english: 'Inglés',
+          spanish: 'Castellano',
           slogan: 'Alquila tu barco en Mallorca'
         }
       }
