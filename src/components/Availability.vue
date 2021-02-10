@@ -47,7 +47,7 @@ export default {
     });
 
     const getNoAvailDates = async (date) => {
-      axios.get(`http://127.0.0.1/availability/month/${formatDate(date)}/`).then((response) => {
+      axios.get(`${process.env.VUE_APP_API_URL}availability/month/${formatDate(date)}/`).then((response) => {
         const results = response.data.data;
         noAvailDates.value = results.filter(result => !result.availability).map(result => new Date(Date.parse(result.date)));
       });
