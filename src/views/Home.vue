@@ -6,9 +6,7 @@
 
     <WaterSports></WaterSports>
 
-    <div class="flex flex-row pt-20">
-      <img src="../assets/img/second-cover.jpg" class="w-full h-56 md:h-96" alt="Dragonera island">
-    </div>
+    <Map></Map>
 
     <Footer></Footer>
   </div>
@@ -18,6 +16,7 @@
 import Availability from '@/components/Availability';
 import Boats from '@/components/Boats';
 import WaterSports from '@/components/WaterSports';
+import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 
 export default {
@@ -25,6 +24,7 @@ export default {
     Availability,
     Boats,
     WaterSports,
+    Map,
     Footer
   },
 }
