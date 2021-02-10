@@ -18,7 +18,7 @@
       </div>
 
       <div class="mt-6 flex flex-row justify-center">
-        <button class="btn" @click="checkAvailability">Check availability</button>
+        <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
       </div>
     </div>
   </header>
@@ -26,6 +26,7 @@
 
 <script>
 import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
 
@@ -36,12 +37,33 @@ export default {
     const i18n = ref(useI18n());
     const selectedDate = ref(null);
     const todayDate = new Date();
-    const noAvailDates = [
-        new Date(Date.parse('2021-02-16')),
-        new Date(Date.parse('2021-02-17')),
-        new Date(Date.parse('2021-02-18'))
-    ];
+    const pivotDate = new Date();
+    let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
+
+    onMounted(async () => {
+      await getNoAvailDates(pivotDate);
+      setupCalendarButtons();
+    });
+
+    const getNoAvailDates = async (date) => {
+      axios.get(`http://127.0.0.1/availability/month/${formatDate(date)}/`).then((response) => {
+        const results = response.data.data;
+        noAvailDates.value = results.filter(result => !result.availability).map(result => new Date(Date.parse(result.date)));
+      });
+    };
+
+    const formatDate = (date) => {
+      let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+      if (month.length < 2)
+          month = '0' + month;
+      if (day.length < 2)
+          day = '0' + day;
+      return [year, month, day].join('-');
+    };
 
     const setupCalendarButtons = () => {
       prevMonthButtonSetUp();
@@ -50,25 +72,25 @@ export default {
 
     const prevMonthButtonSetUp = () => {
       let prevMonthButton = document.querySelector('.p-datepicker-prev');
-      prevMonthButton.onclick = () => {
+      prevMonthButton.onclick = async () => {
         if (self.showedMonth === 1) showedMonth = 12;
         else showedMonth -= 1;
         setupCalendarButtons();
+        pivotDate.setMonth(pivotDate.getMonth()-1);
+        await getNoAvailDates(pivotDate);
       }
     };
 
     const nextMonthButtonSetUp = () => {
       let nextMothButton = document.querySelector('.p-datepicker-next');
-      nextMothButton.onclick = () => {
+      nextMothButton.onclick = async () => {
         if (showedMonth === 12) showedMonth = 1;
         else showedMonth += 1;
         setupCalendarButtons();
+        pivotDate.setMonth(pivotDate.getMonth()+1);
+        await getNoAvailDates(pivotDate);
       }
     }
-
-    onMounted(() => {
-      setupCalendarButtons();
-    });
 
     const checkAvailability = () => {
       console.log(selectedDate.value);
