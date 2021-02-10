@@ -77,6 +77,8 @@ export default {
           watersports_windsurf: 'Windsurf',
           watersports_flyboard: 'Flyboard',
 
+          map_title: 'You can find us in Sant Elm!',
+
           footer_about_me_title: 'About me',
           footer_about_me_content: 'bla bla bla',
           footer_links_title: 'Links',
@@ -134,6 +136,8 @@ export default {
           watersports_sailing: '',
           watersports_windsurf: '',
           watersports_flyboard: '',
+
+          map_title: '',
 
           footer_about_me_title: '',
           footer_about_me_content: '',
