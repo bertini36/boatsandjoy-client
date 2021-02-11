@@ -3,8 +3,8 @@
     <div class="w-full px-6 lg:w-1/2 lg:px-0 flex flex-col">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
         <div class="flex flex-col text-xs">
-          <h4>{{ i18n.$t('footer_about_me_title') }}</h4>
-          <div class="pt-3">{{ i18n.$t('footer_about_me_content') }}</div>
+          <h4>{{ i18n.$t('footer_about_us_title') }}</h4>
+          <div class="pt-3">{{ i18n.$t('footer_about_us_content') }}</div>
         </div>
 
         <div class="flex flex-col text-xs">

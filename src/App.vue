@@ -80,8 +80,8 @@ export default {
 
           map_title: 'You can find us in Sant Elm!',
 
-          footer_about_me_title: 'About me',
-          footer_about_me_content: 'bla bla bla',
+          footer_about_us_title: 'About us',
+          footer_about_us_content: 'bla bla bla',
           footer_links_title: 'Links',
           footer_legal_advice: 'Legal advice',
           footer_terms: 'Terms and Conditions',
@@ -141,8 +141,8 @@ export default {
 
           map_title: '',
 
-          footer_about_me_title: '',
-          footer_about_me_content: '',
+          footer_about_us_title: '',
+          footer_about_us_content: '',
           footer_links_title: '',
           footer_legal_advice: '',
           footer_terms: '',
