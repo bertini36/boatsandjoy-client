@@ -60,8 +60,10 @@
                     </option>
                   </select>
 
-                  <input type="text" class="custom-input" :placeholder="i18n.$t('results_name')">
-                  <input type="number" class="custom-input mt-2" :placeholder="i18n.$t('results_telephone')">
+                  <input type="text" class="custom-input"
+                         v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_name')">
+                  <input type="number" class="custom-input mt-2"
+                         v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_telephone')">
 
                   <div class="flex">
                     <button class="btn mt-6 mb-4 w-full flex-grow">{{ i18n.$t('results_pay') }}</button>
