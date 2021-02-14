@@ -142,7 +142,7 @@ export default {
       ];
       if (boatName === 'B&J I') {
         return photos[0];
-      } else if (boatName == 'B&J II') {
+      } else if (boatName === 'B&J II') {
         return photos[1];
       }
     };
