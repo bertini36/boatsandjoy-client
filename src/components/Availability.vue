@@ -30,6 +30,7 @@ import axios from 'axios';
 import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
 import router from '../routes';
+import utils from '../utils';
 
 export default {
   components: { Calendar },
@@ -48,22 +49,10 @@ export default {
     });
 
     const getNoAvailDates = async (date) => {
-      axios.get(`${process.env.VUE_APP_API_URL}availability/month/${formatDate(date)}/`).then((response) => {
+      axios.get(`${process.env.VUE_APP_API_URL}availability/month/${utils.formatDate(date)}/`).then((response) => {
         const results = response.data.data;
         noAvailDates.value = results.filter(result => !result.availability).map(result => new Date(Date.parse(result.date)));
       });
-    };
-
-    const formatDate = (date) => {
-      let d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-      if (month.length < 2)
-          month = '0' + month;
-      if (day.length < 2)
-          day = '0' + day;
-      return [year, month, day].join('-');
     };
 
     const setupCalendarButtons = () => {
@@ -95,7 +84,7 @@ export default {
 
     const checkAvailability = () => {
       if (selectedDate.value !== null) {
-        const dateStr = formatDate(selectedDate.value);
+        const dateStr = utils.formatDate(selectedDate.value);
         router.push({ name: 'results', params: { date: dateStr } });
       }
     };
