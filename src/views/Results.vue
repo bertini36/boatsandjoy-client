@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
     <div class="mx-2 lg:m-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-3 mt-6 md:gap-10">
+      <div class="grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center md:pl-8">
           <Calendar v-model="selectedDate"
                     :inline="true"
@@ -13,28 +13,25 @@
             <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
           </div>
         </div>
-        <div class="lg:col-span-2 text-center">
-          <article class="px-8 lg:px-12 mb-12 md:mt-0" v-for="boatAvailability in boatsAvailability" :key="boatAvailability.boat.id">
-            <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100 dark:bg-gray-400">
-              <div class="w-full flex-none rounded-3xl transform shadow-lg bg-gradient-to-r from-green-300 to-blue-500 -rotate-2 sm:-rotate-2">
+        <div class="md:col-span-2 text-center">
+          <article class="px-8 lg:px-12 mb-12 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
+            <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100">
+              <div class="w-full flex-none">
                 <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
-                  <div class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
-                    <div class="transform scale-90 -rotate-2">
-                      <img class="rounded-2xl shadow-2xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
-                           @click="showModal(require('../assets/img/boats1.jpg'))">
-                    </div>
+                  <div class="row-start-1 col-start-1 col-span-1">
+                    <img class="rounded-l-xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
+                         @click="showModal(getBoatPhoto(boatAvailability.boat.name))">
                   </div>
 
-                  <div
-                    class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
+                  <div class="bg-white xl:relative col-start-2 col-span-3 lg:col-span-2 pt-8 px-8 md:px-8 lg:px-12 rounded-r-xl text-left bg-white border border-gray-300">
                     <h2 class="title text-2xl font-bold mb-6">{{ boatAvailability.boat.name }}</h2>
                     <div class="flex flex-row">
-                      <select>
+                      <select v-model="selectedAvailabilityOption[i]">
                         <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
                         <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
-                                :price="availabilityOption.price"
-                                :slot_ids="getSlotIds(availabilityOption.slots)">
-                            {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }} {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
+                                :value="availabilityOption">
+                            {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
+                            {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
                         </option>
                       </select>
                     </div>
@@ -68,7 +65,6 @@ import api from '../api';
 import utils from '../utils';
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
-import router from '../routes';
 import Modal from '@/components/Modal.vue';
 
 export default {
@@ -88,7 +84,8 @@ export default {
     const pivotDate = new Date();
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
-    let boatsAvailability = ref(null);
+    const boatsAvailability = ref(null);
+    const selectedAvailabilityOption = ['', ''];
 
     const showingModal = ref(false);
     const selected_image_url = ref('');
@@ -129,7 +126,7 @@ export default {
     const checkAvailability = () => {
       if (selectedDate.value !== null) {
         const dateStr = utils.date2Str(selectedDate.value);
-        router.push({ name: 'results', params: { date: dateStr } });
+        location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       }
     };
 
@@ -138,12 +135,16 @@ export default {
       selected_image_url.value = image_url;
     };
 
-    const getSlotIds = (slots) => {
-      let slot_ids = [];
-      for (let i = 0; i < slots.length; i++) {
-          slot_ids.push(slots[i].id);
+    const getBoatPhoto = (boatName) => {
+      const photos = [
+        require('../assets/img/boats1.jpg'),
+        require('../assets/img/boats1.jpg')
+      ];
+      if (boatName === 'B&J I') {
+        return photos[0];
+      } else if (boatName == 'B&J II') {
+        return photos[1];
       }
-      return slot_ids;
     };
 
     return {
@@ -156,7 +157,8 @@ export default {
       showingModal,
       showModal,
       selected_image_url,
-      getSlotIds
+      getBoatPhoto,
+      selectedAvailabilityOption,
     }
   }
 }

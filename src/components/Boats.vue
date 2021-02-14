@@ -16,7 +16,7 @@
     </article>
 
     <article class="px-4 lg:px-8 xl:px-20 2xl:px-60 my-16">
-      <div class="w-full flex-none -ml-full rounded-3xl bg-gray-100 dark:bg-gray-400">
+      <div class="w-full flex-none -ml-full rounded-3xl bg-gray-100">
         <div class="w-full flex-none rounded-3xl transform shadow-lg bg-gradient-to-r from-green-300 to-blue-500 -rotate-2 sm:-rotate-2">
           <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
             <div class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
@@ -26,7 +26,7 @@
               </div>
             </div>
 
-            <div class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
+            <div class="bg-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
               <h2 class="title text-2xl font-bold mb-6">{{ i18n.$t('boats_information_title') }}</h2>
               <div class="grid grid-flow-col grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4 pt-4">
                 <div>
