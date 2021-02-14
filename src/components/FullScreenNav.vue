@@ -5,7 +5,7 @@
       <div class="w-full h-full bg-white">
         <div class="flex flex-row justify-between">
           <div class="pt-8 pl-6">
-            <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
+            <img src="../assets/img/favicon.png" alt="main logo" class="h-12"/>
           </div>
           <button aria-label="close" @click.prevent="hideFullScreenNav" class="text-xl text-gray-500 mt-8 mr-8">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-current text-black hover:text-orange-600 cursor-pointer">

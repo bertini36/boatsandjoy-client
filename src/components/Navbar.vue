@@ -1,7 +1,7 @@
 <template>
   <div class="navbar md:invisible h-16 md:h-0">
     <div class="flex flex-row justify-between px-6">
-      <a href="#home">
+      <a :href="base_url + '#home'">
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-10"/>
       </a>
       <div class="pt-1">
