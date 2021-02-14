@@ -1,46 +1,76 @@
 <template>
   <div class="flex flex-col">
     <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
-    <div class="mx-2 lg:m-auto">
-      <div class="grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
-        <div class="col-span-1 text-center">
-          <Calendar v-model="selectedDate"
-                    :inline="true"
-                    :minDate="todayDate"
-                    :disabledDates="noAvailDates"
-          />
-          <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
-            <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
-          </div>
-        </div>
-        <div class="md:col-span-2 text-center">
-          <article class="px-8 xl:px-0 mb-12 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
-            <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100">
-              <div class="w-full flex-none">
-                <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
-                  <div class="row-start-1 col-start-1 col-span-1">
-                    <img class="rounded-l-xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
-                         @click="showModal(getBoatPhoto(boatAvailability.boat.name))">
-                  </div>
 
-                  <div class="bg-white xl:relative col-start-2 col-span-3 lg:col-span-2 pt-8 px-8 md:px-8 lg:px-12 rounded-r-xl text-left bg-white border border-gray-300">
-                    <h2 class="title text-2xl font-bold mb-6">{{ boatAvailability.boat.name }}</h2>
-                    <div class="flex flex-row">
-                      <select v-model="selectedAvailabilityOption[i]">
-                        <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
-                        <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
-                                :value="availabilityOption">
-                            {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
-                            {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
-                        </option>
-                      </select>
-                    </div>
+    <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
+      <div class="col-span-1 text-center">
+        <Calendar v-model="selectedDate"
+                  :inline="true"
+                  :minDate="todayDate"
+                  :disabledDates="noAvailDates"
+        />
+        <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
+          <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 text-center">
+        <article class="mb-6 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
+          <div class="w-full rounded-3xl">
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-2/5 flex">
+                <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow" src="../assets/img/boats1.jpg" alt="Boat photo"
+                     @click="showModal(getBoatPhoto(boatAvailability.boat.name))">
+              </div>
+              <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
+                <div class="flex flex-row">
+                  <h2 class="w-3/4 text-3xl font-bold tracking-widest text-left uppercase text-orange-500 mb-6">
+                    {{ boatAvailability.boat.name }}
+                  </h2>
+
+                  <div v-if="selectedAvailabilityOption[i] !== ''" class="w-1/4 flex justify-end">
+                    <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">{{ selectedAvailabilityOption[i].price }}€</span>
+                  </div>
+                </div>
+
+                <div class="w-full flex flex-col">
+                  <label class="inline-flex items-center">
+                    <input type="checkbox" class="h-5 w-5 cursor-pointer"
+                           v-model="applyResidentDiscount[i]"
+                           @change="updatePrices">
+                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_resident') }}</span>
+                  </label>
+
+                  <label class="inline-flex items-center mt-1">
+                    <input type="checkbox" class="h-5 w-5 cursor-pointer">
+                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_legal_advice') }}</span>
+                  </label>
+
+                  <label class="inline-flex items-center mt-1">
+                    <input type="checkbox" class="h-5 w-5 cursor-pointer">
+                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_resident') }}</span>
+                  </label>
+
+                  <select v-model="selectedAvailabilityOption[i]" class="w-full mt-6 mb-2">
+                    <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
+                    <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
+                            :value="availabilityOption">
+                        {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
+                        {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
+                    </option>
+                  </select>
+
+                  <input type="text" class="custom-input" :placeholder="i18n.$t('results_name')">
+                  <input type="number" class="custom-input mt-2" :placeholder="i18n.$t('results_telephone')">
+
+                  <div class="flex">
+                    <button class="btn mt-6 mb-4 w-full flex-grow">{{ i18n.$t('results_pay') }}</button>
                   </div>
                 </div>
               </div>
             </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </div>
 
@@ -85,10 +115,12 @@ export default {
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
     const boatsAvailability = ref(null);
-    const selectedAvailabilityOption = ['', ''];
+    const selectedAvailabilityOption = ref(['', '']);
 
     const showingModal = ref(false);
     const selected_image_url = ref('');
+
+    const applyResidentDiscount = ref([false, false]);
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(selectedDate.value);
@@ -147,6 +179,11 @@ export default {
       }
     };
 
+    const updatePrices = async () => {
+      boatsAvailability.value = await api.getDateAvail(selectedDate.value, applyResidentDiscount);
+      selectedAvailabilityOption.value[0] = '';
+    };
+
     return {
       i18n,
       selectedDate,
@@ -159,6 +196,8 @@ export default {
       selected_image_url,
       getBoatPhoto,
       selectedAvailabilityOption,
+      applyResidentDiscount,
+      updatePrices
     }
   }
 }

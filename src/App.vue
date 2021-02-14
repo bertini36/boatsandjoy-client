@@ -84,6 +84,12 @@ export default {
           results_select_a_pricing_option: 'Choose your schedule',
           results_from: 'From',
           results_to: 'to',
+          results_resident: 'Resident of the Balearic Islands',
+          results_legal_advice: 'Accept legal advice',
+          results_terms_and_conditions: 'Accept terms and conditions',
+          results_name: 'Name',
+          results_telephone: 'Telephone number',
+          results_pay: 'Pay with credit card',
 
           footer_about_us_title: 'About us',
           footer_about_us_content: 'bla bla bla',
@@ -150,7 +156,12 @@ export default {
           results_select_a_pricing_option: '',
           results_from: '',
           results_to: '',
-
+          results_resident: '',
+          results_legal_advice: '',
+          results_terms_and_conditions: '',
+          results_name: '',
+          results_telephone: '',
+          results_pay: '',
 
           footer_about_us_title: '',
           footer_about_us_content: '',

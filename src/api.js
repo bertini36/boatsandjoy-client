@@ -8,9 +8,8 @@ const api = {
     return results.filter(result => !result.availability).map(result => utils.str2Date(result.date));
   },
 
-  getDateAvail: async (date) => {
-    const response = await axios.get(`${process.env.VUE_APP_API_URL}availability/day/${utils.date2Str(date)}/`);
-    console.log(response);
+  getDateAvail: async (date, applyResidentDiscount) => {
+    const response = await axios.get(`${process.env.VUE_APP_API_URL}availability/day/${utils.date2Str(date)}/?apply_resident_discount=${applyResidentDiscount ? 1 : 0}`);
     return response.data.data;
   }
 };

@@ -62,8 +62,14 @@ body {
 /* Inputs */
 select {
   @apply pt-2 pb-2 px-5;
-  @apply border border-gray-200 bg-gray-100;
+  @apply border border-gray-200 bg-gray-100 rounded-md;
   @apply text-sm text-black;
   @apply cursor-pointer;
   @apply focus:outline-none hover:border-orange-600;
+}
+
+.custom-input {
+  @apply w-full max-h-12 pt-1 pb-1 px-5 text-black;
+  @apply border border-gray-200 bg-gray-100 rounded-md;
+  @apply focus:outline-none focus:border-orange-500;
 }
