@@ -116,13 +116,13 @@ export default {
     const pivotDate = new Date();
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
+
     const boatsAvailability = ref(null);
     const selectedAvailabilityOption = ref(['', '']);
+    const applyResidentDiscount = ref([false, false]);
 
     const showingModal = ref(false);
     const selected_image_url = ref('');
-
-    const applyResidentDiscount = ref([false, false]);
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(selectedDate.value);
