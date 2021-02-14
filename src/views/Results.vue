@@ -21,8 +21,8 @@
                   <div
                     class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
                     <div class="transform scale-90 -rotate-2">
-                      <img class="rounded-2xl shadow-2xl" src="../assets/img/boats1.jpg"
-                           alt="Boat photo">
+                      <img class="rounded-2xl shadow-2xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
+                           @click="showModal(require('../assets/img/boats1.jpg'))">
                     </div>
                   </div>
 
@@ -43,6 +43,12 @@
     <Map></Map>
 
     <Footer></Footer>
+
+    <modal :showing="showingModal" @close="showingModal = false">
+      <div class="flex flex-col w-full">
+        <img :src="selected_image_url" alt="Boat photo" class="rounded-sm">
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -55,24 +61,30 @@ import api from '../api';
 import utils from '../utils';
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
-import router from "../routes";
+import router from '../routes';
+import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
     Calendar,
     Map,
-    Footer
+    Footer,
+    Modal,
   },
 
   setup() {
     const i18n = ref(useI18n());
     const route = useRoute();
+
     const selectedDate = ref(utils.str2Date(route.params.date));
     const todayDate = new Date();
     const pivotDate = new Date();
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
     let boatsAvailability = ref(null);
+
+    const showingModal = ref(false);
+    const selected_image_url = ref('');
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(selectedDate.value);
@@ -114,6 +126,10 @@ export default {
       }
     };
 
+    const showModal = (image_url) => {
+      showingModal.value = true;
+      selected_image_url.value = image_url;
+    };
 
     return {
       i18n,
@@ -122,6 +138,9 @@ export default {
       noAvailDates,
       boatsAvailability,
       checkAvailability,
+      showingModal,
+      showModal,
+      selected_image_url
     }
   }
 }

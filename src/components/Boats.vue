@@ -21,7 +21,8 @@
           <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
             <div class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
               <div class="transform scale-90 -rotate-2">
-                <img class="rounded-2xl shadow-2xl" src="../assets/img/boats1.jpg" alt="Boat photo">
+                <img class="rounded-2xl shadow-2xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
+                     @click="showModal(require('../assets/img/boats1.jpg'))">
               </div>
             </div>
 
