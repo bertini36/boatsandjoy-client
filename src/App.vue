@@ -81,6 +81,9 @@ export default {
           map_title: 'You can find us in Sant Elm!',
 
           results_title: 'Results',
+          results_select_a_pricing_option: 'Choose your schedule',
+          results_from: 'From',
+          results_to: 'to',
 
           footer_about_us_title: 'About us',
           footer_about_us_content: 'bla bla bla',
@@ -144,6 +147,10 @@ export default {
           map_title: '',
 
           results_title: '',
+          results_select_a_pricing_option: '',
+          results_from: '',
+          results_to: '',
+
 
           footer_about_us_title: '',
           footer_about_us_content: '',

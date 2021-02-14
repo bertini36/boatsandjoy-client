@@ -10,6 +10,7 @@ const api = {
 
   getDateAvail: async (date) => {
     const response = await axios.get(`${process.env.VUE_APP_API_URL}availability/day/${utils.date2Str(date)}/`);
+    console.log(response);
     return response.data.data;
   }
 };

@@ -58,3 +58,12 @@ body {
 .p-datepicker-next {
   @apply hover:text-orange-600 !important;
 }
+
+/* Inputs */
+select {
+  @apply pt-2 pb-2 px-5;
+  @apply border border-gray-200 bg-gray-100;
+  @apply text-sm text-black;
+  @apply cursor-pointer;
+  @apply focus:outline-none hover:border-orange-600;
+}

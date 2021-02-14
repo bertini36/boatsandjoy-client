@@ -18,8 +18,7 @@
             <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100 dark:bg-gray-400">
               <div class="w-full flex-none rounded-3xl transform shadow-lg bg-gradient-to-r from-green-300 to-blue-500 -rotate-2 sm:-rotate-2">
                 <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
-                  <div
-                    class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
+                  <div class="hidden lg:block row-start-1 col-start-1 col-span-1 pl-4 pt-4">
                     <div class="transform scale-90 -rotate-2">
                       <img class="rounded-2xl shadow-2xl cursor-pointer" src="../assets/img/boats1.jpg" alt="Boat photo"
                            @click="showModal(require('../assets/img/boats1.jpg'))">
@@ -28,8 +27,16 @@
 
                   <div
                     class="bg-white dark:bg-gray-500 dark:text-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
-                    <h2 class="title text-2xl font-bold mb-6"></h2>
-                    <div>
+                    <h2 class="title text-2xl font-bold mb-6">{{ boatAvailability.boat.name }}</h2>
+                    <div class="flex flex-row">
+                      <select>
+                        <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
+                        <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
+                                :price="availabilityOption.price"
+                                :slot_ids="getSlotIds(availabilityOption.slots)">
+                            {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }} {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
+                        </option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -131,6 +138,14 @@ export default {
       selected_image_url.value = image_url;
     };
 
+    const getSlotIds = (slots) => {
+      let slot_ids = [];
+      for (let i = 0; i < slots.length; i++) {
+          slot_ids.push(slots[i].id);
+      }
+      return slot_ids;
+    };
+
     return {
       i18n,
       selectedDate,
@@ -140,7 +155,8 @@ export default {
       checkAvailability,
       showingModal,
       showModal,
-      selected_image_url
+      selected_image_url,
+      getSlotIds
     }
   }
 }
