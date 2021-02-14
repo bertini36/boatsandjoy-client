@@ -29,6 +29,7 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
+import router from '../routes';
 
 export default {
   components: { Calendar },
@@ -93,8 +94,10 @@ export default {
     }
 
     const checkAvailability = () => {
-      console.log(selectedDate.value);
-      console.log(showedMonth);
+      if (selectedDate.value !== null) {
+        const dateStr = formatDate(selectedDate.value);
+        router.push({ name: 'results', params: { date: dateStr } });
+      }
     };
 
     return {
