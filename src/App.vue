@@ -80,6 +80,8 @@ export default {
 
           map_title: 'You can find us in Sant Elm!',
 
+          results_title: 'Availability',
+
           footer_about_us_title: 'About us',
           footer_about_us_content: 'bla bla bla',
           footer_links_title: 'Links',
@@ -140,6 +142,8 @@ export default {
           watersports_flyboard: '',
 
           map_title: '',
+
+          results_title: '',
 
           footer_about_us_title: '',
           footer_about_us_content: '',

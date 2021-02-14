@@ -26,10 +26,10 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
 import Calendar from 'primevue/calendar';
 import { useI18n } from '@/i18nPlugin';
 import router from '../routes';
+import api from '../api';
 import utils from '../utils';
 
 export default {
@@ -44,16 +44,9 @@ export default {
     let showedMonth = new Date().getMonth() + 1;
 
     onMounted(async () => {
-      await getNoAvailDates(pivotDate);
+      noAvailDates.value = await api.getNoAvailDates(pivotDate);
       setupCalendarButtons();
     });
-
-    const getNoAvailDates = async (date) => {
-      axios.get(`${process.env.VUE_APP_API_URL}availability/month/${utils.formatDate(date)}/`).then((response) => {
-        const results = response.data.data;
-        noAvailDates.value = results.filter(result => !result.availability).map(result => new Date(Date.parse(result.date)));
-      });
-    };
 
     const setupCalendarButtons = () => {
       prevMonthButtonSetUp();
@@ -67,7 +60,7 @@ export default {
         else showedMonth -= 1;
         setupCalendarButtons();
         pivotDate.setMonth(pivotDate.getMonth()-1);
-        await getNoAvailDates(pivotDate);
+        noAvailDates.value = await api.getNoAvailDates(pivotDate);
       }
     };
 
@@ -78,13 +71,13 @@ export default {
         else showedMonth += 1;
         setupCalendarButtons();
         pivotDate.setMonth(pivotDate.getMonth()+1);
-        await getNoAvailDates(pivotDate);
+        noAvailDates.value = await api.getNoAvailDates(pivotDate);
       }
     }
 
     const checkAvailability = () => {
       if (selectedDate.value !== null) {
-        const dateStr = utils.formatDate(selectedDate.value);
+        const dateStr = utils.date2Str(selectedDate.value);
         router.push({ name: 'results', params: { date: dateStr } });
       }
     };

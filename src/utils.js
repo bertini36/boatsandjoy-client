@@ -1,5 +1,5 @@
 const utils = {
-   formatDate: (date) => {
+   date2Str: (date) => {
      let d = new Date(date),
        month = '' + (d.getMonth() + 1),
        day = '' + d.getDate(),
@@ -9,7 +9,11 @@ const utils = {
      if (day.length < 2)
        day = '0' + day;
      return [year, month, day].join('-');
-   }
+   },
+
+  str2Date: (dateStr) => {
+     return new Date(Date.parse(dateStr));
+  },
 };
 
 export default utils;
