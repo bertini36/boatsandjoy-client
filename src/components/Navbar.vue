@@ -52,7 +52,7 @@ export default {
 <style scoped>
 .navbar {
   @apply w-full top-0 z-30;
-  @apply bg-gray-800 shadow-2xl;
+  @apply bg-gray-800 shadow-lg;
   @apply flex flex-col justify-center fixed;
   @apply bg-white;
 }
