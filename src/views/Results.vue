@@ -3,7 +3,7 @@
     <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
     <div class="mx-2 lg:m-auto">
       <div class="grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
-        <div class="col-span-1 text-center md:pl-8">
+        <div class="col-span-1 text-center">
           <Calendar v-model="selectedDate"
                     :inline="true"
                     :minDate="todayDate"
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="md:col-span-2 text-center">
-          <article class="px-8 lg:px-12 mb-12 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
+          <article class="px-8 xl:px-0 mb-12 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
             <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100">
               <div class="w-full flex-none">
                 <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
