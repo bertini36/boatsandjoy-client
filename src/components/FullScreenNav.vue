@@ -14,9 +14,9 @@
           </button>
         </div>
         <ul class="mb-auto mt-12">
-          <li><a href="#home" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('home') }}</a></li>
-          <li><a href="#boats" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('boats') }}</a></li>
-          <li><a href="#watersports" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('watersports') }}</a></li>
+          <li><a :href="base_url + '#home'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('home') }}</a></li>
+          <li><a :href="base_url + '#boats'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('boats') }}</a></li>
+          <li><a :href="base_url + '#watersports'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('watersports') }}</a></li>
           <li><LanguageSwitch></LanguageSwitch></li>
         </ul>
       </div>
@@ -35,9 +35,11 @@ export default {
   setup() {
     const i18n = ref(useI18n());
     const store = useStore();
+    const base_url = process.env.VUE_APP_URL;
 
     return {
       i18n,
+      base_url,
       showingFullScreenNav: computed(() => store.state.showingFullScreenNav),
       hideFullScreenNav: () => store.commit('hideFullScreenNav'),
     }

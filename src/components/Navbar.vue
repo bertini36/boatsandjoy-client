@@ -18,9 +18,9 @@
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
       </a>
       <ul class="pt-3 flex flex-row">
-        <li class="ml-8 link"><a href="#home">{{ i18n.$t('home') }}</a></li>
-        <li class="ml-8 link"><a href="#boats">{{ i18n.$t('boats') }}</a></li>
-        <li class="ml-8 link"><a href="#watersports">{{ i18n.$t('watersports') }}</a></li>
+        <li class="ml-8 link"><a :href="base_url + '#home'">{{ i18n.$t('home') }}</a></li>
+        <li class="ml-8 link"><a :href="base_url + '#boats'">{{ i18n.$t('boats') }}</a></li>
+        <li class="ml-8 link"><a :href="base_url + '#watersports'">{{ i18n.$t('watersports') }}</a></li>
         <li class="ml-8 "><LanguageSwitch></LanguageSwitch></li>
       </ul>
     </div>
@@ -38,9 +38,11 @@ export default {
   setup() {
     const i18n = ref(useI18n());
     const store = useStore();
+    const base_url = process.env.VUE_APP_URL;
 
     return {
       i18n,
+      base_url,
       showFullScreenNav: () => store.commit('showFullScreenNav'),
     }
   }
