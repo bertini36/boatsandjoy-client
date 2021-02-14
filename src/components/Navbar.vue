@@ -13,7 +13,7 @@
   </div>
 
   <div class="navbar invisible md:visible h-0 md:h-20">
-    <div class="flex flex-row justify-between md:px-32 lg:px-60 xl:px-96">
+    <div class="flex flex-row justify-between md:px-12 lg:px-60 xl:px-96">
       <a :href="base_url + '#home'">
         <img src="../assets/img/favicon.png" alt="main logo" class="cursor-pointer h-12"/>
       </a>

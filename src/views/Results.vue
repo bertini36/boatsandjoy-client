@@ -2,20 +2,20 @@
   <div class="flex flex-col">
     <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
     <div class="mx-2 lg:m-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-3 mt-6">
-        <div class="col-span-1 text-center">
+      <div class="grid grid-cols-1 lg:grid-cols-3 mt-6 md:gap-10">
+        <div class="col-span-1 text-center md:pl-8">
           <Calendar v-model="selectedDate"
                     :inline="true"
                     :minDate="todayDate"
                     :disabledDates="noAvailDates"
           />
-          <div class="mt-6 flex flex-row justify-center">
+          <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
             <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
           </div>
         </div>
         <div class="lg:col-span-2 text-center">
-          <article class="px-8 lg:px-20 mb-12" v-for="boatAvailability in boatsAvailability" :key="boatAvailability.boat.id">
-            <div class="w-full lg:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100 dark:bg-gray-400">
+          <article class="px-8 lg:px-12 mb-12 md:mt-0" v-for="boatAvailability in boatsAvailability" :key="boatAvailability.boat.id">
+            <div class="w-full xl:w-11/12 flex-none -ml-full rounded-3xl bg-gray-100 dark:bg-gray-400">
               <div class="w-full flex-none rounded-3xl transform shadow-lg bg-gradient-to-r from-green-300 to-blue-500 -rotate-2 sm:-rotate-2">
                 <div class="grid grid-flow-col grid-rows-1 grid-cols-3">
                   <div
@@ -131,6 +131,7 @@ export default {
 button {
   width: 421.41px;
 }
+
 @media only screen and (max-width: 770px) {
   button {
     width: 365.41px;
