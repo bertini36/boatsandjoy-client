@@ -24,32 +24,13 @@
                     {{ boatAvailability.boat.name }}
                   </h2>
 
-                  <div v-if="selectedAvailabilityOption[i] !== ''" class="w-1/4 flex justify-end">
-                    <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">{{ selectedAvailabilityOption[i].price }}€</span>
+                  <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
+                    <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">{{ selectedAvailabilityOptions[i].price }}€</span>
                   </div>
                 </div>
 
                 <div class="w-full flex flex-col">
-                  <!--
-                  <label class="inline-flex items-center">
-                    <input type="checkbox" class="h-5 w-5 cursor-pointer"
-                           v-model="applyResidentDiscount[i]"
-                           @change="updatePrices">
-                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_resident') }}</span>
-                  </label>
-
-                  <label class="inline-flex items-center mt-1">
-                    <input type="checkbox" class="h-5 w-5 cursor-pointer">
-                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_legal_advice') }}</span>
-                  </label>
-
-                  <label class="inline-flex items-center mt-1">
-                    <input type="checkbox" class="h-5 w-5 cursor-pointer">
-                    <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_resident') }}</span>
-                  </label>
-                  -->
-
-                  <select v-model="selectedAvailabilityOption[i]" class="w-full mt-6 mb-2">
+                  <select v-model="selectedAvailabilityOptions[i]" class="w-full mt-6 mb-2">
                     <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
                     <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
                             :value="availabilityOption">
@@ -57,17 +38,10 @@
                         {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
                     </option>
                   </select>
-
-                  <!--
-                  <input type="text" class="custom-input"
-                         v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_name')">
-                  <input type="number" class="custom-input mt-2"
-                         v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_telephone')">
-                  -->
                   <div class="flex">
-                    <button class="btn mt-6 mb-4 w-full flex-grow disabled:opacity-60"
-                            :disabled="!selectedAvailabilityOption[i]"
-                            @click="showCheckoutModal">
+                    <button class="btn mt-6 mb-4 w-full flex-grow"
+                            :disabled="!selectedAvailabilityOptions[i]"
+                            @click="showCheckoutModal(selectedAvailabilityOptions[i])">
                       {{ i18n.$t('results_book') }}
                     </button>
                   </div>
@@ -90,8 +64,43 @@
     </modal>
 
     <modal :showing="showingCheckoutModal" @close="showingCheckoutModal = false">
-      <div class="flex flex-col w-full">
-        Hola
+      <div class="grid grid-cols-2 pt-6">
+        <div class="flex flex-col"></div>
+        <div class="flex flex-col">
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="h-5 w-5"
+                   v-model="applyResidentDiscount"
+                   @change="updatePrices">
+            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_resident') }}</span>
+          </label>
+
+          <label class="inline-flex items-center mt-1 cursor-pointer">
+            <input type="checkbox" class="h-5 w-5">
+            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_legal_advice') }}</span>
+          </label>
+
+          <label class="inline-flex items-center mt-1 cursor-pointer">
+            <input type="checkbox" class="h-5 w-5">
+            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_resident') }}</span>
+          </label>
+
+          <input type="text" class="custom-input mt-4" :placeholder="i18n.$t('checkout_name')">
+          <input type="number" class="custom-input mt-2" :placeholder="i18n.$t('checkout_telephone')">
+
+          <div role="alert" class="mt-4">
+            <div class="border border-blue-500 rounded bg-blue-100 px-4 py-3 text-blue-500">
+              {{ i18n.$t('checkout_info') }}
+            </div>
+          </div>
+
+          <textarea rows="2" class="custom-textarea mt-2" :placeholder="i18n.$t('checkout_extras')"></textarea>
+
+          <div class="flex">
+            <button class="btn mt-6 w-full flex-grow">
+              {{ i18n.$t('checkout_pay') }}
+            </button>
+          </div>
+        </div>
       </div>
     </modal>
   </div>
@@ -121,13 +130,14 @@ export default {
     const i18n = ref(useI18n());
 
     const boatsAvailability = ref(null);
-    const selectedAvailabilityOption = ref(['', '']);
-    const applyResidentDiscount = ref([false, false]);
+    const selectedAvailabilityOptions = ref(['', '']);
+    const applyResidentDiscount = ref(false);
 
     const showingPhotoModal = ref(false);
     const selectedImageUrl = ref('');
 
     const showingCheckoutModal = ref(false);
+    let selectedAvailabilityOption = null;
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
@@ -142,7 +152,7 @@ export default {
 
     const updatePrices = async () => {
       boatsAvailability.value = await api.getDateAvail(store.state.selectedDate, applyResidentDiscount);
-      selectedAvailabilityOption.value[0] = '';
+      selectedAvailabilityOptions.value[0] = '';
     };
 
 
@@ -163,8 +173,10 @@ export default {
       selectedImageUrl.value = image_url;
     };
 
-    const showCheckoutModal = () => {
+    const showCheckoutModal = (availabilityOption) => {
       showingCheckoutModal.value = true;
+      selectedAvailabilityOption = availabilityOption;
+      console.log(selectedAvailabilityOption);
     };
 
     return {
@@ -177,7 +189,7 @@ export default {
       showCheckoutModal,
       selectedImageUrl,
       getBoatPhoto,
-      selectedAvailabilityOption,
+      selectedAvailabilityOptions,
       applyResidentDiscount,
       updatePrices
     }

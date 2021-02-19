@@ -42,7 +42,7 @@ body {
 
 .btn {
   @apply py-4 px-8 rounded;
-  @apply bg-orange-600 hover:bg-orange-700 focus:outline-none;
+  @apply bg-orange-600 hover:bg-orange-700 focus:outline-none disabled:opacity-60;
   @apply text-white font-bold;
 }
 
@@ -62,14 +62,21 @@ body {
 /* Inputs */
 select {
   @apply pt-2 pb-2 px-5;
-  @apply border border-gray-200 bg-gray-100 rounded-md;
+  @apply border border-gray-200 bg-white rounded-md;
   @apply text-sm text-black;
   @apply cursor-pointer;
-  @apply focus:outline-none hover:border-orange-600;
+  @apply focus:outline-none hover:border-blue-600;
 }
 
 .custom-input {
   @apply w-full max-h-12 pt-1 pb-1 px-5 text-black;
-  @apply border border-gray-200 bg-gray-100 rounded-md;
-  @apply focus:outline-none focus:border-orange-500;
+  @apply border border-gray-200 bg-white rounded-md;
+  @apply focus:outline-none focus:border-blue-500;
 }
+
+.custom-textarea {
+  @apply w-full pt-1 pb-1 px-5 text-black;
+  @apply border border-gray-200 bg-white rounded-md;
+  @apply focus:outline-none focus:border-blue-500;
+}
+

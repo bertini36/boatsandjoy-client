@@ -105,7 +105,7 @@ export default {
       image_urls,
       showingModal,
       selectedImageUrl,
-      showModal
+      showModal,
     }
   },
 }
