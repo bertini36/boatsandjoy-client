@@ -70,7 +70,7 @@
 
     <modal :showing="showingModal" @close="showingModal = false">
       <div class="flex flex-col w-full">
-        <img :src="selected_image_url" alt="Boat photo" class="rounded-sm">
+        <img :src="selectedImageUrl" alt="Boat photo" class="rounded-sm">
       </div>
     </modal>
 
@@ -93,18 +93,18 @@ export default {
       require('../assets/img/boats1.jpg')
     ];
     const showingModal = ref(false);
-    const selected_image_url = ref('');
+    const selectedImageUrl = ref('');
 
     const showModal = (image_url) => {
       showingModal.value = true;
-      selected_image_url.value = image_url;
+      selectedImageUrl.value = image_url;
     };
 
     return {
       i18n,
       image_urls,
       showingModal,
-      selected_image_url,
+      selectedImageUrl,
       showModal
     }
   },

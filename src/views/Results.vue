@@ -30,6 +30,7 @@
                 </div>
 
                 <div class="w-full flex flex-col">
+                  <!--
                   <label class="inline-flex items-center">
                     <input type="checkbox" class="h-5 w-5 cursor-pointer"
                            v-model="applyResidentDiscount[i]"
@@ -46,6 +47,7 @@
                     <input type="checkbox" class="h-5 w-5 cursor-pointer">
                     <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('results_resident') }}</span>
                   </label>
+                  -->
 
                   <select v-model="selectedAvailabilityOption[i]" class="w-full mt-6 mb-2">
                     <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
@@ -56,13 +58,14 @@
                     </option>
                   </select>
 
+                  <!--
                   <input type="text" class="custom-input"
                          v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_name')">
                   <input type="number" class="custom-input mt-2"
                          v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_telephone')">
-
+                  -->
                   <div class="flex">
-                    <button class="btn mt-6 mb-4 w-full flex-grow">{{ i18n.$t('results_pay') }}</button>
+                    <button class="btn mt-6 mb-4 w-full flex-grow">{{ i18n.$t('results_book') }}</button>
                   </div>
                 </div>
               </div>

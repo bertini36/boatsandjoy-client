@@ -89,7 +89,7 @@ export default {
           results_terms_and_conditions: 'Accept terms and conditions',
           results_name: 'Name',
           results_telephone: 'Telephone number',
-          results_pay: 'Pay with credit card',
+          results_book: 'Book now!',
 
           footer_about_us_title: 'About us',
           footer_about_us_content: 'bla bla bla',
@@ -161,7 +161,7 @@ export default {
           results_terms_and_conditions: '',
           results_name: '',
           results_telephone: '',
-          results_pay: '',
+          results_book: '',
 
           footer_about_us_title: '',
           footer_about_us_content: '',
