@@ -4,11 +4,7 @@
 
     <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
       <div class="col-span-1 text-center">
-        <Calendar v-model="selectedDate"
-                  :inline="true"
-                  :minDate="todayDate"
-                  :disabledDates="noAvailDates"
-        />
+        <bj-calendar></bj-calendar>
         <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
           <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
         </div>
@@ -82,92 +78,58 @@
 
     <modal :showing="showingModal" @close="showingModal = false">
       <div class="flex flex-col w-full">
-        <img :src="selected_image_url" alt="Boat photo" class="rounded-sm">
+        <img :src="selectedImageUrl" alt="Boat photo" class="rounded-sm">
       </div>
     </modal>
   </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import Calendar from 'primevue/calendar';
-import { useI18n } from '@/i18nPlugin';
+import {onMounted, ref} from 'vue';
+import {useStore} from 'vuex';
+import {useI18n} from '@/i18nPlugin';
 import api from '../api';
 import utils from '../utils';
+import BjCalendar from '@/components/BjCalendar';
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal.vue';
 
 export default {
   components: {
-    Calendar,
+    BjCalendar,
     Map,
     Footer,
     Modal,
   },
 
   setup() {
+    const store = useStore();
     const i18n = ref(useI18n());
-    const route = useRoute();
-
-    const selectedDate = ref(utils.str2Date(route.params.date));
-    const todayDate = new Date();
-    const pivotDate = new Date();
-    let noAvailDates = ref([]);
-    let showedMonth = new Date().getMonth() + 1;
 
     const boatsAvailability = ref(null);
     const selectedAvailabilityOption = ref(['', '']);
     const applyResidentDiscount = ref([false, false]);
 
     const showingModal = ref(false);
-    const selected_image_url = ref('');
+    const selectedImageUrl = ref('');
 
     onMounted(async () => {
-      boatsAvailability.value = await api.getDateAvail(selectedDate.value);
-      noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      setupCalendarButtons();
+      boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
     });
 
-    const setupCalendarButtons = () => {
-      prevMonthButtonSetUp();
-      nextMonthButtonSetUp();
-    };
-
-    const prevMonthButtonSetUp = () => {
-      let prevMonthButton = document.querySelector('.p-datepicker-prev');
-      prevMonthButton.onclick = async () => {
-        if (self.showedMonth === 1) showedMonth = 12;
-        else showedMonth -= 1;
-        setupCalendarButtons();
-        pivotDate.setMonth(pivotDate.getMonth()-1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      }
-    };
-
-    const nextMonthButtonSetUp = () => {
-      let nextMothButton = document.querySelector('.p-datepicker-next');
-      nextMothButton.onclick = async () => {
-        if (showedMonth === 12) showedMonth = 1;
-        else showedMonth += 1;
-        setupCalendarButtons();
-        pivotDate.setMonth(pivotDate.getMonth()+1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      }
-    };
-
     const checkAvailability = () => {
-      if (selectedDate.value !== null) {
-        const dateStr = utils.date2Str(selectedDate.value);
+      if (store.state.selectedDate !== null) {
+        const dateStr = utils.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       }
     };
 
-    const showModal = (image_url) => {
-      showingModal.value = true;
-      selected_image_url.value = image_url;
+    const updatePrices = async () => {
+      boatsAvailability.value = await api.getDateAvail(store.state.selectedDate, applyResidentDiscount);
+      selectedAvailabilityOption.value[0] = '';
     };
+
 
     const getBoatPhoto = (boatName) => {
       const photos = [
@@ -181,21 +143,18 @@ export default {
       }
     };
 
-    const updatePrices = async () => {
-      boatsAvailability.value = await api.getDateAvail(selectedDate.value, applyResidentDiscount);
-      selectedAvailabilityOption.value[0] = '';
+    const showModal = (image_url) => {
+      showingModal.value = true;
+      selectedImageUrl.value = image_url;
     };
 
     return {
       i18n,
-      selectedDate,
-      todayDate,
-      noAvailDates,
       boatsAvailability,
       checkAvailability,
       showingModal,
       showModal,
-      selected_image_url,
+      selectedImageUrl,
       getBoatPhoto,
       selectedAvailabilityOption,
       applyResidentDiscount,

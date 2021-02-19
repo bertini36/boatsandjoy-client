@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
-      showingFullScreenNav: false
+      showingFullScreenNav: false,
+      selectedDate: null,
     }
   },
   mutations: {
@@ -13,6 +14,10 @@ const store = createStore({
 
     hideFullScreenNav(state) {
       state.showingFullScreenNav = false;
+    },
+
+    setSelectedDate(state, newSelectedDate) {
+      state.selectedDate = newSelectedDate;
     }
   }
 });

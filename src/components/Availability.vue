@@ -10,11 +10,7 @@
       </div>
 
       <div class="mt-6 md:mt-12 flex flex-row justify-center">
-        <Calendar v-model="selectedDate"
-                  :inline="true"
-                  :minDate="todayDate"
-                  :disabledDates="noAvailDates"
-        />
+       <bj-calendar></bj-calendar>
       </div>
 
       <div class="mt-6 flex flex-row justify-center">
@@ -25,68 +21,31 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
-import Calendar from 'primevue/calendar';
-import { useI18n } from '@/i18nPlugin';
+import {ref} from 'vue';
+import {useStore} from 'vuex';
+import {useI18n} from '@/i18nPlugin';
 import router from '../routes';
-import api from '../api';
 import utils from '../utils';
+import BjCalendar from './BjCalendar';
 
 export default {
-  components: { Calendar },
+  components: {
+    BjCalendar,
+  },
 
   setup() {
+    const store = useStore();
     const i18n = ref(useI18n());
-    const selectedDate = ref(null);
-    const todayDate = new Date();
-    const pivotDate = new Date();
-    let noAvailDates = ref([]);
-    let showedMonth = new Date().getMonth() + 1;
-
-    onMounted(async () => {
-      noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      setupCalendarButtons();
-    });
-
-    const setupCalendarButtons = () => {
-      prevMonthButtonSetUp();
-      nextMonthButtonSetUp();
-    };
-
-    const prevMonthButtonSetUp = () => {
-      let prevMonthButton = document.querySelector('.p-datepicker-prev');
-      prevMonthButton.onclick = async () => {
-        if (self.showedMonth === 1) showedMonth = 12;
-        else showedMonth -= 1;
-        setupCalendarButtons();
-        pivotDate.setMonth(pivotDate.getMonth()-1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      }
-    };
-
-    const nextMonthButtonSetUp = () => {
-      let nextMothButton = document.querySelector('.p-datepicker-next');
-      nextMothButton.onclick = async () => {
-        if (showedMonth === 12) showedMonth = 1;
-        else showedMonth += 1;
-        setupCalendarButtons();
-        pivotDate.setMonth(pivotDate.getMonth()+1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
-      }
-    }
 
     const checkAvailability = () => {
-      if (selectedDate.value !== null) {
-        const dateStr = utils.date2Str(selectedDate.value);
+      if (store.state.selectedDate !== null) {
+        const dateStr = utils.date2Str(store.state.selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       }
     };
 
     return {
       i18n,
-      selectedDate,
-      todayDate,
-      noAvailDates,
       checkAvailability,
     }
   }
