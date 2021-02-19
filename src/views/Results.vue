@@ -16,7 +16,7 @@
             <div class="flex flex-col md:flex-row">
               <div class="md:w-2/5 flex">
                 <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow" src="../assets/img/boats1.jpg" alt="Boat photo"
-                     @click="showModal(getBoatPhoto(boatAvailability.boat.name))">
+                     @click="showPhotoModal(getBoatPhoto(boatAvailability.boat.name))">
               </div>
               <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
                 <div class="flex flex-row">
@@ -65,7 +65,11 @@
                          v-if="selectedAvailabilityOption[i] !== ''" :placeholder="i18n.$t('results_telephone')">
                   -->
                   <div class="flex">
-                    <button class="btn mt-6 mb-4 w-full flex-grow">{{ i18n.$t('results_book') }}</button>
+                    <button class="btn mt-6 mb-4 w-full flex-grow disabled:opacity-60"
+                            :disabled="!selectedAvailabilityOption[i]"
+                            @click="showCheckoutModal">
+                      {{ i18n.$t('results_book') }}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -79,9 +83,15 @@
 
     <Footer></Footer>
 
-    <modal :showing="showingModal" @close="showingModal = false">
+    <modal :showing="showingPhotoModal" @close="showingPhotoModal = false">
       <div class="flex flex-col w-full">
         <img :src="selectedImageUrl" alt="Boat photo" class="rounded-sm">
+      </div>
+    </modal>
+
+    <modal :showing="showingCheckoutModal" @close="showingCheckoutModal = false">
+      <div class="flex flex-col w-full">
+        Hola
       </div>
     </modal>
   </div>
@@ -114,8 +124,10 @@ export default {
     const selectedAvailabilityOption = ref(['', '']);
     const applyResidentDiscount = ref([false, false]);
 
-    const showingModal = ref(false);
+    const showingPhotoModal = ref(false);
     const selectedImageUrl = ref('');
+
+    const showingCheckoutModal = ref(false);
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
@@ -146,17 +158,23 @@ export default {
       }
     };
 
-    const showModal = (image_url) => {
-      showingModal.value = true;
+    const showPhotoModal = (image_url) => {
+      showingPhotoModal.value = true;
       selectedImageUrl.value = image_url;
+    };
+
+    const showCheckoutModal = () => {
+      showingCheckoutModal.value = true;
     };
 
     return {
       i18n,
       boatsAvailability,
       checkAvailability,
-      showingModal,
-      showModal,
+      showingPhotoModal,
+      showPhotoModal,
+      showingCheckoutModal,
+      showCheckoutModal,
       selectedImageUrl,
       getBoatPhoto,
       selectedAvailabilityOption,

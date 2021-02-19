@@ -38,7 +38,7 @@ module.exports = {
     transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
 
     extend: {
-      opacity: ['hover', 'group-hover'],
+      opacity: ['hover', 'group-hover', 'disabled'],
       visibility: ['hover', 'group-hover'],
       fontSize: ['hover'],
     }
