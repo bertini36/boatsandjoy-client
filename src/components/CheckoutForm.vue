@@ -19,21 +19,17 @@
       <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_resident') }}</span>
     </label>
 
-    <div class="flex flex-col">
-      <label class="inline-flex items-center mt-1 cursor-pointer">
-        <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptLegalAdvice">
-        <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_legal_advice') }}</span>
-      </label>
-      <span class="text-sm text-red-400 pl-8">{{ acceptLegalAdviceError }}</span>
-    </div>
+    <label class="inline-flex items-center mt-1 cursor-pointer">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptLegalAdvice">
+      <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_legal_advice') }}</span>
+      <span class="pl-3 text-sm text-red-400">{{ acceptLegalAdviceError }}</span>
+    </label>
 
-    <div class="flex flex-col">
-      <label class="inline-flex items-center mt-1 cursor-pointer">
-        <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptTermsAndConditions">
-        <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_terms_and_conditions') }}</span>
-      </label>
-      <span class="text-sm text-red-400 pl-8">{{ acceptTermsAndConditionsError }}</span>
-    </div>
+    <label class="inline-flex items-center mt-1 cursor-pointer">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptTermsAndConditions">
+      <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_terms_and_conditions') }}</span>
+      <span class="pl-3 text-sm text-red-400">{{ acceptTermsAndConditionsError }}</span>
+    </label>
 
     <div class="flex flex-col">
       <label for="name" class="mt-4 pl-1">{{ i18n.$t('checkout_name') }}</label>
