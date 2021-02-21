@@ -59,7 +59,7 @@ body {
 }
 
 /* Inputs */
-select {
+.custom-select {
   @apply pt-2 pb-2 px-5;
   @apply border border-gray-200 bg-white rounded-md;
   @apply text-sm text-black;

@@ -29,11 +29,14 @@
       <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_terms_and_conditions') }}</span>
     </label>
 
-    <input type="text" class="custom-input mt-4" :placeholder="i18n.$t('checkout_name')" v-model="name" required>
+    <label for="name" class="mt-4 pl-1">{{ i18n.$t('checkout_name') }}</label>
+    <input id="name" type="text" class="custom-input" v-model="name" required>
 
-    <input type="number" class="custom-input mt-2" :placeholder="i18n.$t('checkout_telephone')" v-model="telephone" required>
+    <label for="telephone" class="mt-2 pl-1">{{ i18n.$t('checkout_telephone') }}</label>
+    <input id="telephone" type="number" class="custom-input" v-model="telephone" required>
 
-    <textarea rows="2" class="custom-textarea mt-2" :placeholder="i18n.$t('checkout_extras')" v-model="extras"></textarea>
+    <label for="extras" class="mt-2 pl-1">{{ i18n.$t('checkout_extras') }}</label>
+    <textarea id="extras" rows="2" class="custom-textarea" v-model="extras"></textarea>
 
     <div class="flex">
       <button class="btn mt-6 w-full flex-grow">

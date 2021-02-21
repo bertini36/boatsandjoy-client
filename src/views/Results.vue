@@ -34,7 +34,7 @@
                   </div>
 
                   <div class="w-full flex flex-col">
-                    <select v-model="selectedAvailabilityOptions[i]" class="w-full mt-6 mb-2">
+                    <select v-model="selectedAvailabilityOptions[i]" class="custom-select w-full mt-6 mb-2">
                       <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
                       <option v-for="availabilityOption in boatAvailability.availability"
                               :key="availabilityOption"
