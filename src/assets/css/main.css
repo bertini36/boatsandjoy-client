@@ -50,6 +50,14 @@ body {
   @apply text-white font-bold;
 }
 
+.price-circle {
+  @apply bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold;
+}
+
+.disabled-price-circle {
+   @apply bg-gray-200 text-white text-xl rounded-full px-3 py-4 font-bold;
+}
+
 /* Inputs */
 select {
   @apply pt-2 pb-2 px-5;

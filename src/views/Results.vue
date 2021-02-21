@@ -27,7 +27,7 @@
                     </h2>
 
                     <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
-                      <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">
+                      <span class="price-circle">
                         {{ selectedAvailabilityOptions[i].price }}€
                       </span>
                     </div>
