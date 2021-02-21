@@ -64,44 +64,7 @@
     </modal>
 
     <modal :showing="showingCheckoutModal" @close="showingCheckoutModal = false">
-      <div class="grid grid-cols-2 pt-6">
-        <div class="flex flex-col"></div>
-        <div class="flex flex-col">
-          <label class="inline-flex items-center cursor-pointer">
-            <input type="checkbox" class="h-5 w-5"
-                   v-model="applyResidentDiscount"
-                   @change="updatePrices">
-            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_resident') }}</span>
-          </label>
-
-          <label class="inline-flex items-center mt-1 cursor-pointer">
-            <input type="checkbox" class="h-5 w-5">
-            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_legal_advice') }}</span>
-          </label>
-
-          <label class="inline-flex items-center mt-1 cursor-pointer">
-            <input type="checkbox" class="h-5 w-5">
-            <span class="pl-3 text-xs md:text-sm">{{ i18n.$t('checkout_resident') }}</span>
-          </label>
-
-          <input type="text" class="custom-input mt-4" :placeholder="i18n.$t('checkout_name')">
-          <input type="number" class="custom-input mt-2" :placeholder="i18n.$t('checkout_telephone')">
-
-          <div role="alert" class="mt-4">
-            <div class="border border-blue-500 rounded bg-blue-100 px-4 py-3 text-blue-500">
-              {{ i18n.$t('checkout_info') }}
-            </div>
-          </div>
-
-          <textarea rows="2" class="custom-textarea mt-2" :placeholder="i18n.$t('checkout_extras')"></textarea>
-
-          <div class="flex">
-            <button class="btn mt-6 w-full flex-grow">
-              {{ i18n.$t('checkout_pay') }}
-            </button>
-          </div>
-        </div>
-      </div>
+      <checkout-form :availability-option="selectedAvailabilityOption"></checkout-form>
     </modal>
   </div>
 </template>
@@ -116,6 +79,7 @@ import BjCalendar from '@/components/BjCalendar';
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal.vue';
+import CheckoutForm from '@/components/CheckoutForm.vue';
 
 export default {
   components: {
@@ -123,6 +87,7 @@ export default {
     Map,
     Footer,
     Modal,
+    CheckoutForm,
   },
 
   setup() {
@@ -131,13 +96,12 @@ export default {
 
     const boatsAvailability = ref(null);
     const selectedAvailabilityOptions = ref(['', '']);
-    const applyResidentDiscount = ref(false);
 
     const showingPhotoModal = ref(false);
     const selectedImageUrl = ref('');
 
     const showingCheckoutModal = ref(false);
-    let selectedAvailabilityOption = null;
+    let selectedAvailabilityOption = ref(null);
 
     onMounted(async () => {
       boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
@@ -150,12 +114,11 @@ export default {
       }
     };
 
-    const updatePrices = async () => {
-      boatsAvailability.value = await api.getDateAvail(store.state.selectedDate, applyResidentDiscount);
-      selectedAvailabilityOptions.value[0] = '';
-    };
-
-
+    /**
+     * This function is really strict, I know. Each boat photo has to be defined here...
+     * @param boatName
+     * @return Boat photo path
+     */
     const getBoatPhoto = (boatName) => {
       const photos = [
         require('../assets/img/boats1.jpg'),
@@ -175,8 +138,7 @@ export default {
 
     const showCheckoutModal = (availabilityOption) => {
       showingCheckoutModal.value = true;
-      selectedAvailabilityOption = availabilityOption;
-      console.log(selectedAvailabilityOption);
+      selectedAvailabilityOption.value = availabilityOption;
     };
 
     return {
@@ -190,8 +152,7 @@ export default {
       selectedImageUrl,
       getBoatPhoto,
       selectedAvailabilityOptions,
-      applyResidentDiscount,
-      updatePrices
+      selectedAvailabilityOption,
     }
   }
 }
