@@ -1,61 +1,67 @@
 <template>
-  <div class="flex flex-col">
-    <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
+  <div>
+    <div class="flex flex-col">
+      <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
 
-    <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
-      <div class="col-span-1 text-center">
-        <bj-calendar></bj-calendar>
-        <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
-          <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
+      <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
+        <div class="col-span-1 text-center">
+          <bj-calendar></bj-calendar>
+          <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
+            <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
+          </div>
         </div>
-      </div>
 
-      <div class="md:col-span-2 text-center">
-        <article class="mb-6 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability" :key="boatAvailability.boat.id">
-          <div class="w-full rounded-3xl">
-            <div class="flex flex-col md:flex-row">
-              <div class="md:w-2/5 flex">
-                <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow" src="../assets/img/boats1.jpg" alt="Boat photo"
-                     @click="showPhotoModal(getBoatPhoto(boatAvailability.boat.name))">
-              </div>
-              <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
-                <div class="flex flex-row">
-                  <h2 class="w-3/4 text-3xl font-bold tracking-widest text-left uppercase text-orange-500 mb-6">
-                    {{ boatAvailability.boat.name }}
-                  </h2>
-
-                  <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
-                    <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">{{ selectedAvailabilityOptions[i].price }}€</span>
-                  </div>
+        <div class="md:col-span-2 text-center">
+          <article class="mb-6 md:mt-0" v-for="(boatAvailability, i) in boatsAvailability"
+                   :key="boatAvailability.boat.id">
+            <div class="w-full rounded-3xl">
+              <div class="flex flex-col md:flex-row">
+                <div class="md:w-2/5 flex">
+                  <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow" src="../assets/img/boats1.jpg" alt="Boat photo"
+                       @click="showPhotoModal(getBoatPhoto(boatAvailability.boat.name))">
                 </div>
+                <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
+                  <div class="flex flex-row">
+                    <h2 class="w-3/4 text-3xl font-bold tracking-widest text-left uppercase text-orange-500 mb-6">
+                      {{ boatAvailability.boat.name }}
+                    </h2>
 
-                <div class="w-full flex flex-col">
-                  <select v-model="selectedAvailabilityOptions[i]" class="w-full mt-6 mb-2">
-                    <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
-                    <option v-for="availabilityOption in boatAvailability.availability" :key="availabilityOption"
-                            :value="availabilityOption">
-                        {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
-                        {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
-                    </option>
-                  </select>
-                  <div class="flex">
-                    <button class="btn mt-6 mb-4 w-full flex-grow"
-                            :disabled="!selectedAvailabilityOptions[i]"
-                            @click="showCheckoutModal(selectedAvailabilityOptions[i])">
-                      {{ i18n.$t('results_book') }}
-                    </button>
+                    <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
+                      <span class="bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold">
+                        {{ selectedAvailabilityOptions[i].price }}€
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="w-full flex flex-col">
+                    <select v-model="selectedAvailabilityOptions[i]" class="w-full mt-6 mb-2">
+                      <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
+                      <option v-for="availabilityOption in boatAvailability.availability"
+                              :key="availabilityOption"
+                              :value="{...{'boat': boatAvailability.boat}, ...availabilityOption, ...{'discounts': boatAvailability.discounts}}">
+                          {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
+                          {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
+                      </option>
+                    </select>
+                    <div class="flex">
+                      <button class="btn mt-6 mb-4 w-full flex-grow"
+                              :disabled="!selectedAvailabilityOptions[i]"
+                              @click="showCheckoutModal(selectedAvailabilityOptions[i])">
+                        {{ i18n.$t('results_book') }}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
+
+      <Map></Map>
+
+      <Footer></Footer>
     </div>
-
-    <Map></Map>
-
-    <Footer></Footer>
 
     <modal :showing="showingPhotoModal" @close="showingPhotoModal = false">
       <div class="flex flex-col w-full">

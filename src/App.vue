@@ -91,7 +91,6 @@ export default {
           checkout_terms_and_conditions: 'Accept terms and conditions',
           checkout_name: 'Name',
           checkout_telephone: 'Telephone number',
-          checkout_info: 'Don\'t forget to ask about extras available! We will answer as soon as possible.',
           checkout_extras: 'Doubts & extras',
           checkout_pay: 'Pay with credit card',
 
@@ -167,7 +166,6 @@ export default {
           checkout_terms_and_conditions: '',
           checkout_name: '',
           checkout_telephone: '',
-          checkout_info: '',
           checkout_extras: '',
           checkout_pay: '',
 
