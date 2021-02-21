@@ -8,6 +8,9 @@ import 'primevue/resources/themes/nova/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 import './assets/css/main.css';
+import 'noty/lib/noty.css';
+import 'noty/lib/themes/nest.css';
+import './assets/css/main.css';
 
 createApp(App)
   .use(router)

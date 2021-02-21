@@ -27,6 +27,7 @@ import {useI18n} from '@/i18nPlugin';
 import router from '../routes';
 import utils from '../utils';
 import BjCalendar from './BjCalendar';
+import notifier from '../utils/notifier';
 
 export default {
   components: {
@@ -41,6 +42,8 @@ export default {
       if (store.state.selectedDate !== null) {
         const dateStr = utils.date2Str(store.state.selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
+      } else {
+        notifier.showInfoNotification(i18n.value.$t('no_date_selected'));
       }
     };
 

@@ -86,6 +86,7 @@ import Map from '@/components/Map';
 import Footer from '@/components/Footer';
 import Modal from '@/components/Modal.vue';
 import CheckoutForm from '@/components/CheckoutForm.vue';
+import notifier from '../utils/notifier';
 
 export default {
   components: {
@@ -117,6 +118,8 @@ export default {
       if (store.state.selectedDate !== null) {
         const dateStr = utils.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
+      } else {
+        notifier.showInfoNotification(i18n.value.$t('no_date_selected'));
       }
     };
 

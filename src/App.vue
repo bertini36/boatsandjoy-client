@@ -108,6 +108,8 @@ export default {
           footer_company_address: 'C/Omelades 2A 2º 1ª 07012 Palma de Mallorca',
           footer_rights: 'All rights reserved',
           footer_created: 'Created by',
+
+          no_date_selected: 'You have to specify a date',
         },
 
         es: {
@@ -187,6 +189,8 @@ export default {
           footer_company_address: '',
           footer_rights: '',
           footer_created: '',
+
+          no_date_selected: '',
         }
       }
     });
