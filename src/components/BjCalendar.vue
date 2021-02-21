@@ -12,7 +12,7 @@ import {useRoute} from 'vue-router';
 import {useStore} from 'vuex';
 import Calendar from 'primevue/calendar';
 import api from '../api';
-import utils from '../utils';
+import dates from '../utils/dates';
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     const route = useRoute();
     const store = useStore();
 
-    if (route.params.date) store.commit('setSelectedDate', utils.str2Date(route.params.date));
+    if (route.params.date) store.commit('setSelectedDate', dates.str2Date(route.params.date));
     else if (store.state.selectedDate === null) store.commit('setSelectedDate', new Date());
     const selectedDate = ref(store.state.selectedDate);
     const todayDate = new Date();

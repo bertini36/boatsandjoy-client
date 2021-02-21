@@ -58,7 +58,7 @@
 
 <script>
 import {ref} from 'vue';
-import {useI18n} from '@/i18nPlugin';
+import {useI18n} from '@/utils/i18nPlugin';
 
 export default {
   setup() {

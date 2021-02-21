@@ -1,4 +1,4 @@
-const utils = {
+const dates = {
    date2Str: (date) => {
      let d = new Date(date),
        month = '' + (d.getMonth() + 1),
@@ -16,4 +16,4 @@ const utils = {
   },
 };
 
-export default utils;
+export default dates;

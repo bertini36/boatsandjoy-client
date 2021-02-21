@@ -78,9 +78,9 @@
 <script>
 import {onMounted, ref} from 'vue';
 import {useStore} from 'vuex';
-import {useI18n} from '@/i18nPlugin';
+import {useI18n} from '@/utils/i18nPlugin';
 import api from '../api';
-import utils from '../utils';
+import dates from '../utils/dates';
 import BjCalendar from '@/components/BjCalendar';
 import Map from '@/components/Map';
 import Footer from '@/components/Footer';
@@ -116,7 +116,7 @@ export default {
 
     const checkAvailability = () => {
       if (store.state.selectedDate !== null) {
-        const dateStr = utils.date2Str(store.state.selectedDate);
+        const dateStr = dates.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
         notifier.showInfoNotification(i18n.value.$t('no_date_selected'));
