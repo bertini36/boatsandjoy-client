@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useI18n } from '@/i18nPlugin';
+import {ref} from 'vue';
+import {useI18n} from '@/i18nPlugin';
 
 export default {
   setup() {

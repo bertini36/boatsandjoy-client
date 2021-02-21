@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
-import { useI18n } from '@/i18nPlugin';
+import {computed, ref} from 'vue'
+import {useStore} from 'vuex'
+import {useI18n} from '@/i18nPlugin';
 import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {

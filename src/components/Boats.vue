@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useI18n } from '@/i18nPlugin';
+import {ref} from 'vue';
+import {useI18n} from '@/i18nPlugin';
 import Modal from '@/components/Modal.vue';
 
 export default {

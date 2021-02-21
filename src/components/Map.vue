@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
-import { useI18n } from '@/i18nPlugin';
-import { GoogleMap, Marker } from 'vue3-google-map';
+import {defineComponent, ref} from 'vue';
+import {useI18n} from '@/i18nPlugin';
+import {GoogleMap, Marker} from 'vue3-google-map';
 
 export default defineComponent({
   components: { GoogleMap, Marker },

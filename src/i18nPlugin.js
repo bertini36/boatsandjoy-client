@@ -1,4 +1,4 @@
-import { inject, provide, ref } from 'vue';
+import {inject, provide, ref} from 'vue';
 
 const createI18n = config => ({
   locale: ref(config.locale),

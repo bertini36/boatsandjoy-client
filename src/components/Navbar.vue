@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { useStore } from 'vuex';
-import { useI18n } from '@/i18nPlugin';
+import {ref} from 'vue';
+import {useStore} from 'vuex';
+import {useI18n} from '@/i18nPlugin';
 import LanguageSwitch from '@/components/LanguageSwitch';
 
 export default {

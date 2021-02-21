@@ -10,7 +10,7 @@
 <script>
 import Navbar from '@/components/Navbar';
 import FullScreenNav from '@/components/FullScreenNav';
-import { provideI18n } from '@/i18nPlugin';
+import {provideI18n} from '@/i18nPlugin';
 
 export default {
   name: 'App',
