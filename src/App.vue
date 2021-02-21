@@ -80,7 +80,7 @@ export default {
 
           map_title: 'You can find us in Sant Elm!',
 
-          results_title: 'Results',
+          results_title: 'Availability for day',
           results_select_a_pricing_option: 'Choose your schedule',
           results_from: 'From',
           results_to: 'to',

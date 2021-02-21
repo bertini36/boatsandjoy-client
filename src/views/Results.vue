@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }}</h3>
+      <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }} {{ getSelectedDate() }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center">
@@ -114,6 +114,10 @@ export default {
       boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
     });
 
+    const getSelectedDate = () => {
+      return dates.date2Str(store.state.selectedDate);
+    };
+
     const checkAvailability = () => {
       if (store.state.selectedDate !== null) {
         const dateStr = dates.date2Str(store.state.selectedDate);
@@ -153,6 +157,7 @@ export default {
     return {
       i18n,
       boatsAvailability,
+      getSelectedDate,
       checkAvailability,
       showingPhotoModal,
       showPhotoModal,
