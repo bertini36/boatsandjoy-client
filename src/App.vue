@@ -93,6 +93,10 @@ export default {
           checkout_telephone: 'Telephone number',
           checkout_extras: 'Doubts & extras',
           checkout_pay: 'Pay with credit card',
+          checkout_accept_legal_advice_error: 'You have to accept legal advice',
+          checkout_accept_terms_and_conditions_error: 'You have to accept terms and conditions',
+          checkout_name_error: 'You have to specify your name',
+          checkout_telephone_error: 'You have to specify your telephone number',
 
           footer_about_us_title: 'About us',
           footer_about_us_content: 'bla bla bla',
@@ -168,6 +172,10 @@ export default {
           checkout_telephone: '',
           checkout_extras: '',
           checkout_pay: '',
+          checkout_accept_legal_advice_error: '',
+          checkout_accept_terms_and_conditions_error: '',
+          checkout_name_error: '',
+          checkout_telephone_error: '',
 
           footer_about_us_title: '',
           footer_about_us_content: '',

@@ -40,7 +40,7 @@
                               :key="availabilityOption"
                               :value="{...{'boat': boatAvailability.boat}, ...availabilityOption, ...{'discounts': boatAvailability.discounts}}">
                           {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
-                          {{ i18n.$t('results_to') }} {{availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
+                          {{ i18n.$t('results_to') }} {{ availabilityOption.to_hour }} ({{ availabilityOption.price }}€)
                       </option>
                     </select>
                     <div class="flex">
