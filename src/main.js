@@ -12,8 +12,16 @@ import 'noty/lib/noty.css';
 import 'noty/lib/themes/nest.css';
 import './assets/css/main.css';
 
-createApp(App)
-  .use(router)
+const app = createApp(App)
+
+app.config.globalProperties.$filters = {
+  formatHour(value) {
+    const slices = value.split(':');
+    return `${slices[0]}:${slices[1]}`;
+  }
+}
+
+app.use(router)
   .use(store)
   .use(PrimeVue)
   .mount('#app');

@@ -13,8 +13,8 @@
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
     </div>
     <p class="mb-6">
-      {{ i18n.$t('results_from') }} {{ availabilityOption.from_hour }}
-      {{ i18n.$t('results_to') }} {{ availabilityOption.to_hour }}
+      {{ i18n.$t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
+      {{ i18n.$t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }}
     </p>
 
     <label class="inline-flex items-center cursor-pointer">
