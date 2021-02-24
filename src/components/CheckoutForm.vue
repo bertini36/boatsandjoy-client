@@ -1,10 +1,13 @@
 <template>
   <form class="flex flex-col">
     <div class="inline-flex mb-3">
-      <span :class="{'price-circle': !isResident, 'disabled-price-circle': isResident}">
+      <span class="mt-1" :class="{'price-circle': !isResident, 'disabled-price-circle': isResident}">
         {{ price }}€
       </span>
-      <span class="price-circle ml-2" v-if="isResident">
+      <span class="text-6xl font-bold text-blue-500" v-if="isResident">
+        >
+      </span>
+      <span class="mt-1 price-circle" v-if="isResident">
         {{ residentPrice }}€
       </span>
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
@@ -51,7 +54,8 @@
     </div>
 
     <div class="flex">
-      <button class="btn mt-12 w-full flex-grow" @click="(event) => pay(event)">
+      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center" @click="(event) => pay(event)">
+        <img src="../assets/img/icon-add-credit-card.svg" alt="Add credit card icon" class="mr-2">
         {{ i18n.$t('checkout_pay') }}
       </button>
     </div>
