@@ -1,6 +1,6 @@
 all: build
 
-service = web
+service = boatsandjoy-client
 
 .PHONY: build
 build: ## 👷 Build app
