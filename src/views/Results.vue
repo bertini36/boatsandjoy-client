@@ -79,7 +79,8 @@
 import { onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
-import api from '../api';
+
+import { getDateAvail } from '../services/api';
 import dates from '../utils/dates';
 import Calendar from '../components/Calendar';
 import Map from '../components/Map';
@@ -112,7 +113,7 @@ export default {
     let selectedAvailabilityOption = ref(null);
 
     onMounted(async () => {
-      boatsAvailability.value = await api.getDateAvail(store.state.selectedDate);
+      boatsAvailability.value = await getDateAvail(store.state.selectedDate);
       loadedDate.value = dates.date2Str(store.state.selectedDate);
     });
 

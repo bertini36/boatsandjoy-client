@@ -11,7 +11,7 @@ import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 import PrimeCalendar from 'primevue/calendar';
-import api from '../api';
+import { getNoAvailDates } from '../services/api';
 import dates from '../utils/dates';
 
 export default {
@@ -36,7 +36,7 @@ export default {
     });
 
     onMounted(async () => {
-      noAvailDates.value = await api.getNoAvailDates(pivotDate);
+      noAvailDates.value = await getNoAvailDates(pivotDate);
       setupCalendarButtons();
     });
 
@@ -52,7 +52,7 @@ export default {
         else showedMonth -= 1;
         setupCalendarButtons();
         pivotDate.setMonth(pivotDate.getMonth()-1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
+        noAvailDates.value = await getNoAvailDates(pivotDate);
       }
     };
 
@@ -63,7 +63,7 @@ export default {
         else showedMonth += 1;
         setupCalendarButtons();
         pivotDate.setMonth(pivotDate.getMonth()+1);
-        noAvailDates.value = await api.getNoAvailDates(pivotDate);
+        noAvailDates.value = await getNoAvailDates(pivotDate);
       }
     };
 
