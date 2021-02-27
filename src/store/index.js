@@ -1,13 +1,17 @@
 export default {
   state: {
-    showingFullScreenNav: false,
     selectedDate: null,
+    showingFullScreenNav: false,
   },
   getters: {
+    selectedDate: state => state.selectedDate,
     showingFullScreenNav: state => state.showingFullScreenNav,
-    selectedDate: state => state.selectedDate
   },
   mutations: {
+    setSelectedDate(state, newSelectedDate) {
+      state.selectedDate = newSelectedDate;
+    },
+
     showFullScreenNav(state) {
       state.showingFullScreenNav = true;
     },
@@ -15,9 +19,5 @@ export default {
     hideFullScreenNav(state) {
       state.showingFullScreenNav = false;
     },
-
-    setSelectedDate(state, newSelectedDate) {
-      state.selectedDate = newSelectedDate;
-    }
   }
 };

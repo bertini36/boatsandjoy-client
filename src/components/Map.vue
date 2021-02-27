@@ -19,8 +19,7 @@ import { GoogleMap, Marker } from 'vue3-google-map';
 export default defineComponent({
   components: { GoogleMap, Marker },
   setup() {
-    // TODO: Move credentials to env
-    const googleApiKey = 'AIzaSyAzW4jgKYOJloB347OY_Kcwr13zv5WvUmk';
+    const googleApiKey = process.env.VUE_APP_GOOGLE_MAPS_KEY;
     const center = { lat: 39.578955, lng: 2.350158 }  // Sant Elm
     return {
       googleApiKey,

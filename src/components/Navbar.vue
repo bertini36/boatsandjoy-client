@@ -29,6 +29,7 @@
 
 <script>
 import { useStore } from 'vuex';
+
 import LanguageSwitch from '../components/LanguageSwitch';
 
 export default {
