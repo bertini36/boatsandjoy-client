@@ -11,6 +11,7 @@ import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 import PrimeCalendar from 'primevue/calendar';
+
 import { getNoAvailDates } from '../services/api';
 import dates from '../utils/dates';
 
@@ -25,6 +26,7 @@ export default {
 
     if (route.params.date) store.commit('setSelectedDate', dates.str2Date(route.params.date));
     else if (store.state.selectedDate === null) store.commit('setSelectedDate', new Date());
+
     const selectedDate = ref(store.state.selectedDate);
     const todayDate = new Date();
     const pivotDate = new Date(selectedDate.value);
@@ -48,7 +50,7 @@ export default {
     const prevMonthButtonSetUp = () => {
       let prevMonthButton = document.querySelector('.p-datepicker-prev');
       prevMonthButton.onclick = async () => {
-        if (self.showedMonth === 1) showedMonth = 12;
+        if (showedMonth === 1) showedMonth = 12;
         else showedMonth -= 1;
         setupCalendarButtons();
         pivotDate.setMonth(pivotDate.getMonth()-1);

@@ -24,6 +24,7 @@
 import { useStore } from 'vuex';
 import { useRouter} from 'vue-router';
 import { useI18n } from 'vue-i18n';
+
 import dates from '../utils/dates';
 import Calendar from './Calendar';
 import notifier from '../utils/notifier';
@@ -43,7 +44,7 @@ export default {
         const dateStr = dates.date2Str(store.state.selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
-        notifier.showInfoNotification(i18n.$t('no_date_selected'));
+        notifier.showInfoNotification(i18n.t('no_date_selected'));
       }
     };
 

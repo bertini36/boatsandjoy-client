@@ -25,8 +25,9 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 import LanguageSwitch from '../components/LanguageSwitch';
 
 export default {

@@ -126,7 +126,7 @@ export default {
         const dateStr = dates.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
-        notifier.showInfoNotification(i18n.$t('no_date_selected'));
+        notifier.showInfoNotification(i18n.t('no_date_selected'));
       }
     };
 

@@ -1,13 +1,13 @@
 <template>
   <form class="flex flex-col">
     <div class="inline-flex mb-3">
-      <span class="mt-1" :class="{'price-circle': !isResident, 'disabled-price-circle': isResident}">
+      <span class="mt-1" :class="{'price-circle': !formData.isResident, 'disabled-price-circle': formData.isResident}">
         {{ price }}€
       </span>
-      <span class="text-6xl font-bold text-blue-500" v-if="isResident">
+      <span class="text-6xl font-bold text-blue-500" v-if="formData.isResident">
         >
       </span>
-      <span class="mt-1 price-circle" v-if="isResident">
+      <span class="mt-1 price-circle" v-if="formData.isResident">
         {{ residentPrice }}€
       </span>
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
@@ -18,39 +18,39 @@
     </p>
 
     <label class="inline-flex items-center cursor-pointer">
-      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="isResident">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.isResident">
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_resident') }}</span>
     </label>
 
     <label class="inline-flex items-center mt-1 cursor-pointer">
-      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptLegalAdvice">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptLegalAdvice">
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_legal_advice') }}</span>
-      <span class="pl-3 text-sm text-red-400">{{ acceptLegalAdviceError }}</span>
+      <span class="pl-3 text-sm text-red-400">{{ errors.acceptLegalAdvice }}</span>
     </label>
 
     <label class="inline-flex items-center mt-1 cursor-pointer">
-      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="acceptTermsAndConditions">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptTermsAndConditions">
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_terms_and_conditions') }}</span>
-      <span class="pl-3 text-sm text-red-400">{{ acceptTermsAndConditionsError }}</span>
+      <span class="pl-3 text-sm text-red-400">{{ errors.acceptTermsAndConditions }}</span>
     </label>
 
     <div class="flex flex-col">
       <label for="name" class="mt-4 pl-1">{{ $t('checkout_name') }}</label>
-      <input id="name" type="text" class="custom-input" v-model="name">
-      <span class="text-sm text-red-400 pl-1">{{ nameError }}</span>
+      <input id="name" type="text" class="custom-input" v-model="formData.name">
+      <span class="text-sm text-red-400 pl-1">{{ errors.name }}</span>
     </div>
 
 
     <div class="flex flex-col">
       <label for="telephone" class="mt-2 pl-1">{{ $t('checkout_telephone') }}</label>
-      <input id="telephone" type="number" class="custom-input" v-model="telephone">
-      <span class="text-sm text-red-400 pl-1">{{ telephoneError }}</span>
+      <input id="telephone" type="number" class="custom-input" v-model="formData.telephone">
+      <span class="text-sm text-red-400 pl-1">{{ errors.telephone }}</span>
     </div>
 
 
     <div class="flex flex-col">
       <label for="extras" class="mt-2 pl-1">{{ $t('checkout_extras') }}</label>
-      <textarea id="extras" rows="2" class="custom-textarea" v-model="extras"></textarea>
+      <textarea id="extras" rows="2" class="custom-textarea" v-model="formData.extras"></textarea>
     </div>
 
     <div class="flex">
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { ref, toRefs } from 'vue';
+import { ref, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 export default {
@@ -80,18 +80,21 @@ export default {
     const price = ref(basePrice);
     const residentPrice = ref(basePrice - (basePrice * residentDiscount));
 
-    // TODO: Join this in the same object (form)
-    const isResident = ref(false);
-    const acceptLegalAdvice = ref(false);
-    const acceptTermsAndConditions = ref(false);
-    const name = ref('');
-    const telephone = ref('');
-    const extras = ref('');
+    const formData = reactive({
+      isResident: false,
+      acceptLegalAdvice: false,
+      acceptTermsAndConditions: false,
+      name: '',
+      telephone: '',
+      extras: '',
+    });
 
-    const acceptLegalAdviceError = ref('');
-    const acceptTermsAndConditionsError = ref('');
-    const nameError = ref('');
-    const telephoneError = ref('');
+    const errors = reactive({
+      acceptLegalAdvic: '',
+      acceptTermsAndConditions: '',
+      name: '',
+      telephone: ''
+    });
 
     const pay = (event) => {
       event.preventDefault();
@@ -103,24 +106,24 @@ export default {
 
     const checkErrors = () => {
       let error = false;
-      acceptLegalAdviceError.value = '';
-      if (!acceptLegalAdvice.value) {
-        acceptLegalAdviceError.value = i18n.$t('checkout_accept_legal_advice_error');
+      errors.acceptLegalAdvice = '';
+      if (!formData.acceptLegalAdvice) {
+        errors.acceptLegalAdvice = i18n.t('checkout_accept_legal_advice_error');
         error = true;
       }
-      acceptTermsAndConditionsError.value = '';
-      if (!acceptTermsAndConditions.value) {
-        acceptTermsAndConditionsError.value = i18n.$t('checkout_accept_terms_and_conditions_error');
+      errors.acceptTermsAndConditions = '';
+      if (!formData.acceptTermsAndConditions) {
+        errors.acceptTermsAndConditions = i18n.t('checkout_accept_terms_and_conditions_error');
         error = true;
       }
-      nameError.value = '';
-      if (name.value === '') {
-        nameError.value = i18n.$t('checkout_name_error');
+      errors.name = '';
+      if (formData.name === '') {
+        errors.name = i18n.t('checkout_name_error');
         error = true;
       }
-      telephoneError.value = '';
-      if (telephone.value === '') {
-        telephoneError.value = i18n.$t('checkout_telephone_error');
+      errors.telephone = '';
+      if (formData.telephone === '') {
+        errors.telephone = i18n.t('checkout_telephone_error');
         error = true;
       }
       return error;
@@ -129,17 +132,9 @@ export default {
     return {
       price,
       residentPrice,
-      isResident,
-      acceptLegalAdvice,
-      acceptTermsAndConditions,
-      name,
-      telephone,
-      extras,
+      formData,
       pay,
-      acceptLegalAdviceError,
-      acceptTermsAndConditionsError,
-      nameError,
-      telephoneError,
+      errors,
     }
   }
 }
