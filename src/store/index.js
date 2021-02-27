@@ -1,9 +1,11 @@
 export default {
-  state() {
-    return {
-      showingFullScreenNav: false,
-      selectedDate: null,
-    }
+  state: {
+    showingFullScreenNav: false,
+    selectedDate: null,
+  },
+  getters: {
+    showingFullScreenNav: state => state.showingFullScreenNav,
+    selectedDate: state => state.selectedDate
   },
   mutations: {
     showFullScreenNav(state) {
