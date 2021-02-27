@@ -4,10 +4,7 @@
       <span class="mt-1" :class="{'price-circle': !formData.isResident, 'disabled-price-circle': formData.isResident}">
         {{ price }}€
       </span>
-      <span class="text-6xl font-bold text-blue-500" v-if="formData.isResident">
-        >
-      </span>
-      <span class="mt-1 price-circle" v-if="formData.isResident">
+      <span class="mt-1 ml-2 price-circle" v-if="formData.isResident">
         {{ residentPrice }}€
       </span>
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
