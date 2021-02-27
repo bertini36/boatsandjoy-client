@@ -1,25 +1,25 @@
 <template>
   <div>
-    <Availability></Availability>
-    <Boats></Boats>
-    <WaterSports></WaterSports>
+    <AvailabilitySection></AvailabilitySection>
+    <BoatsSection></BoatsSection>
+    <WaterSportsSection></WaterSportsSection>
     <Map></Map>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Availability from '../components/Availability';
-import Boats from '../components/Boats';
-import WaterSports from '../components/WaterSports';
+import AvailabilitySection from '../components/AvailabilitySection';
+import BoatsSection from '../components/BoatsSection';
+import WaterSportsSection from '../components/WaterSportsSection';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
 
 export default {
   components: {
-    Availability,
-    Boats,
-    WaterSports,
+    AvailabilitySection,
+    BoatsSection,
+    WaterSportsSection,
     Map,
     Footer
   },

@@ -64,6 +64,7 @@
 
 <script>
 import { ref, toRefs } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 export default {
   props: {
@@ -71,12 +72,15 @@ export default {
   },
 
   setup(props) {
+    const i18n = useI18n();
+
     let { availabilityOption } = toRefs(props)
     const basePrice = availabilityOption.value.price;
     const residentDiscount = availabilityOption.value.discounts.resident;
     const price = ref(basePrice);
     const residentPrice = ref(basePrice - (basePrice * residentDiscount));
 
+    // TODO: Join this in the same object (form)
     const isResident = ref(false);
     const acceptLegalAdvice = ref(false);
     const acceptTermsAndConditions = ref(false);
@@ -101,22 +105,22 @@ export default {
       let error = false;
       acceptLegalAdviceError.value = '';
       if (!acceptLegalAdvice.value) {
-        acceptLegalAdviceError.value = this.$t('checkout_accept_legal_advice_error');
+        acceptLegalAdviceError.value = i18n.$t('checkout_accept_legal_advice_error');
         error = true;
       }
       acceptTermsAndConditionsError.value = '';
       if (!acceptTermsAndConditions.value) {
-        acceptTermsAndConditionsError.value = this.$t('checkout_accept_terms_and_conditions_error');
+        acceptTermsAndConditionsError.value = i18n.$t('checkout_accept_terms_and_conditions_error');
         error = true;
       }
       nameError.value = '';
       if (name.value === '') {
-        nameError.value = this.$t('checkout_name_error');
+        nameError.value = i18n.$t('checkout_name_error');
         error = true;
       }
       telephoneError.value = '';
       if (telephone.value === '') {
-        telephoneError.value = this.$t('checkout_telephone_error');
+        telephoneError.value = i18n.$t('checkout_telephone_error');
         error = true;
       }
       return error;

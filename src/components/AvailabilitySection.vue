@@ -10,7 +10,7 @@
       </div>
 
       <div class="mt-6 md:mt-12 flex flex-row justify-center">
-       <bj-calendar></bj-calendar>
+       <Calendar></Calendar>
       </div>
 
       <div class="mt-6 flex flex-row justify-center">
@@ -22,25 +22,28 @@
 
 <script>
 import { useStore } from 'vuex';
-import router from '../routes';
+import { useRouter} from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import dates from '../utils/dates';
-import BjCalendar from './BjCalendar';
+import Calendar from './Calendar';
 import notifier from '../utils/notifier';
 
 export default {
   components: {
-    BjCalendar,
+    Calendar,
   },
 
   setup() {
+    const router = useRouter();
     const store = useStore();
+    const i18n = useI18n();
 
     const checkAvailability = () => {
       if (store.state.selectedDate !== null) {
         const dateStr = dates.date2Str(store.state.selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
-        notifier.showInfoNotification(this.$t('no_date_selected'));
+        notifier.showInfoNotification(i18n.$t('no_date_selected'));
       }
     };
 

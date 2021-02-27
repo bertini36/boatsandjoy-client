@@ -5,7 +5,7 @@
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center">
-          <bj-calendar></bj-calendar>
+          <Calendar></Calendar>
           <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
             <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
           </div>
@@ -78,9 +78,10 @@
 <script>
 import { onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useI18n } from 'vue-i18n';
 import api from '../api';
 import dates from '../utils/dates';
-import BjCalendar from '../components/BjCalendar';
+import Calendar from '../components/Calendar';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
 import Modal from '../components/Modal.vue';
@@ -89,7 +90,7 @@ import notifier from '../utils/notifier';
 
 export default {
   components: {
-    BjCalendar,
+    Calendar,
     Map,
     Footer,
     Modal,
@@ -98,6 +99,7 @@ export default {
 
   setup() {
     const store = useStore();
+    const i18n = useI18n();
 
     const loadedDate = ref('');
     const boatsAvailability = ref(null);
@@ -123,7 +125,7 @@ export default {
         const dateStr = dates.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
-        notifier.showInfoNotification(this.$t('no_date_selected'));
+        notifier.showInfoNotification(i18n.$t('no_date_selected'));
       }
     };
 

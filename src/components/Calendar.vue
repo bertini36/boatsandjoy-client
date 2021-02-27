@@ -1,5 +1,5 @@
 <template>
-  <Calendar v-model="selectedDate"
+  <PrimeCalendar v-model="selectedDate"
             :inline="true"
             :minDate="todayDate"
             :disabledDates="noAvailDates"
@@ -10,13 +10,13 @@
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
-import Calendar from 'primevue/calendar';
+import PrimeCalendar from 'primevue/calendar';
 import api from '../api';
 import dates from '../utils/dates';
 
 export default {
   components: {
-    Calendar,
+    PrimeCalendar,
   },
 
   setup() {
