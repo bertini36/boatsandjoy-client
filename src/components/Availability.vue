@@ -6,7 +6,7 @@
       </div>
 
       <div class="flex flex-row justify-center mt-4">
-        <h1 class="text-white text-3xl">{{ i18n.$t('slogan') }}</h1>
+        <h1 class="text-white text-3xl">{{ $t('slogan') }}</h1>
       </div>
 
       <div class="mt-6 md:mt-12 flex flex-row justify-center">
@@ -14,16 +14,14 @@
       </div>
 
       <div class="mt-6 flex flex-row justify-center">
-        <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
+        <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import { ref } from 'vue';
 import { useStore } from 'vuex';
-import { useI18n } from '../utils/i18nPlugin';
 import router from '../routes';
 import dates from '../utils/dates';
 import BjCalendar from './BjCalendar';
@@ -36,19 +34,17 @@ export default {
 
   setup() {
     const store = useStore();
-    const i18n = ref(useI18n());
 
     const checkAvailability = () => {
       if (store.state.selectedDate !== null) {
         const dateStr = dates.date2Str(store.state.selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
-        notifier.showInfoNotification(i18n.value.$t('no_date_selected'));
+        notifier.showInfoNotification(this.$t('no_date_selected'));
       }
     };
 
     return {
-      i18n,
       checkAvailability,
     }
   }

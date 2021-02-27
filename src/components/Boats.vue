@@ -2,8 +2,8 @@
   <div id="boats">
     <article class="py-12 md:pt-20 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
-        <h3 class="title mb-4">{{ i18n.$t('boats_title') }}</h3>
-        <p class="text-center">{{ i18n.$t('boats_description') }}</p>
+        <h3 class="title mb-4">{{ $t('boats_title') }}</h3>
+        <p class="text-center">{{ $t('boats_description') }}</p>
       </div>
     </article>
 
@@ -27,40 +27,40 @@
             </div>
 
             <div class="bg-white xl:relative row-start-1 col-start-1 lg:col-start-2 col-span-3 lg:col-span-2 transform translate-x-4 lg:translate-x-8 translate-y-4 lg:translate-y-7 pt-8 px-8 md:px-8 lg:px-12 rounded-3xl text-left bg-white shadow-2xl">
-              <h2 class="title text-2xl font-bold mb-6">{{ i18n.$t('boats_information_title') }}</h2>
+              <h2 class="title text-2xl font-bold mb-6">{{ $t('boats_information_title') }}</h2>
               <div class="grid grid-flow-col grid-rows-2 grid-cols-2 md:grid-rows-1 md:grid-cols-3 gap-4 pt-4">
                 <div>
-                  <strong>{{ i18n.$t('boats_basic') }}</strong>
+                  <strong>{{ $t('boats_basic') }}</strong>
                   <ul class="mt-2">
-                    <li>{{ i18n.$t('boats_capacity') }}</li>
-                    <li>{{ i18n.$t('boats_power') }}</li>
-                    <li>{{ i18n.$t('boats_location') }}</li>
-                    <li>{{ i18n.$t('boats_caution') }}</li>
-                    <li>{{ i18n.$t('boats_gas') }}</li>
+                    <li>{{ $t('boats_max_capacity') }}</li>
+                    <li>{{ $t('boats_power') }}</li>
+                    <li>{{ $t('boats_location') }}</li>
+                    <li>{{ $t('boats_caution') }}</li>
+                    <li>{{ $t('boats_gas') }}</li>
                   </ul>
                 </div>
                 <div class="pt-4 md:pt-0">
-                  <strong>{{ i18n.$t('boats_equiped_with') }}</strong>
+                  <strong>{{ $t('boats_equiped_with') }}</strong>
                   <ul class="mt-2">
-                    <li>{{ i18n.$t('boats_solarium') }}</li>
-                    <li>{{ i18n.$t('boats_bimini') }}</li>
-                    <li>{{ i18n.$t('boats_fridge') }}</li>
-                    <li>{{ i18n.$t('boats_bag') }}</li>
+                    <li>{{ $t('boats_solarium') }}</li>
+                    <li>{{ $t('boats_bimini') }}</li>
+                    <li>{{ $t('boats_fridge') }}</li>
+                    <li>{{ $t('boats_bag') }}</li>
                   </ul>
                 </div>
                 <div>
-                  <strong>{{ i18n.$t('boats_extras') }}</strong>
+                  <strong>{{ $t('boats_extras') }}</strong>
                   <ul class="mt-2">
-                    <li>{{ i18n.$t('boats_masks') }}</li>
-                    <li>{{ i18n.$t('boats_catering') }}</li>
-                    <li>{{ i18n.$t('boats_drinks') }}</li>
-                    <li>{{ i18n.$t('boats_alcohol') }}</li>
-                    <li>{{ i18n.$t('boats_watersports') }}</li>
+                    <li>{{ $t('boats_masks') }}</li>
+                    <li>{{ $t('boats_catering') }}</li>
+                    <li>{{ $t('boats_drinks') }}</li>
+                    <li>{{ $t('boats_alcohol') }}</li>
+                    <li>{{ $t('boats_watersports') }}</li>
                   </ul>
                 </div>
               </div>
               <h3 class="mt-4 md:mt-6 text-lg font-semibold mb-6 text-orange-500 text-center">
-                {{ i18n.$t('boats_ask') }}
+                {{ $t('boats_ask') }}
               </h3>
             </div>
           </div>
@@ -79,14 +79,12 @@
 
 <script>
 import { ref } from 'vue';
-import { useI18n } from '../utils/i18nPlugin';
 import Modal from '../components/Modal.vue';
 
 export default {
   components: { Modal },
 
   setup() {
-    const i18n = ref(useI18n());
     const image_urls = [
       require('../assets/img/boats1.jpg'),
       require('../assets/img/boats1.jpg'),
@@ -101,7 +99,6 @@ export default {
     };
 
     return {
-      i18n,
       image_urls,
       showingModal,
       selectedImageUrl,

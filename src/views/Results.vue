@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <h3 class="title mt-32 mb-4">{{ i18n.$t('results_title') }} {{ loadedDate }}</h3>
+      <h3 class="title mt-32 mb-4">{{ $t('results_title') }} {{ loadedDate }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center">
           <bj-calendar></bj-calendar>
           <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
-            <button class="btn" @click="checkAvailability">{{ i18n.$t('check_availability') }}</button>
+            <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
           </div>
         </div>
 
@@ -35,19 +35,19 @@
 
                   <div class="w-full flex flex-col">
                     <select v-model="selectedAvailabilityOptions[i]" class="custom-select w-full mt-6 mb-2">
-                      <option value="">{{ i18n.$t('results_select_a_pricing_option') }}</option>
+                      <option value="">{{ $t('results_select_a_pricing_option') }}</option>
                       <option v-for="availabilityOption in boatAvailability.availability"
                               :key="availabilityOption"
                               :value="{...{'boat': boatAvailability.boat}, ...availabilityOption, ...{'discounts': boatAvailability.discounts}}">
-                          {{ i18n.$t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
-                          {{ i18n.$t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }} ({{ availabilityOption.price }}€)
+                          {{ $t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
+                          {{ $t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }} ({{ availabilityOption.price }}€)
                       </option>
                     </select>
                     <div class="flex">
                       <button class="btn mt-6 mb-4 w-full flex-grow"
                               :disabled="!selectedAvailabilityOptions[i]"
                               @click="showCheckoutModal(selectedAvailabilityOptions[i])">
-                        {{ i18n.$t('results_book') }}
+                        {{ $t('results_book') }}
                       </button>
                     </div>
                   </div>
@@ -76,16 +76,15 @@
 </template>
 
 <script>
-import {onMounted, ref} from 'vue';
-import {useStore} from 'vuex';
-import {useI18n} from '@/utils/i18nPlugin';
+import { onMounted, ref } from 'vue';
+import { useStore } from 'vuex';
 import api from '../api';
 import dates from '../utils/dates';
-import BjCalendar from '@/components/BjCalendar';
-import Map from '@/components/Map';
-import Footer from '@/components/Footer';
-import Modal from '@/components/Modal.vue';
-import CheckoutForm from '@/components/CheckoutForm.vue';
+import BjCalendar from '../components/BjCalendar';
+import Map from '../components/Map';
+import Footer from '../components/Footer';
+import Modal from '../components/Modal.vue';
+import CheckoutForm from '../components/CheckoutForm.vue';
 import notifier from '../utils/notifier';
 
 export default {
@@ -99,7 +98,6 @@ export default {
 
   setup() {
     const store = useStore();
-    const i18n = ref(useI18n());
 
     const loadedDate = ref('');
     const boatsAvailability = ref(null);
@@ -125,7 +123,7 @@ export default {
         const dateStr = dates.date2Str(store.state.selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
-        notifier.showInfoNotification(i18n.value.$t('no_date_selected'));
+        notifier.showInfoNotification(this.$t('no_date_selected'));
       }
     };
 
@@ -157,7 +155,6 @@ export default {
     };
 
     return {
-      i18n,
       loadedDate,
       boatsAvailability,
       getSelectedDate,

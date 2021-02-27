@@ -14,9 +14,9 @@
           </button>
         </div>
         <ul class="mb-auto mt-12">
-          <li><a :href="base_url + '#home'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('home') }}</a></li>
-          <li><a :href="base_url + '#boats'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('boats') }}</a></li>
-          <li><a :href="base_url + '#watersports'" @click="hideFullScreenNav" class="w-full">{{ i18n.$t('watersports') }}</a></li>
+          <li><a :href="base_url + '#home'" @click="hideFullScreenNav" class="w-full">{{ $t('home') }}</a></li>
+          <li><a :href="base_url + '#boats'" @click="hideFullScreenNav" class="w-full">{{ $t('boats') }}</a></li>
+          <li><a :href="base_url + '#watersports'" @click="hideFullScreenNav" class="w-full">{{ $t('watersports') }}</a></li>
           <li><LanguageSwitch></LanguageSwitch></li>
         </ul>
       </div>
@@ -25,20 +25,17 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { useI18n } from '../utils/i18nPlugin';
 import LanguageSwitch from '../components/LanguageSwitch';
 
 export default {
   components: { LanguageSwitch },
   setup() {
-    const i18n = ref(useI18n());
     const store = useStore();
     const base_url = process.env.VUE_APP_URL;
 
     return {
-      i18n,
       base_url,
       showingFullScreenNav: computed(() => store.state.showingFullScreenNav),
       hideFullScreenNav: () => store.commit('hideFullScreenNav'),

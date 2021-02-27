@@ -1,10 +1,15 @@
 import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 import { createStore } from 'vuex';
+import { createI18n } from 'vue-i18n';
+import PrimeVue from 'primevue/config';
 
 import App from './App.vue';
-import router from './routes.js';
+import routes from './routes';
 import store from './store';
-import PrimeVue from 'primevue/config';
+
+import en from './i18n/en';
+import es from './i18n/es';
 
 import 'primevue/resources/themes/nova/theme.css';
 import 'primevue/resources/primevue.min.css';
@@ -23,7 +28,19 @@ app.config.globalProperties.$filters = {
   }
 }
 
-app.use(router)
+app
+  .use(createRouter({
+    history: createWebHistory(),
+    routes,
+  }))
   .use(createStore(store))
+  .use(createI18n({
+    locale: 'en',
+    fallbackLocale: 'en',
+    messages: {
+      en,
+      es
+    }
+  }))
   .use(PrimeVue)
   .mount('#app');
