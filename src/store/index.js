@@ -1,6 +1,4 @@
-import { createStore } from 'vuex';
-
-export default createStore({
+export default {
   state() {
     return {
       showingFullScreenNav: false,
@@ -20,4 +18,4 @@ export default createStore({
       state.selectedDate = newSelectedDate;
     }
   }
-});
+};

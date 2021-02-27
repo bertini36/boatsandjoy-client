@@ -1,4 +1,6 @@
 import { createApp } from 'vue';
+import { createStore } from 'vuex';
+
 import App from './App.vue';
 import router from './routes.js';
 import store from './store';
@@ -22,6 +24,6 @@ app.config.globalProperties.$filters = {
 }
 
 app.use(router)
-  .use(store)
+  .use(createStore(store))
   .use(PrimeVue)
   .mount('#app');
