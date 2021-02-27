@@ -57,7 +57,7 @@ export default {
 
   results_title: 'Availability for day',
   results_select_a_pricing_option: 'Choose your schedule',
-  results_from: 'From',
+  results_from: 'from',
   results_to: 'to',
   results_book: 'Book now!',
 

@@ -9,6 +9,7 @@ import routes from './routes';
 import store from './store';
 import en from './i18n/en';
 import es from './i18n/es';
+import formatDate from './filters/formatDate';
 import formatHour from './filters/formatHour';
 
 import 'primevue/resources/themes/nova/theme.css';
@@ -21,7 +22,8 @@ import 'noty/lib/themes/nest.css';
 const app = createApp(App)
 
 app.config.globalProperties.$filters = {
-  formatHour
+  formatDate,
+  formatHour,
 }
 
 app

@@ -13,6 +13,7 @@
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
     </div>
     <p class="mb-6">
+      {{ $filters.formatDate(availabilityOption.day) }}
       {{ $t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
       {{ $t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }}
     </p>
@@ -72,6 +73,7 @@ export default {
   },
 
   setup(props) {
+    console.log(props);
     const i18n = useI18n();
 
     let { availabilityOption } = toRefs(props)
