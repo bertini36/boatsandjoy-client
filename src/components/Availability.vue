@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import {ref} from 'vue';
-import {useStore} from 'vuex';
-import {useI18n} from '@/utils/i18nPlugin';
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useI18n } from '../utils/i18nPlugin';
 import router from '../routes';
 import dates from '../utils/dates';
 import BjCalendar from './BjCalendar';

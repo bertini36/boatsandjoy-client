@@ -1,6 +1,6 @@
-import {createStore} from 'vuex';
+import { createStore } from 'vuex';
 
-const store = createStore({
+export default createStore({
   state() {
     return {
       showingFullScreenNav: false,
@@ -21,5 +21,3 @@ const store = createStore({
     }
   }
 });
-
-export default store;

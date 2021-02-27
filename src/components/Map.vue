@@ -13,14 +13,15 @@
 </template>
 
 <script>
-import {defineComponent, ref} from 'vue';
-import {useI18n} from '@/utils/i18nPlugin';
-import {GoogleMap, Marker} from 'vue3-google-map';
+import { defineComponent, ref } from 'vue';
+import { GoogleMap, Marker } from 'vue3-google-map';
+import { useI18n } from '../utils/i18nPlugin';
 
 export default defineComponent({
   components: { GoogleMap, Marker },
   setup() {
     const i18n = ref(useI18n());
+    // TODO: Move credentials to env
     const googleApiKey = 'AIzaSyAzW4jgKYOJloB347OY_Kcwr13zv5WvUmk';
     const center = { lat: 39.578955, lng: 2.350158 }  // Sant Elm
     return {

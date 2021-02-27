@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import {ref, toRefs} from 'vue';
-import {useI18n} from '@/utils/i18nPlugin';
+import { ref, toRefs } from 'vue';
+import { useI18n } from '../utils/i18nPlugin';
 
 export default {
   props: {

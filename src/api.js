@@ -1,6 +1,8 @@
 import axios from 'axios';
 import dates from './utils/dates';
 
+// TODO: Move to services and use fetch
+
 const api = {
   getNoAvailDates: async (date) => {
     const response = await axios.get(`${process.env.VUE_APP_API_URL}availability/month/${dates.date2Str(date)}/`);

@@ -78,9 +78,9 @@
 </template>
 
 <script>
-import {ref} from 'vue';
-import {useI18n} from '@/utils/i18nPlugin';
-import Modal from '@/components/Modal.vue';
+import { ref } from 'vue';
+import { useI18n } from '../utils/i18nPlugin';
+import Modal from '../components/Modal.vue';
 
 export default {
   components: { Modal },

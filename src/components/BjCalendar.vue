@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import {onMounted, ref, watch} from 'vue';
-import {useRoute} from 'vue-router';
-import {useStore} from 'vuex';
+import { onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
 import Calendar from 'primevue/calendar';
 import api from '../api';
 import dates from '../utils/dates';
