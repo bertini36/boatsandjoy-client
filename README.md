@@ -31,7 +31,8 @@ Powered by <a href="https://github.com/vuejs/vue-next">#vue</a> and
 ### 🔥 Application execution
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
-2. Run the server: `make up` (by default Vue runs applications at 3000 port)
+2. Set config files: `cp .env.sample .env.production && cp .env.sample .env.development`
+3. Run the server: `make up` (by default Vue runs applications at 3000 port)
 
 ## 🚀 Deploy
 
