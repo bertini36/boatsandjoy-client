@@ -5,6 +5,7 @@
     "serve": "vue-cli-service serve --host 0.0.0.0 --port 3000",
     "build": "npm run build:tailwind && vue-cli-service build --modern",
     "test": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
