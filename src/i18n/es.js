@@ -65,6 +65,8 @@ export default {
   checkout_name_error: '',
   checkout_telephone_error: '',
 
+  error_redirecting_to_stripe: '',
+
   footer_about_us_title: '',
   footer_about_us_content: '',
   footer_links_title: '',

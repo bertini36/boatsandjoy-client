@@ -23,3 +23,16 @@ export async function getDateAvail(date, applyResidentDiscount) {
   const response = await axios.get(`${baseUrl}availability/day/${date2Str(date)}/?apply_resident_discount=${applyResidentDiscount ? 1 : 0}`);
   return response.data.data;
 }
+
+export async function createBooking(price, slotIds, customerName, customerTelephoneNumber, extras) {
+  const data = {
+    'price': price,
+    'slot_ids': String(slotIds),
+    'customer_name': customerName,
+    'customer_telephone_number': customerTelephoneNumber,
+    'extras': extras
+  };
+  const baseUrl = process.env.VUE_APP_API_URL;
+  const response = await axios.post(`${baseUrl}bookings/create/booking/`, JSON.stringify(data), { headers: { 'Content-type': 'application/json' } });
+  return response.data.data;
+}

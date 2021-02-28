@@ -73,6 +73,8 @@ export default {
   checkout_name_error: 'You have to specify your name',
   checkout_telephone_error: 'You have to specify your telephone number',
 
+  error_redirecting_to_stripe: 'There has been an error in the redirection to the payment gateway',
+
   footer_about_us_title: 'About us',
   footer_about_us_content: 'bla bla bla',
   footer_links_title: 'Links',

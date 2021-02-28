@@ -52,7 +52,7 @@
     </div>
 
     <div class="flex">
-      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center" @click="(event) => pay(event)">
+      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center" @click="(event) => goPay(event)">
         <img src="../assets/img/icon-add-credit-card.svg" alt="Add credit card icon" class="mr-2">
         {{ $t('checkout_pay') }}
       </button>
@@ -65,6 +65,8 @@ import { ref, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { formatDate, formatHour } from '../utils/dates';
+import { createBooking } from '../services/api';
+import { redirectToCheckout } from '../services/stripe';
 
 export default {
   props: {
@@ -96,11 +98,19 @@ export default {
       telephone: ''
     });
 
-    const pay = (event) => {
+    const goPay = async (event) => {
       event.preventDefault();
       const error = checkErrors();
       if (!error) {
-        console.log('Tamos bien');
+        const response = await createBooking(
+          formData.isResident ? residentPrice.value : price.value,
+          availabilityOption.value.slots.map(slot => slot.id),
+          formData.name,
+          formData.telephone,
+          formData.extras
+        );
+        const stripeSessionId = response.session_id;
+        await redirectToCheckout(stripeSessionId);
       }
     };
 
@@ -133,7 +143,7 @@ export default {
       price,
       residentPrice,
       formData,
-      pay,
+      goPay,
       errors,
       formatDate,
       formatHour
