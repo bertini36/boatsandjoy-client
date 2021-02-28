@@ -18,17 +18,17 @@ describe('Modal component', () => {
   it('closes when click', async () => {
     render(Modal, { showing: true } );
 
-    const button = await screen.getByRole('button');
+    const button = screen.getByRole('button');
     await userEvent.click(button);
 
-    const modal = await screen.queryByRole('dialog');
+    const modal = screen.queryByRole('dialog');
     expect(modal).not.toBeInTheDocument();
   });
 
   it('emits close signal', async () => {
     const { emitted } = render(Modal, { showing: true });
 
-    const button = await screen.getByRole('button');
+    const button = screen.getByRole('button');
     await userEvent.click(button);
 
     expect(emitted().close).toBeTruthy();
