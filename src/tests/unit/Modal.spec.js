@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/vue';
+import { screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { render } from '../test-utils';
 import Modal from '../../components/Modal.vue';
 
 let { describe, it, expect } = global;
