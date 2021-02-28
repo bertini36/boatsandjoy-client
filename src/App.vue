@@ -3,7 +3,7 @@
     <navbar/>
     <full-screen-nav/>
 
-     <div data-testid="location-display" class="hidden">{{ $route.fullPath }}</div>
+    <div data-testid="location-display" class="hidden">{{ $route.fullPath }}</div>
     <router-view/>
   </div>
 </template>
