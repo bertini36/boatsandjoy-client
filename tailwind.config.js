@@ -43,8 +43,4 @@ module.exports = {
       fontSize: ['hover'],
     }
   },
-
-  plugins: [
-      require('@tailwindcss/typography'),
-  ]
 }
