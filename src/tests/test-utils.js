@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import { createI18n } from 'vue-i18n';
 import { render as vtlRender } from '@testing-library/vue';
+import PrimeVue from 'primevue/config';
 
 import routes from '../routes';
 import store from '../store';
@@ -28,6 +29,7 @@ export function render(component, props = {}, initialState = {}) {
       plugins: [
         testStore,
         testI18n,
+        PrimeVue,
       ]
     }
   });

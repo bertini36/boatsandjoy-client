@@ -21,11 +21,10 @@ export default {
   },
 
   setup() {
-    const route = useRoute();
+    const router = useRoute();
     const store = useStore();
 
-    if (route && route.params.date) store.commit('setSelectedDate', str2Date(route.params.date));
-    else if (store.getters.selectedDate === null) store.commit('setSelectedDate', new Date());
+    if (router && router.params.date) store.commit('setSelectedDate', str2Date(router.params.date));
 
     const selectedDate = ref(store.getters.selectedDate);
     const todayDate = new Date();

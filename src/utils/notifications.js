@@ -18,17 +18,17 @@ export function showNotification(type, text, timeout = TIMEOUT) {
 }
 
 export function showSuccessNotification(text, timeout = TIMEOUT) {
-  this.showNotification('success', text, timeout);
+  showNotification('success', text, timeout);
 }
 
 export function showErrorNotification(text, timeout = TIMEOUT) {
-  this.showNotification('error', text, timeout);
+  showNotification('error', text, timeout);
 }
 
 export function showWarningNotification(text, timeout = TIMEOUT) {
-  this.showNotification('warning', text, timeout);
+  showNotification('warning', text, timeout);
 }
 
 export function showInfoNotification(text, timeout = TIMEOUT) {
-  this.showNotification('info', text, timeout);
+  showNotification('info', text, timeout);
 }
