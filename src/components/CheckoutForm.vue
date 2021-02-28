@@ -70,7 +70,6 @@ export default {
   },
 
   setup(props) {
-    console.log(props);
     const i18n = useI18n();
 
     let { availabilityOption } = toRefs(props)

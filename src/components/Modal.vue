@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showing" class="animated fadeIn fixed z-50 pin flex bg-black-transparent inset-0 w-full h-full mx-auto my-auto items-center justify-center overflow-hidden">
+  <div v-if="localShowing" role="dialog" class="animated fadeIn fixed z-50 pin flex bg-black-transparent inset-0 w-full h-full mx-auto my-auto items-center justify-center overflow-hidden">
     <div class="relative w-full mx-4 w-full md:max-w-3xl bg-white shadow-lg rounded-lg px-8 py-14 md:px-14">
       <button class="absolute top-0 right-0 text-xl text-black m-2 focus:outline-none" @click="close">
        <svg xmlns="http://www.w3.org/2000/svg" class="m-2 w-8 h-8 fill-current text-black hover:text-orange-600">
@@ -12,36 +12,40 @@
 </template>
 
 <script>
-import { watch } from 'vue';
+import { watch, ref } from 'vue';
 
 export default {
   name: 'Modal',
   props: {
     showing: Boolean,
   },
+  emits: ['close'],
 
   setup(props, { emit }) {
+    const localShowing = ref(props.showing);
     const enableScrolling = () => window.onscroll = function() {};
 
     const close = () => {
+      localShowing.value = false;
       enableScrolling();
       emit('close');
     };
 
     watch(() => props.showing, (newValue, previousValue) => {
-      if (previousValue === false && newValue === true)
-        disableScrolling();
+      if (previousValue === false && newValue === true) disableScrolling();
+      localShowing.value = newValue;
     });
 
     const disableScrolling = () => {
       let x = window.scrollX;
       let y = window.scrollY;
-      window.onscroll = function () {
+      window.onscroll = function() {
         window.scrollTo(x, y);
       };
     };
 
     return {
+      localShowing,
       close,
     }
   },
