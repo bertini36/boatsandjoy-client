@@ -5,7 +5,6 @@ import { showErrorNotification } from '../utils/notifications';
 let { Stripe } = global;
 
 export async function redirectToCheckout(sessionId) {
-  console.log(process.env.VUE_APP_STRIPE_API_KEY);
   const stripe = Stripe(process.env.VUE_APP_STRIPE_API_KEY);
   await stripe.redirectToCheckout({
     sessionId: sessionId
