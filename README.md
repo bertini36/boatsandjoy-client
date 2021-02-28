@@ -1,4 +1,5 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b069aa74-44af-48fe-be62-7f98078f07fc/deploy-status)](https://app.netlify.com/sites/quicopou-arquitecto/deploys)
+[![Github actions](https://github.com/bertini36/boatsandjoy-client/workflows/test/badge.svg)](https://github.com/bertini36/boatsandjoy-client/workflows/test/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b069aa74-44af-48fe-be62-7f98078f07fc/deploy-status)](https://app.netlify.com/sites/boatsandjoy-client/deploys)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <h3 align="center">
