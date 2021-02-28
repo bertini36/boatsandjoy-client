@@ -38,7 +38,7 @@ export default {
 
     return {
       base_url,
-      showingFullScreenNav: computed(() => store.state.showingFullScreenNav),
+      showingFullScreenNav: computed(() => store.getters.showingFullScreenNav),
       hideFullScreenNav: () => store.commit('hideFullScreenNav'),
     }
   }

@@ -40,8 +40,9 @@ export default {
     const i18n = useI18n();
 
     const checkAvailability = () => {
-      if (store.state.selectedDate !== null) {
-        const dateStr = dates.date2Str(store.state.selectedDate);
+      const selectedDate = store.getters.selectedDate;
+      if (selectedDate !== null) {
+        const dateStr = dates.date2Str(selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
         notifier.showInfoNotification(i18n.t('no_date_selected'));

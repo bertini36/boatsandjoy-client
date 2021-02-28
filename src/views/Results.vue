@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <h3 class="title mt-32 mb-4">{{ $t('results_title') }} {{ $filters.formatDate(loadedDate) }}</h3>
+      <h3 class="title mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ $filters.formatDate(loadedDate) }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center">
@@ -122,8 +122,9 @@ export default {
     };
 
     const checkAvailability = () => {
-      if (store.state.selectedDate !== null) {
-        const dateStr = dates.date2Str(store.state.selectedDate);
+      const selectedDate = store.getters.selectedDate;
+      if (selectedDate !== null) {
+        const dateStr = dates.date2Str(selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
         notifier.showInfoNotification(i18n.t('no_date_selected'));

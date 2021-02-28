@@ -15,7 +15,6 @@
 import { watch, ref } from 'vue';
 
 export default {
-  name: 'Modal',
   props: {
     showing: Boolean,
   },

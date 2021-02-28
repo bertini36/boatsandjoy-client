@@ -24,10 +24,10 @@ export default {
     const route = useRoute();
     const store = useStore();
 
-    if (route.params.date) store.commit('setSelectedDate', dates.str2Date(route.params.date));
-    else if (store.state.selectedDate === null) store.commit('setSelectedDate', new Date());
+    if (route && route.params.date) store.commit('setSelectedDate', dates.str2Date(route.params.date));
+    else if (store.getters.selectedDate === null) store.commit('setSelectedDate', new Date());
 
-    const selectedDate = ref(store.state.selectedDate);
+    const selectedDate = ref(store.getters.selectedDate);
     const todayDate = new Date();
     const pivotDate = new Date(selectedDate.value);
     let noAvailDates = ref([]);

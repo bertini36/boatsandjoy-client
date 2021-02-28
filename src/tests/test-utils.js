@@ -6,7 +6,7 @@ import routes from '../routes';
 import store from '../store';
 import en from '../i18n/en';
 
-export function render(component, { props, initialState } = {}) {
+export function render(component, props = {}, initialState = {}) {
   const testStore = createStore({
     ...store,
     state: {
@@ -23,8 +23,7 @@ export function render(component, { props, initialState } = {}) {
   });
   return vtlRender(component, {
     props: props,
-    routes: routes,   // TODO: router will be passed as plugin with next versions of
-                      //       testing library
+    routes: routes,   // Router will be to be passed as plugin with next versions TL
     global: {
       plugins: [
         testStore,
