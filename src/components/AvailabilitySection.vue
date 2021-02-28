@@ -27,7 +27,7 @@ import { useI18n } from 'vue-i18n';
 
 import { date2Str } from '../utils/dates';
 import Calendar from './Calendar';
-import notifier from '../utils/notifier';
+import { showInfoNotification } from '../utils/notifications';
 
 export default {
   components: {
@@ -45,7 +45,7 @@ export default {
         const dateStr = date2Str(selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
-        notifier.showInfoNotification(i18n.t('no_date_selected'));
+        showInfoNotification(i18n.t('no_date_selected'));
       }
     };
 
