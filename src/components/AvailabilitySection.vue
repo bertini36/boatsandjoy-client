@@ -25,7 +25,7 @@ import { useStore } from 'vuex';
 import { useRouter} from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
-import dates from '../utils/dates';
+import { date2Str } from '../utils/dates';
 import Calendar from './Calendar';
 import notifier from '../utils/notifier';
 
@@ -42,7 +42,7 @@ export default {
     const checkAvailability = () => {
       const selectedDate = store.getters.selectedDate;
       if (selectedDate !== null) {
-        const dateStr = dates.date2Str(selectedDate);
+        const dateStr = date2Str(selectedDate);
         router.push({ name: 'results', params: { date: dateStr } });
       } else {
         notifier.showInfoNotification(i18n.t('no_date_selected'));

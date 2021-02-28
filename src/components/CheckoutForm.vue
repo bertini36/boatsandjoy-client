@@ -10,9 +10,9 @@
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
     </div>
     <p class="mb-6">
-      {{ $filters.formatDate(availabilityOption.day) }}
-      {{ $t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
-      {{ $t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }}
+      {{ formatDate(availabilityOption.day) }}
+      {{ $t('results_from') }} {{ formatHour(availabilityOption.from_hour) }}
+      {{ $t('results_to') }} {{ formatHour(availabilityOption.to_hour) }}
     </p>
 
     <label class="inline-flex items-center cursor-pointer">
@@ -63,6 +63,8 @@
 <script>
 import { ref, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
+
+import { formatDate, formatHour } from '../utils/dates';
 
 export default {
   props: {
@@ -133,6 +135,8 @@ export default {
       formData,
       pay,
       errors,
+      formatDate,
+      formatHour
     }
   }
 }

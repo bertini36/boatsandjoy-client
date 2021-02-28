@@ -27,7 +27,7 @@ export function render(component, props = {}, initialState = {}) {
     global: {
       plugins: [
         testStore,
-        testI18n
+        testI18n,
       ]
     }
   });

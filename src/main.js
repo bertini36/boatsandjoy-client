@@ -9,8 +9,6 @@ import routes from './routes';
 import store from './store';
 import en from './i18n/en';
 import es from './i18n/es';
-import formatDate from './filters/formatDate';
-import formatHour from './filters/formatHour';
 
 import 'primevue/resources/themes/nova/theme.css';
 import 'primevue/resources/primevue.min.css';
@@ -20,11 +18,6 @@ import 'noty/lib/noty.css';
 import 'noty/lib/themes/nest.css';
 
 const app = createApp(App)
-
-app.config.globalProperties.$filters = {
-  formatDate,
-  formatHour,
-}
 
 app
   .use(createRouter({

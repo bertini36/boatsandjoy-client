@@ -13,7 +13,7 @@ import { useStore } from 'vuex';
 import PrimeCalendar from 'primevue/calendar';
 
 import { getNoAvailDates } from '../services/api';
-import dates from '../utils/dates';
+import { str2Date } from '../utils/dates';
 
 export default {
   components: {
@@ -24,7 +24,7 @@ export default {
     const route = useRoute();
     const store = useStore();
 
-    if (route && route.params.date) store.commit('setSelectedDate', dates.str2Date(route.params.date));
+    if (route && route.params.date) store.commit('setSelectedDate', str2Date(route.params.date));
     else if (store.getters.selectedDate === null) store.commit('setSelectedDate', new Date());
 
     const selectedDate = ref(store.getters.selectedDate);

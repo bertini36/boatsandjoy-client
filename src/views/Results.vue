@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <h3 class="title mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ $filters.formatDate(loadedDate) }}</h3>
+      <h3 class="title mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ formatDate(loadedDate) }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
         <div class="col-span-1 text-center">
@@ -39,8 +39,8 @@
                       <option v-for="availabilityOption in boatAvailability.availability"
                               :key="availabilityOption"
                               :value="{...{'boat': boatAvailability.boat}, ...availabilityOption, ...{'discounts': boatAvailability.discounts}}">
-                          {{ $t('results_from') }} {{ $filters.formatHour(availabilityOption.from_hour) }}
-                          {{ $t('results_to') }} {{ $filters.formatHour(availabilityOption.to_hour) }} ({{ availabilityOption.price }}€)
+                          {{ $t('results_from') }} {{ formatHour(availabilityOption.from_hour) }}
+                          {{ $t('results_to') }} {{ formatHour(availabilityOption.to_hour) }} ({{ availabilityOption.price }}€)
                       </option>
                     </select>
                     <div class="flex">
@@ -81,7 +81,7 @@ import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
 
 import { getDateAvail } from '../services/api';
-import dates from '../utils/dates';
+import { date2Str, formatDate, formatHour } from '../utils/dates';
 import Calendar from '../components/Calendar';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
@@ -114,17 +114,17 @@ export default {
 
     onMounted(async () => {
       boatsAvailability.value = await getDateAvail(store.state.selectedDate);
-      loadedDate.value = dates.date2Str(store.state.selectedDate);
+      loadedDate.value = date2Str(store.state.selectedDate);
     });
 
     const getSelectedDate = () => {
-      return dates.date2Str(store.state.selectedDate);
+      return date2Str(store.state.selectedDate);
     };
 
     const checkAvailability = () => {
       const selectedDate = store.getters.selectedDate;
       if (selectedDate !== null) {
-        const dateStr = dates.date2Str(selectedDate);
+        const dateStr = date2Str(selectedDate);
         location.href = process.env.VUE_APP_URL + `results/${dateStr}`;
       } else {
         notifier.showInfoNotification(i18n.t('no_date_selected'));
@@ -171,6 +171,8 @@ export default {
       getBoatPhoto,
       selectedAvailabilityOptions,
       selectedAvailabilityOption,
+      formatDate,
+      formatHour,
     }
   }
 }
