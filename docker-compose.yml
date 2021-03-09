@@ -20,3 +20,11 @@ services:
     working_dir: /code/
     tty: true
     command: postcss src/assets/main.css -o public/css/output.css -w
+
+  ngrok:
+    image: wernight/ngrok
+    ports:
+      - "4040:4040"
+    depends_on:
+      - boatsandjoy-client
+    command: ngrok http boatsandjoy-client:3000 -host-header="localhost:3000"
