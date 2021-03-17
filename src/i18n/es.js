@@ -5,7 +5,7 @@ export default {
   english: 'Inglés',
   spanish: 'Castellano',
   slogan: 'Alquila tu barco en Mallorca',
-  check_availability: '',
+  check_availability: 'Reserva!',
 
   boats_title: '¡Alquila tu barca desde 180€ al día!',
   boats_description: '',

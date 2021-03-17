@@ -17,7 +17,8 @@
             <div class="w-full rounded-3xl">
               <div class="flex flex-col md:flex-row">
                 <div class="md:w-2/5 flex">
-                  <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow" src="../assets/img/boats1.jpg" alt="Boat photo"
+                  <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow"
+                       :src="getBoatPhoto(boatAvailability.boat.name)" alt="Boat photo"
                        @click="showPhotoModal(getBoatPhoto(boatAvailability.boat.name))">
                 </div>
                 <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
@@ -138,8 +139,8 @@ export default {
      */
     const getBoatPhoto = (boatName) => {
       const photos = [
-        require('../assets/img/boats1.jpg'),
-        require('../assets/img/boats1.jpg')
+        require('../assets/img/bj1.jpeg'),
+        require('../assets/img/bj2.jpeg')
       ];
       if (boatName === 'B&J I') {
         return photos[0];
