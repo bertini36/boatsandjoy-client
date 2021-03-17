@@ -36,3 +36,9 @@ export async function createBooking(price, slotIds, customerName, customerTeleph
   const response = await axios.post(`${baseUrl}bookings/create/booking/`, JSON.stringify(data), { headers: { 'Content-type': 'application/json' } });
   return response.data.data;
 }
+
+export async function getBooking(sessionId) {
+  const baseUrl = process.env.VUE_APP_API_URL;
+  const response = await axios.get(`${baseUrl}bookings/get/booking/by/session/?session_id=${sessionId}`);
+  return response.data.data;
+}
