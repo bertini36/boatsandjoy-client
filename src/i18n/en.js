@@ -87,4 +87,14 @@ export default {
   footer_created: 'Created by',
 
   no_date_selected: 'You have to specify a date',
+
+  booking_confirmed: 'Booking confirmed',
+  booking_pending: 'Booking pending',
+  booking_error: 'Something went wrong',
+  booking_summary: 'Booking summary',
+  booking_locator: 'Locator',
+  date: 'Date',
+  boat: 'Boat',
+  name: 'Name',
+  extras: 'Extras',
 }
