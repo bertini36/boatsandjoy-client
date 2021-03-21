@@ -11,8 +11,8 @@
           <h4>{{ $t('footer_links_title') }}</h4>
           <div class="pt-3">
             <ul>
-              <li><a href="#" target="_blank">{{ $t('footer_legal_advice') }}</a></li>
-              <li><a href="#" target="_blank">{{ $t('footer_terms') }}</a></li>
+              <li><a :href="`/pdf/legal_advice_${i18n.locale.value}.pdf`" target="_blank">{{ $t('footer_legal_advice') }}</a></li>
+              <li><a :href="`/pdf/terms_conditions_${i18n.locale.value}.pdf`" target="_blank">{{ $t('footer_terms') }}</a></li>
               <li><a href="#" target="_blank">{{ $t('footer_cookies') }}</a></li>
             </ul>
           </div>
@@ -36,6 +36,23 @@
     </div>
   </footer>
 </template>
+
+<script>
+import { useI18n } from 'vue-i18n';
+
+export default {
+  props: {
+    availabilityOption: Object,
+  },
+
+  setup() {
+    const i18n = useI18n();
+    return {
+      i18n
+    }
+  }
+}
+</script>
 
 <style scoped>
 footer {

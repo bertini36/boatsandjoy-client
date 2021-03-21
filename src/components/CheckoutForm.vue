@@ -22,13 +22,19 @@
 
     <label class="inline-flex items-center mt-1 cursor-pointer">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptLegalAdvice">
-      <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_legal_advice') }}</span>
+        <a class="pl-3 text-xs md:text-sm hover:text-orange-500 hover:underline"
+           :href="`/pdf/legal_advice_${i18n.locale.value}.pdf`" target="_blank">
+          {{ $t('checkout_legal_advice') }}
+        </a>
       <span class="pl-3 text-sm text-red-400">{{ errors.acceptLegalAdvice }}</span>
     </label>
 
     <label class="inline-flex items-center mt-1 cursor-pointer">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptTermsAndConditions">
-      <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_terms_and_conditions') }}</span>
+      <a class="pl-3 text-xs md:text-sm hover:text-orange-500 hover:underline"
+         :href="`/pdf/terms_conditions_${i18n.locale.value}.pdf`" target="_blank">
+        {{ $t('checkout_terms_and_conditions') }}
+      </a>
       <span class="pl-3 text-sm text-red-400">{{ errors.acceptTermsAndConditions }}</span>
     </label>
 
@@ -146,7 +152,8 @@ export default {
       goPay,
       errors,
       formatDate,
-      formatHour
+      formatHour,
+      i18n,
     }
   }
 }
