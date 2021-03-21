@@ -71,6 +71,8 @@ export default {
   checkout_accept_terms_and_conditions_error: 'Tienes que aceptar los términos y condiciones',
   checkout_name_error: 'Tienes que escribir tu nombre',
   checkout_telephone_error: 'Tienes que escribir tu teléfono',
+  checkout_extra_info: '¡Recuerda que puedes completar tu día con actividades náuticas y catering!<br />' +
+    'Háznoslo saber en "Preguntas y peticiones" y nos pondremos en contacto contigo.',
 
   error_redirecting_to_stripe: 'Ha habido un error redirigiendo a la plataforma de pago',
 

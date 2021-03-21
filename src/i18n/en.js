@@ -72,6 +72,8 @@ export default {
   checkout_accept_terms_and_conditions_error: 'You have to accept terms and conditions',
   checkout_name_error: 'You have to specify your name',
   checkout_telephone_error: 'You have to specify your telephone number',
+  checkout_extra_info: 'Remember that you can complete your day with watersports and catering!<br />' +
+    'Let us know in "Questions & Requests" and we will get in touch with you.',
 
   error_redirecting_to_stripe: 'There has been an error in the redirection to the payment gateway',
 

@@ -44,13 +44,15 @@
       <span class="text-sm text-red-400 pl-1">{{ errors.name }}</span>
     </div>
 
-
     <div class="flex flex-col">
       <label for="telephone" class="mt-2 pl-1">{{ $t('checkout_telephone') }}</label>
       <input id="telephone" type="number" class="custom-input" v-model="formData.telephone">
       <span class="text-sm text-red-400 pl-1">{{ errors.telephone }}</span>
     </div>
 
+    <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-600 p-4 mt-2 text-sm" role="alert">
+      <p v-html="$t('checkout_extra_info')"></p>
+    </div>
 
     <div class="flex flex-col">
       <label for="extras" class="mt-2 pl-1">{{ $t('checkout_extras') }}</label>
