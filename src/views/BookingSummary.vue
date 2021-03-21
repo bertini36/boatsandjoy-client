@@ -39,6 +39,9 @@
               <span class="price-circle">{{ booking.price }}€</span>
             </div>
           </div>
+          <div class="mt-4">
+            <div class="alert" v-html="$t('summary_booking_info')" role="alert"></div>
+          </div>
         </div>
       </div>
     </div>

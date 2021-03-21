@@ -72,7 +72,7 @@ export default {
   checkout_name_error: 'Tienes que escribir tu nombre',
   checkout_telephone_error: 'Tienes que escribir tu teléfono',
   checkout_extra_info: '¡Recuerda que puedes completar tu día con actividades náuticas y catering!<br />' +
-    'Háznoslo saber en "Preguntas y peticiones" y nos pondremos en contacto contigo.',
+    'Haznos saber en qué servicio extra estás interesado y nos pondremos en contacto contigo.',
 
   error_redirecting_to_stripe: 'Ha habido un error redirigiendo a la plataforma de pago',
 
@@ -97,4 +97,6 @@ export default {
   date: 'Fecha',
   boat: 'Barco',
   name: 'Nombre',
+  summary_booking_info: 'No tengas miedo de contactar con nosotros directamente (+34 722 333 428) para cualquier cosa. </br>' +
+    'En el caso de que hayas pedido algún servicio extra contactaremos contigo lo más pronto posible.'
 }

@@ -73,7 +73,7 @@ export default {
   checkout_name_error: 'You have to specify your name',
   checkout_telephone_error: 'You have to specify your telephone number',
   checkout_extra_info: 'Remember that you can complete your day with watersports and catering!<br />' +
-    'Let us know in "Questions & Requests" and we will get in touch with you.',
+    'Let us know in what extra service are you interested in and we will get in touch with you.',
 
   error_redirecting_to_stripe: 'There has been an error in the redirection to the payment gateway',
 
@@ -98,5 +98,6 @@ export default {
   date: 'Date',
   boat: 'Boat',
   name: 'Name',
-  extras: 'Extras',
+  summary_booking_info: 'Don\'t be afraid to contact us directly (+34 722 333 428) for anything. </br>' +
+    'In case you have requested any extra service we will contact you as soon as possible.'
 }
