@@ -11,7 +11,7 @@ describe('AvailabilitySection component', () => {
   it('shows a notification when a date is not selected', async () => {
     render(AvailabilitySection);
 
-    const checkAvailabilityButton = screen.getByRole('button', { name: /book now/i });
+    const checkAvailabilityButton = screen.getByRole('button', { name: /check availability/i });
     userEvent.click(checkAvailabilityButton);
 
     const notification = screen.getByText(/you have to specify a date/i);
