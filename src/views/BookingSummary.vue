@@ -30,7 +30,7 @@
               <div class="mt-4">
                 <span class="font-semibold">{{ i18n.t('name') }}</span> : {{ booking.customer_name }}
                 <div v-if="booking.extas !== ''">
-                  <span class="font-semibold">{{ i18n.t('extras') }}</span> : {{ booking.extras }}
+                  <span class="font-semibold">{{ i18n.t('checkout_extras') }}</span> : {{ booking.extras }}
                 </div>
               </div>
             </div>
