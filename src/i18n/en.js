@@ -5,7 +5,7 @@ export default {
   english: 'English',
   spanish: 'Spanish',
   slogan: 'Rent your boat in Mallorca',
-  check_availability: 'Book now',
+  check_availability: 'Check availability',
 
   boats_title: 'Rent your boat from 135€!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and gives you the possibility enjoy the amazing West Mallorcan Coast. ' +

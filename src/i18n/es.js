@@ -5,7 +5,7 @@ export default {
   english: 'Inglés',
   spanish: 'Castellano',
   slogan: 'Alquila tu barco en Mallorca',
-  check_availability: 'Reserva',
+  check_availability: 'Consultar disponibilidad',
 
   boats_title: '¡Alquila tu barco desde 135€!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste de Mallorca desde el mar con nuestras cómodas y bonitas barcas. ' +
