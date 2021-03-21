@@ -83,7 +83,7 @@ export default {
   footer_contact_title: 'Contacto',
   footer_company_address: 'C/Omelades 2A 2º 1ª 07012 Palma de Mallorca',
   footer_rights: 'Todos derechos reservados',
-  footer_created: 'Creada y diseñada por',
+  footer_created: 'Creada por',
 
   no_date_selected: 'Tienes que seleccionar una fecha',
 
