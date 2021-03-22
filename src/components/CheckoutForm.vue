@@ -58,7 +58,7 @@
     </div>
 
     <div class="flex">
-      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center" @click="(event) => goPay(event)">
+      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center mb-8 md:mb-0" @click="(event) => goPay(event)">
         <img src="../assets/img/icon-add-credit-card.svg" alt="Add credit card icon" class="mr-2">
         {{ $t('checkout_pay') }}
       </button>
