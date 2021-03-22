@@ -13,7 +13,7 @@
             <ul>
               <li><a :href="`/pdf/legal_advice_${i18n.locale.value}.pdf`" target="_blank">{{ $t('footer_legal_advice') }}</a></li>
               <li><a :href="`/pdf/terms_conditions_${i18n.locale.value}.pdf`" target="_blank">{{ $t('footer_terms') }}</a></li>
-              <li><a href="#" target="_blank">{{ $t('footer_cookies') }}</a></li>
+              <li><a :href="`/pdf/cookies_${i18n.locale.value}.pdf`" target="_blank">{{ $t('footer_cookies') }}</a></li>
             </ul>
           </div>
         </div>
