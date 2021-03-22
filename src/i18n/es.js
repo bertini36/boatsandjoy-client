@@ -73,6 +73,7 @@ export default {
   checkout_telephone_error: 'Tienes que escribir tu teléfono',
   checkout_extra_info: '¡Recuerda que puedes completar tu día con actividades náuticas y catering!<br />' +
     'Haznos saber en qué servicio extra estás interesado y nos pondremos en contacto contigo.',
+  download: 'Descarga',
 
   error_redirecting_to_stripe: 'Ha habido un error redirigiendo a la plataforma de pago',
 

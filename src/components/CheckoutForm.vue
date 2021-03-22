@@ -20,21 +20,23 @@
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_resident') }}</span>
     </label>
 
-    <label class="inline-flex items-center mt-1 cursor-pointer">
+    <label class="inline-flex items-center mt-1 cursor-pointer text-xs md:text-sm">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptLegalAdvice">
-        <a class="pl-3 text-xs md:text-sm hover:text-orange-500 hover:underline"
+        <span class="pl-3">{{ $t('checkout_legal_advice') }}</span>&nbsp;
+        (<a class="hover:text-orange-500 hover:underline"
            :href="`/pdf/legal_advice_${i18n.locale.value}.pdf`" target="_blank">
-          {{ $t('checkout_legal_advice') }}
-        </a>
+          {{ $t('download') }}
+        </a>)
       <span class="pl-3 text-sm text-red-400">{{ errors.acceptLegalAdvice }}</span>
     </label>
 
-    <label class="inline-flex items-center mt-1 cursor-pointer">
+    <label class="inline-flex items-center mt-1 cursor-pointer text-xs md:text-sm">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptTermsAndConditions">
-      <a class="pl-3 text-xs md:text-sm hover:text-orange-500 hover:underline"
+      <span class="pl-3">{{ $t('checkout_terms_and_conditions') }}</span>&nbsp;
+      (<a class="hover:text-orange-500 hover:underline"
          :href="`/pdf/terms_conditions_${i18n.locale.value}.pdf`" target="_blank">
-        {{ $t('checkout_terms_and_conditions') }}
-      </a>
+        {{ $t('download') }}
+      </a>)
       <span class="pl-3 text-sm text-red-400">{{ errors.acceptTermsAndConditions }}</span>
     </label>
 
@@ -58,7 +60,7 @@
     </div>
 
     <div class="flex">
-      <button class="btn mt-12 w-full flex-grow inline-flex text-center justify-center mb-8 md:mb-0" @click="(event) => goPay(event)">
+      <button class="btn my-8 w-full flex-grow inline-flex text-center justify-center md:mb-0" @click="(event) => goPay(event)">
         <img src="../assets/img/icon-add-credit-card.svg" alt="Add credit card icon" class="mr-2">
         {{ $t('checkout_pay') }}
       </button>

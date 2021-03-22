@@ -74,6 +74,7 @@ export default {
   checkout_telephone_error: 'You have to specify your telephone number',
   checkout_extra_info: 'Remember that you can complete your day with watersports and catering!<br />' +
     'Let us know in what extra service are you interested in and we will get in touch with you.',
+  download: 'Download',
 
   error_redirecting_to_stripe: 'There has been an error in the redirection to the payment gateway',
 
