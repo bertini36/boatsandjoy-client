@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="flex flex-col">
+    <loader v-if="!boatsAvailability"></loader>
+    <div v-else class="flex flex-col">
       <h3 class="title mt-24 md:mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ formatDate(loadedDate) }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
@@ -80,14 +81,16 @@
 import { onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n';
+import { useRoute } from 'vue-router';
 
 import { getDateAvail } from '../services/api';
-import { date2Str, formatDate, formatHour } from '../utils/dates';
+import {date2Str, formatDate, formatHour, str2Date} from '../utils/dates';
 import Calendar from '../components/Calendar';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
 import Modal from '../components/Modal.vue';
 import CheckoutForm from '../components/CheckoutForm.vue';
+import Loader from '../components/Loader.vue';
 import { showInfoNotification } from '../utils/notifications';
 
 export default {
@@ -97,11 +100,15 @@ export default {
     Footer,
     Modal,
     CheckoutForm,
+    Loader,
   },
 
   setup() {
+    const router = useRoute();
     const store = useStore();
     const i18n = useI18n();
+
+    if (router && router.params.date) store.commit('setSelectedDate', str2Date(router.params.date));
 
     const loadedDate = ref('');
     const boatsAvailability = ref(null);
@@ -114,6 +121,7 @@ export default {
     let selectedAvailabilityOption = ref(null);
 
     onMounted(async () => {
+      console.log(store.state.selectedDate);
       boatsAvailability.value = await getDateAvail(store.state.selectedDate);
       loadedDate.value = date2Str(store.state.selectedDate);
     });
