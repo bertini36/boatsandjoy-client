@@ -18,7 +18,7 @@
             <div class="w-full rounded-3xl">
               <div class="flex flex-col md:flex-row">
                 <div class="md:w-2/5 flex">
-                  <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg cursor-pointer flex-grow"
+                  <img class="rounded-t-lg md:rounded-t-none md:rounded-l-lg md:cursor-pointer flex-grow"
                        :src="getBoatPhoto(boatAvailability.boat.name)" alt="Boat photo"
                        @click="showPhotoModal(getBoatPhoto(boatAvailability.boat.name))">
                 </div>
@@ -92,6 +92,7 @@ import Modal from '../components/Modal.vue';
 import CheckoutForm from '../components/CheckoutForm.vue';
 import Loader from '../components/Loader.vue';
 import { showInfoNotification } from '../utils/notifications';
+import { isBigScreen } from '../utils/screen';
 
 export default {
   components: {
@@ -158,8 +159,10 @@ export default {
     };
 
     const showPhotoModal = (image_url) => {
-      showingPhotoModal.value = true;
-      selectedImageUrl.value = image_url;
+      if (isBigScreen()) {
+        showingPhotoModal.value = true;
+        selectedImageUrl.value = image_url;
+      }
     };
 
     const showCheckoutModal = (availabilityOption) => {

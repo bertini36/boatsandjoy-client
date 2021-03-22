@@ -10,7 +10,7 @@
     <article class="py-2 md:py-8 lg:py-10">
       <div class="grid grid-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 lg:gap-8 xl:gap-14 lg:px-8 xl:px-20 2xl:px-60">
         <div v-for="image_url in image_urls" :key="image_url">
-          <img :src="image_url" alt="Boat photo" class="rounded-sm cursor-pointer" @click="showModal(image_url)">
+          <img :src="image_url" alt="Boat photo" class="rounded-sm md:cursor-pointer" @click="showModal(image_url)">
         </div>
       </div>
     </article>
@@ -81,6 +81,7 @@
 import { ref } from 'vue';
 
 import Modal from '../components/Modal.vue';
+import { isBigScreen } from '../utils/screen';
 
 export default {
   components: { Modal },
@@ -95,8 +96,10 @@ export default {
     const selectedImageUrl = ref('');
 
     const showModal = (image_url) => {
-      showingModal.value = true;
-      selectedImageUrl.value = image_url;
+      if (isBigScreen()) {
+        showingModal.value = true;
+        selectedImageUrl.value = image_url;
+      }
     };
 
     return {
