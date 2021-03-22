@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <h3 class="title mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ formatDate(loadedDate) }}</h3>
+      <h3 class="title mt-24 md:mt-32 mb-4" v-if="loadedDate">{{ $t('results_title') }} {{ formatDate(loadedDate) }}</h3>
 
       <div class="mx-4 lg:mx-8 grid grid-cols-1 xl:grid-cols-3 mt-6 md:gap-10">
-        <div class="col-span-1 text-center">
+        <div class="hidden md:block col-span-1 text-center">
           <Calendar></Calendar>
           <div class="mt-6 mb-12 md:mb-6 lg:mb-0 flex flex-row justify-center text-center">
             <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>

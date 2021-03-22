@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="title mt-20 mb-4">{{ $t('map_title') }}</h3>
+    <h3 class="title mt-8 md:mt-20 mb-4">{{ $t('map_title') }}</h3>
     <GoogleMap
       :api-key="googleApiKey"
       :center="center"
