@@ -4,7 +4,7 @@ export default {
     showingFullScreenNav: false,
   },
   getters: {
-    selectedDate: state => state.selectedDate ? true : new Date(),
+    selectedDate: state => state.selectedDate,
     showingFullScreenNav: state => state.showingFullScreenNav,
   },
   mutations: {

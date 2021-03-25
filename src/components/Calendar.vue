@@ -1,7 +1,7 @@
 <template>
   <PrimeCalendar v-model="selectedDate"
             :inline="true"
-            :minDate="todayDate"
+            :minDate="tomorrowDate"
             :disabledDates="noAvailDates"
   />
 </template>
@@ -28,6 +28,8 @@ export default {
 
     const selectedDate = ref(store.getters.selectedDate);
     const todayDate = new Date();
+    const tomorrowDate = new Date(todayDate)
+    tomorrowDate.setDate(tomorrowDate.getDate() + 1)
     const pivotDate = new Date(selectedDate.value);
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
@@ -71,6 +73,7 @@ export default {
     return {
       selectedDate,
       todayDate,
+      tomorrowDate,
       noAvailDates,
     }
   }
