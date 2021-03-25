@@ -30,7 +30,7 @@ export default {
     const todayDate = new Date();
     const tomorrowDate = new Date(todayDate)
     tomorrowDate.setDate(tomorrowDate.getDate() + 1)
-    const pivotDate = new Date(selectedDate.value) ? selectedDate.value : new Date();
+    const pivotDate = selectedDate.value ? new Date(selectedDate.value) : new Date();
     let noAvailDates = ref([]);
     let showedMonth = new Date().getMonth() + 1;
 
