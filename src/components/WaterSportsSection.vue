@@ -19,7 +19,7 @@
             <span class="invisible group-hover:visible">{{ $t('watersports_jetski') }} <br> {{ $t('watersports_rent_and_excursion') }}</span>
           </div>
           <div class="container">
-            <img class="group-hover:opacity-30" src="../assets/img/kayak.png" alt="kayak">
+            <img class="group-hover:opacity-30" src="../assets/img/kayak.jpeg" alt="kayak">
             <span class="invisible group-hover:visible">{{ $t('watersports_kayak') }} <br> {{ $t('watersports_rent_and_excursion') }}</span>
           </div>
           <div class="container">
