@@ -7,12 +7,13 @@ export default {
   slogan: 'Rent your boat in Mallorca',
   check_availability: 'Check availability',
 
-  boats_title: 'Rent your boat from 135€!',
+  boats_title: 'Rent your boat from 180€!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and gives you the possibility enjoy the amazing West Mallorcan Coast. ' +
     'You can be your own captain! no license required! +18 years old. ' +
     'Put to sea from Sant Elm and enjoy amazing views, beaches, calas and caves located in South-West Mallorca. ' +
     'Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, birds and endemic flora ' +
-    'or have your time to relax and eat delicious mallorcan food on the Mediterranean.',
+    'or have your time to relax and eat delicious mallorcan food on the Mediterranean.' +
+    '<br>20% off if you are resident *',
   boats_information_title: 'Boats information',
   boats_basic: 'Basic',
   boats_max_capacity: 'Max. capacicy: 5 or 6 people',

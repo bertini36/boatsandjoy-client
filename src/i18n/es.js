@@ -7,12 +7,13 @@ export default {
   slogan: 'Alquila tu barco en Mallorca',
   check_availability: 'Consultar disponibilidad',
 
-  boats_title: '¡Alquila tu barco desde 135€!',
+  boats_title: '¡Alquila tu barco desde 180€!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste de Mallorca desde el mar con nuestras cómodas y bonitas barcas. ' +
     '¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años ' +
     'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
     'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus dragones, aves y flora endémica. ' +
-    'O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo...',
+    'O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo.' +
+    '<br>20% de descuento si eres residente *',
   boats_information_title: 'Información sobre los barcos',
   boats_basic: 'Básico',
   boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
