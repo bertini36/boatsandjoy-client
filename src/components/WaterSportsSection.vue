@@ -28,7 +28,7 @@
           </div>
           <div class="container">
             <img class="group-hover:opacity-30" src="../assets/img/paddle.png" alt="sup">
-            <span class="invisible group-hover:visible">{{ $t('watersports_kitesurf') }} <br> {{ $t('watersports_rent_and_lessons') }}</span>
+            <span class="invisible group-hover:visible">{{ $t('watersports_sup') }} <br> {{ $t('watersports_rent_and_lessons') }}</span>
           </div>
           <div class="container">
             <img class="group-hover:opacity-30" src="../assets/img/fishing.png" alt="fishing">
