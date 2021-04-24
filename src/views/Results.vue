@@ -24,10 +24,14 @@
                 </div>
                 <div class="md:w-3/5 pt-8 px-8 lg:px-12 rounded-b-lg md:rounded-b-none md:rounded-r-lg text-left bg-white border border-gray-300">
                   <div class="flex flex-row">
-                    <h2 class="w-3/4 text-3xl font-bold tracking-widest text-left uppercase text-orange-500 mb-6">
-                      {{ boatAvailability.boat.name }}
-                    </h2>
-
+                    <div class="w-3/4 flex flex-col">
+                      <h2 class="text-3xl font-bold tracking-widest text-left uppercase text-orange-500">
+                        {{ boatAvailability.boat.name }}
+                      </h2>
+                      <span class="font-bold">
+                        {{ $t('results_max_capacity') }}: {{ getMaxCapacity(boatAvailability.boat.name) }}
+                      </span>
+                    </div>
                     <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
                       <span class="price-circle">
                         {{ selectedAvailabilityOptions[i].price }}€
@@ -122,7 +126,6 @@ export default {
     let selectedAvailabilityOption = ref(null);
 
     onMounted(async () => {
-      console.log(store.state.selectedDate);
       boatsAvailability.value = await getDateAvail(store.state.selectedDate);
       loadedDate.value = date2Str(store.state.selectedDate);
     });
@@ -158,6 +161,14 @@ export default {
       }
     };
 
+    const getMaxCapacity = (boatName) => {
+      if (boatName === 'B&J I') {
+        return 5;
+      } else if (boatName === 'B&J II') {
+        return 6;
+      }
+    }
+
     const showPhotoModal = (image_url) => {
       if (isBigScreen()) {
         showingPhotoModal.value = true;
@@ -181,6 +192,7 @@ export default {
       showCheckoutModal,
       selectedImageUrl,
       getBoatPhoto,
+      getMaxCapacity,
       selectedAvailabilityOptions,
       selectedAvailabilityOption,
       formatDate,

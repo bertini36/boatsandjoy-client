@@ -61,6 +61,7 @@ export default {
   results_from: 'De',
   results_to: 'a',
   results_book: '¡Reserva!',
+  results_max_capacity: 'Capacidad máxima',
 
   checkout_resident: 'Residente Islas Baleares',
   checkout_legal_advice: 'Acepta el aviso legal',

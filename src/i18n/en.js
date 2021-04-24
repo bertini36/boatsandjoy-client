@@ -62,6 +62,7 @@ export default {
   results_from: 'from',
   results_to: 'to',
   results_book: 'Book now!',
+  results_max_capacity: 'Max. capacity',
 
   checkout_resident: 'Resident of the Balearic Islands',
   checkout_legal_advice: 'Accept legal advice',
