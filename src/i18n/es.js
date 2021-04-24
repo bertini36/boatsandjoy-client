@@ -38,7 +38,8 @@ export default {
   watersports_description: '¿Quieres disfrutar el mar? ¿Buscas algo diferente que hacer? ' +
     'Te ayudamos a organizar tu experiencia donde y cómo quieras. Trabajamos con distintos colaboradores alrededor de Mallorca' +
     'Disfruta de tu actividad con tu familia y amigos. Desde un tranquilo paseo' +
-    'en Paddle Surf o Kayak a una emocionante excursión en moto de agua o vuela con el flyboard.',
+    'en Paddle Surf o Kayak a una emocionante excursión en moto de agua o vuela con el flyboard. <br>' +
+    '<strong>Para reservar cualquiera de las actividades contacta con nosotros llamando al +34 722 333 428 o enviando un email a info@boatsandjoy.com</strong>',
   watersports_diving: 'Buceo',
   watersports_jetski: 'Motos de agua',
   watersports_rent_and_excursion: 'Alquiler y excursión',
