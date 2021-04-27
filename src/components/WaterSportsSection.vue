@@ -3,7 +3,8 @@
     <article class="pt-12 pb-12 md:pb-20 md:pt-10 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
         <h3 class="title mb-4">{{ $t('watersports_title') }}</h3>
-        <p class="text-center" v-html="$t('watersports_description')"></p>
+        <p class="text-center">{{ $t('watersports_description') }}</p>
+        <p class="text-center mt-4"><strong>{{ $t('watersports_contact') }} info@boatsandjoy.com</strong></p>
       </div>
     </article>
 

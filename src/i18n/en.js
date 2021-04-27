@@ -39,8 +39,8 @@ export default {
     'make it the best way it fits you! We work with various companies all around Mallorca. ' +
     'Enjoy your activity with your friends and family. From a relaxing row ' +
     'with a SUP or Kayak to an exciting Jetski excursion or ' +
-    'fly the sea with a Flyboard.<br>' +
-    '<strong>To book any of the activities,contact us by calling +34 722 333 428 or by sending an email to info@boatsandjoy.com</strong>',
+    'fly the sea with a Flyboard.',
+  watersports_contact: 'To book any of the activities,contact us by calling +34 722 333 428 or by sending an email to ',
   watersports_diving: 'Diving',
   watersports_jetski: 'Jetski',
   watersports_rent_and_excursion: 'Rent & excursion',
