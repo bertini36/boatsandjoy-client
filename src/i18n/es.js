@@ -77,7 +77,7 @@ export default {
   checkout_accept_terms_and_conditions_error: 'Tienes que aceptar los términos y condiciones',
   checkout_name_error: 'Tienes que escribir tu nombre',
   checkout_telephone_error: 'Tienes que escribir tu teléfono',
-  checkout_extra_info: '¡Recuerda que puedes completar tu día con actividades náuticas y catering!<br />' +
+  checkout_extra_info: '¡Recuerda que puedes completar tu día con actividades náuticas y <a href="/pdf/catering.pdf" target="_blank">catering</a>!<br />' +
     'Haznos saber en qué servicio extra estás interesado y nos pondremos en contacto contigo.',
   download: 'Descarga',
 
