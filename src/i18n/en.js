@@ -55,6 +55,9 @@ export default {
   watersports_windsurf: 'Windsurf',
   watersports_flyboard: 'Flyboard',
 
+  catering_title: 'or asking for something to eat!',
+  catering_description: 'Click here and check the menu!',
+
   map_title: 'You can find us in Sant Elm!',
 
   results_title: 'Availability for day',

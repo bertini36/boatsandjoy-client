@@ -34,7 +34,7 @@ export default {
   boats_watersports: 'Paquete náutico',
   boats_ask: '¡Pregúntanos para más información!',
 
-  watersports_title: 'Actividades Náuticas',
+  watersports_title: 'Mejora tu día con actividades náuticas!',
   watersports_description: '¿Quieres disfrutar el mar? ¿Buscas algo diferente que hacer? ' +
     'Te ayudamos a organizar tu experiencia donde y cómo quieras. Trabajamos con distintos colaboradores alrededor de Mallorca' +
     'Disfruta de tu actividad con tu familia y amigos. Desde un tranquilo paseo' +
@@ -53,6 +53,9 @@ export default {
   watersports_sailing: 'Vela',
   watersports_windsurf: 'Windsurf',
   watersports_flyboard: 'Flyboard',
+
+  catering_title: 'o pidiendo algo para comer!',
+  catering_description: 'Haz click aquí para ver el menú!',
 
   map_title: 'Puedes encontrarnos en Sant Elm',
 

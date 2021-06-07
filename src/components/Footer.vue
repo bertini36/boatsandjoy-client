@@ -63,8 +63,4 @@ footer {
 h4 {
   @apply font-bold uppercase tracking-widest text-orange-500;
 }
-
-a {
-  @apply hover:underline hover:text-orange-500;
-}
 </style>
