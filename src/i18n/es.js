@@ -4,10 +4,10 @@ export default {
   watersports: 'Actividades Náuticas',
   english: 'Inglés',
   spanish: 'Castellano',
-  slogan: 'Alquila tu barco en Mallorca',
+  slogan: 'Alquila un barco en Mallorca',
   check_availability: 'Consultar disponibilidad',
 
-  boats_title: '¡Alquila tu barco desde 180€!',
+  boats_title: '¡Alquila un barco sin licencia desde 180€!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste de Mallorca desde el mar con nuestras cómodas y bonitas barcas. ' +
     '¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años ' +
     'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
@@ -39,7 +39,7 @@ export default {
     'Te ayudamos a organizar tu experiencia donde y cómo quieras. Trabajamos con distintos colaboradores alrededor de Mallorca' +
     'Disfruta de tu actividad con tu familia y amigos. Desde un tranquilo paseo' +
     'en Paddle Surf o Kayak a una emocionante excursión en moto de agua o vuela con el flyboard.',
-  watersport_contact: 'Para reservar cualquiera de las actividades contacta con nosotros llamando al +34 722 333 428 o enviando un email a ',
+  watersports_contact: 'Para reservar cualquiera de las actividades contacta con nosotros llamando al +34 722 333 428 o enviando un email a ',
   watersports_diving: 'Buceo',
   watersports_jetski: 'Motos de agua',
   watersports_rent_and_excursion: 'Alquiler y excursión',
