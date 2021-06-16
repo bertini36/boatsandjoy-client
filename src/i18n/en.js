@@ -4,10 +4,10 @@ export default {
   watersports: 'Watersports',
   english: 'English',
   spanish: 'Spanish',
-  slogan: 'Rent your boat in Mallorca',
+  slogan: 'Rent a boat in Mallorca',
   check_availability: 'Check availability',
 
-  boats_title: 'Rent your boat from 180€!',
+  boats_title: 'Rent a boat without license from 180€!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and gives you the possibility enjoy the amazing West Mallorcan Coast. ' +
     'You can be your own captain! no license required! +18 years old. ' +
     'Put to sea from Sant Elm and enjoy amazing views, beaches, calas and caves located in South-West Mallorca. ' +
@@ -40,7 +40,7 @@ export default {
     'Enjoy your activity with your friends and family. From a relaxing row ' +
     'with a SUP or Kayak to an exciting Jetski excursion or ' +
     'fly the sea with a Flyboard.',
-  watersports_contact: 'To book any of the activities,contact us by calling +34 722 333 428 or by sending an email to ',
+  watersports_contact: 'To book any of the activities, contact us by calling +34 722 333 428 or by sending an email to ',
   watersports_diving: 'Diving',
   watersports_jetski: 'Jetski',
   watersports_rent_and_excursion: 'Rent & excursion',
