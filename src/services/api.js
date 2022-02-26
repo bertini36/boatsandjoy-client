@@ -24,9 +24,11 @@ export async function getDateAvail(date, applyResidentDiscount) {
   return response.data.data;
 }
 
-export async function createBooking(price, slotIds, customerName, customerTelephoneNumber, extras) {
+export async function createBooking(basePrice, isResident, promocode, slotIds, customerName, customerTelephoneNumber, extras) {
   const data = {
-    'price': price,
+    'base_price': basePrice,
+    'is_resident': isResident,
+    'promocode': promocode,
     'slot_ids': String(slotIds),
     'customer_name': customerName,
     'customer_telephone_number': customerTelephoneNumber,
@@ -41,4 +43,10 @@ export async function getBooking(sessionId) {
   const baseUrl = process.env.VUE_APP_API_URL;
   const response = await axios.get(`${baseUrl}bookings/get/booking/by/session/?session_id=${sessionId}`);
   return response.data.data;
+}
+
+export async function validatePromocode(promocode) {
+  const baseUrl = process.env.VUE_APP_API_URL;
+  const response = await axios.get(`${baseUrl}bookings/validate/promocode/?promocode=${promocode}`);
+  return response.data;
 }

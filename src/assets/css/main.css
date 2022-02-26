@@ -50,6 +50,12 @@ body {
   @apply text-white font-bold;
 }
 
+.btn-slim {
+  @apply py-1 px-2 rounded;
+  @apply bg-orange-600 hover:bg-orange-700 focus:outline-none disabled:opacity-60;
+  @apply text-white font-bold;
+}
+
 .price-circle {
   @apply bg-orange-500 text-white text-xl rounded-full px-3 py-4 font-bold;
 }

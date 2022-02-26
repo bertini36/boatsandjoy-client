@@ -1,11 +1,11 @@
 <template>
   <form class="flex flex-col">
     <div class="inline-flex mb-3">
-      <span class="mt-1" :class="{'price-circle': !formData.isResident, 'disabled-price-circle': formData.isResident}">
-        {{ price }}€
+      <span class="mt-1" :class="{'price-circle': !formData.isResident && !validPromocodeApplied, 'disabled-price-circle': formData.isResident || validPromocodeApplied}">
+        {{ basePrice }}€
       </span>
-      <span class="mt-1 ml-2 price-circle" v-if="formData.isResident">
-        {{ residentPrice }}€
+      <span class="mt-1 ml-2 price-circle" v-if="formData.isResident || validPromocodeApplied">
+        {{ finalPrice }}€
       </span>
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
     </div>
@@ -16,7 +16,7 @@
     </p>
 
     <label class="inline-flex items-center cursor-pointer">
-      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.isResident">
+      <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.isResident" @click="(event) => applyResidentDiscount(event)">
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_resident') }}</span>
     </label>
 
@@ -52,6 +52,15 @@
       <span class="text-sm text-red-400 pl-1">{{ errors.telephone }}</span>
     </div>
 
+    <div class="flex flex-row mb-2">
+      <div class="flex flex-col">
+        <label for="promocode" class="mt-2 pl-1">{{ $t('checkout_promocode') }}</label>
+        <input id="promocode" type="text" class="custom-input" v-model="formData.promocode">
+      </div>
+      <button class="btn-slim my-9 ml-4 text-center justify-center md:mb-0" @click="(event) => goValidatePromocode(event)" v-html="$t('checkout_validate')"></button>
+      <span class="text-sm text-red-400 pl-4 pt-10">{{ errors.promocode }}</span>
+    </div>
+
     <div class="alert" v-html="$t('checkout_extra_info')" role="alert"></div>
 
     <div class="flex flex-col">
@@ -73,7 +82,7 @@ import { ref, reactive, toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import { formatDate, formatHour } from '../utils/dates';
-import { createBooking } from '../services/api';
+import { createBooking, validatePromocode } from '../services/api';
 import { redirectToCheckout } from '../services/stripe';
 
 export default {
@@ -85,10 +94,12 @@ export default {
     const i18n = useI18n();
 
     let { availabilityOption } = toRefs(props)
-    const basePrice = availabilityOption.value.price;
+    const basePrice = availabilityOption.value.price
     const residentDiscount = availabilityOption.value.discounts.resident;
-    const price = ref(basePrice);
-    const residentPrice = ref(basePrice - (basePrice * residentDiscount));
+    const residentDiscountApplied = ref(0);
+    const validPromocodeApplied = ref(false);
+    const promocodeAppliedDiscount = ref(0);
+    const finalPrice = ref(basePrice - (basePrice * (residentDiscountApplied.value + promocodeAppliedDiscount.value)));
 
     const formData = reactive({
       isResident: false,
@@ -97,13 +108,15 @@ export default {
       name: '',
       telephone: '',
       extras: '',
+      promocode: '',
     });
 
     const errors = reactive({
       acceptLegalAdvic: '',
       acceptTermsAndConditions: '',
       name: '',
-      telephone: ''
+      telephone: '',
+      promocode: '',
     });
 
     const goPay = async (event) => {
@@ -111,7 +124,9 @@ export default {
       const error = checkErrors();
       if (!error) {
         const response = await createBooking(
-          formData.isResident ? residentPrice.value : price.value,
+          basePrice,
+          formData.isResident,
+          formData.promocode,
           availabilityOption.value.slots.map(slot => slot.id),
           formData.name,
           formData.telephone,
@@ -120,6 +135,28 @@ export default {
         const stripeSessionId = response.session_id;
         await redirectToCheckout(stripeSessionId);
       }
+    };
+
+    const goValidatePromocode = async (event) => {
+      event.preventDefault();
+      const response = await validatePromocode(formData.promocode);
+      validPromocodeApplied.value = response.valid;
+      errors.promocode = '';
+      if (validPromocodeApplied.value) {
+        promocodeAppliedDiscount.value = response.factor;
+      } else {
+        errors.promocode = i18n.t('checkout_promocode_error');
+      }
+      finalPrice.value = basePrice - (basePrice * (residentDiscountApplied.value + promocodeAppliedDiscount.value));
+    };
+
+    const applyResidentDiscount = async () => {
+      if (residentDiscountApplied.value === 0) {
+        residentDiscountApplied.value = residentDiscount;
+      } else {
+        residentDiscountApplied.value = 0;
+      }
+      finalPrice.value = basePrice - (basePrice * (residentDiscountApplied.value + promocodeAppliedDiscount.value));
     };
 
     const checkErrors = () => {
@@ -148,14 +185,17 @@ export default {
     }
 
     return {
-      price,
-      residentPrice,
+      basePrice,
+      finalPrice,
       formData,
       goPay,
       errors,
       formatDate,
       formatHour,
       i18n,
+      goValidatePromocode,
+      validPromocodeApplied,
+      applyResidentDiscount,
     }
   }
 }
