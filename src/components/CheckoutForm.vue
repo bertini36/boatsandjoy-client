@@ -52,7 +52,7 @@
       <span class="text-sm text-red-400 pl-1">{{ errors.telephone }}</span>
     </div>
 
-    <div class="flex flex-row mb-2">
+    <div class="flex flex-row">
       <div class="flex flex-col">
         <label for="promocode" class="mt-2 pl-1">{{ $t('checkout_promocode') }}</label>
         <input id="promocode" type="text" class="custom-input" v-model="formData.promocode">
@@ -61,7 +61,7 @@
       <span class="text-sm text-red-400 pl-4 pt-10">{{ errors.promocode }}</span>
     </div>
 
-    <div class="alert" v-html="$t('checkout_extra_info')" role="alert"></div>
+    <div class="alert hidden md:block" v-html="$t('checkout_extra_info')" role="alert"></div>
 
     <div class="flex flex-col">
       <label for="extras" class="mt-2 pl-1">{{ $t('checkout_extras') }}</label>
