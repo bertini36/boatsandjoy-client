@@ -97,6 +97,7 @@ export default {
 
     let { availabilityOption } = toRefs(props)
     const basePrice = availabilityOption.value.price
+    const booking_day = availabilityOption.value.day
     const residentDiscount = availabilityOption.value.discounts.resident;
     const residentDiscountApplied = ref(0);
     const validPromocodeApplied = ref(false);
@@ -141,7 +142,7 @@ export default {
 
     const goValidatePromocode = async (event) => {
       event.preventDefault();
-      const response = await validatePromocode(formData.promocode);
+      const response = await validatePromocode(formData.promocode, booking_day);
       validPromocodeApplied.value = response.valid;
       errors.promocode = '';
       if (validPromocodeApplied.value) {

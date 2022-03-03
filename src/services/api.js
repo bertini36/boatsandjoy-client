@@ -45,8 +45,8 @@ export async function getBooking(sessionId) {
   return response.data.data;
 }
 
-export async function validatePromocode(promocode) {
+export async function validatePromocode(promocode, booking_day) {
   const baseUrl = process.env.VUE_APP_API_URL;
-  const response = await axios.get(`${baseUrl}bookings/validate/promocode/?promocode=${promocode}`);
+  const response = await axios.get(`${baseUrl}bookings/validate/promocode/?promocode=${promocode}&booking_day=${booking_day}`);
   return response.data;
 }
