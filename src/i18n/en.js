@@ -81,7 +81,7 @@ export default {
   checkout_accept_terms_and_conditions_error: 'You have to accept terms and conditions',
   checkout_name_error: 'You have to specify your name',
   checkout_telephone_error: 'You have to specify your telephone number',
-  checkout_extra_info: 'Remember that you can complete your day with watersports and <a href="/pdf/catering.pdf" target="_blank">catering</a>!<br />' +
+  checkout_extra_info: 'Remember that you can complete your day with our tasty <a href="/pdf/catering.pdf" target="_blank">food-packs</a>!<br />' +
     'Let us know what extra service are you interested in and we will get in touch with you.',
   download: 'Download',
 

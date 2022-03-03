@@ -15,10 +15,12 @@
       {{ $t('results_to') }} {{ formatHour(availabilityOption.to_hour) }}
     </p>
 
+    <!--
     <label class="inline-flex items-center cursor-pointer">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.isResident" @click="(event) => applyResidentDiscount(event)">
       <span class="pl-3 text-xs md:text-sm">{{ $t('checkout_resident') }}</span>
     </label>
+    -->
 
     <label class="inline-flex items-center mt-1 cursor-pointer text-xs md:text-sm">
       <input type="checkbox" class="h-5 w-5 cursor-pointer" v-model="formData.acceptLegalAdvice">
