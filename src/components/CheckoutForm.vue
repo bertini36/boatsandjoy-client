@@ -2,10 +2,10 @@
   <form class="flex flex-col">
     <div class="inline-flex mb-3">
       <span class="mt-1" :class="{'price-circle': !formData.isResident && !validPromocodeApplied, 'disabled-price-circle': formData.isResident || validPromocodeApplied}">
-        {{ basePrice }}€
+        {{ formatPrice(basePrice) }}
       </span>
       <span class="mt-1 ml-2 price-circle" v-if="formData.isResident || validPromocodeApplied">
-        {{ finalPrice }}€
+        {{ formatPrice(finalPrice) }}
       </span>
       <h1 class="title-left pt-3 ml-4">{{ availabilityOption.boat.name }}</h1>
     </div>
@@ -162,6 +162,10 @@ export default {
       finalPrice.value = basePrice - (basePrice * (residentDiscountApplied.value + promocodeAppliedDiscount.value));
     };
 
+    const formatPrice = (price) => {
+      return `${price.toFixed(2)}€`;
+    };
+
     const checkErrors = () => {
       let error = false;
       errors.acceptLegalAdvice = '';
@@ -199,6 +203,7 @@ export default {
       goValidatePromocode,
       validPromocodeApplied,
       applyResidentDiscount,
+      formatPrice,
     }
   }
 }
