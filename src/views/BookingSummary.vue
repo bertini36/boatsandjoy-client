@@ -36,7 +36,7 @@
             </div>
 
             <div class="pt-3 md:pt-0">
-              <span class="price-circle">{{ booking.price }}€</span>
+              <span class="price-circle">{{ booking.price.toFixed(2) }}€</span>
             </div>
           </div>
           <div class="mt-4">
