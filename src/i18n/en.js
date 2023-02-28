@@ -6,6 +6,7 @@ export default {
   spanish: 'Spanish',
   slogan: 'Rent a boat in Mallorca',
   check_availability: 'Check availability',
+  check_voucher: 'Check vouchers',
 
   boats_title: 'Rent a boat without license from 180€!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and gives you the possibility enjoy the amazing West Mallorcan Coast. ' +

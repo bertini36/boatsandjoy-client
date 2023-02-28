@@ -6,6 +6,7 @@ export default {
   spanish: 'Castellano',
   slogan: 'Alquila un barco en Mallorca',
   check_availability: 'Consultar disponibilidad',
+  check_voucher: 'Comprobar bonos',
 
   boats_title: '¡Alquila un barco sin licencia desde 180€!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste de Mallorca desde el mar con nuestras cómodas y bonitas barcas. ' +

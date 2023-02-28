@@ -16,6 +16,12 @@
       <div class="mt-6 flex flex-row justify-center">
         <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
       </div>
+
+      <div class="mt-2 flex flex-row justify-center">
+        <a :href="`/pdf/vouchers.pdf`" target="_blank" class="text-white">
+          {{ $t('check_voucher') }}
+        </a>
+      </div>
     </div>
   </header>
 </template>
@@ -50,6 +56,7 @@ export default {
     };
 
     return {
+      i18n,
       checkAvailability,
     }
   }
