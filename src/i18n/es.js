@@ -8,13 +8,15 @@ export default {
   check_availability: 'Consultar disponibilidad',
   check_voucher: 'Comprobar bonos',
 
-  boats_title: '¡Alquila un barco sin licencia desde 180€!',
-  boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste de Mallorca desde el mar con nuestras cómodas y bonitas barcas. ' +
-    '¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años ' +
+  boats_title: '¡ALQUILA UN BARCO SIN LICENCIA!',
+  boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste ' +
+    'de Mallorca desde el mar con nuestras cómodas y bonitas barcas.' +
+    ' ¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años.' +
     'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
-    'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus dragones, aves y flora endémica. ' +
-    'O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo.' +
-    '<br>20% de descuento si eres residente *',
+    'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus “dragones”, aves y flora endémica.' +
+    ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo. <br>' +
+    'Comprueba nuestras ofertas en nuestra cuenta de Instagram <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a><br>' +
+    '¡Descuento de residente disponible! *',
   boats_information_title: 'Información sobre los barcos',
   boats_basic: 'Básico',
   boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
@@ -36,11 +38,10 @@ export default {
   boats_ask: '¡Pregúntanos para más información!',
 
   extras: 'Extras',
-  watersports_title: 'Mejora tu día con actividades náuticas!',
-  watersports_description: '¿Quieres disfrutar el mar? ¿Buscas algo diferente que hacer? ' +
-    'Te ayudamos a organizar tu experiencia donde y cómo quieras. Trabajamos con distintos colaboradores alrededor de Mallorca' +
-    'Disfruta de tu actividad con tu familia y amigos. Desde un tranquilo paseo' +
-    'en Paddle Surf o Kayak a una emocionante excursión en moto de agua o vuela con el flyboard.',
+  watersports_title: '¡MEJORA TU EXPERIENCIA CON NOSOTROS!',
+  watersports_description: '¿Buscas algo diferente? Te ayudamos a organizar tu experiencia donde y cómo quieras.' +
+    ' Trabajamos con distintos colaboradores alrededor de Mallorca.' +
+    'Disfruta de tu actividad con tu familia y amigos. Desde un tranquilo paseo en Paddle Surf o Kayak a una emocionante excursión en moto de agua.',
   watersports_contact: 'Para reservar cualquiera de las actividades contacta con nosotros llamando al +34 722 333 428 o enviando un email a ',
   watersports_diving: 'Buceo',
   watersports_jetski: 'Motos de agua',
