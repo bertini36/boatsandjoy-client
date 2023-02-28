@@ -2,8 +2,7 @@
   <div>
     <AvailabilitySection></AvailabilitySection>
     <BoatsSection></BoatsSection>
-    <WaterSportsSection></WaterSportsSection>
-    <CateringSection></CateringSection>
+    <ExtrasSection></ExtrasSection>
     <Map></Map>
     <Footer></Footer>
   </div>
@@ -12,8 +11,7 @@
 <script>
 import AvailabilitySection from '../components/AvailabilitySection';
 import BoatsSection from '../components/BoatsSection';
-import WaterSportsSection from '../components/WaterSportsSection';
-import CateringSection from '../components/CateringSection';
+import ExtrasSection from '../components/ExtrasSection';
 import Map from '../components/Map';
 import Footer from '../components/Footer';
 
@@ -21,8 +19,7 @@ export default {
   components: {
     AvailabilitySection,
     BoatsSection,
-    WaterSportsSection,
-    CateringSection,
+    ExtrasSection,
     Map,
     Footer
   },

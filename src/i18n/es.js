@@ -34,6 +34,7 @@ export default {
   boats_watersports: 'Paquete náutico',
   boats_ask: '¡Pregúntanos para más información!',
 
+  extras: 'Extras',
   watersports_title: 'Mejora tu día con actividades náuticas!',
   watersports_description: '¿Quieres disfrutar el mar? ¿Buscas algo diferente que hacer? ' +
     'Te ayudamos a organizar tu experiencia donde y cómo quieras. Trabajamos con distintos colaboradores alrededor de Mallorca' +

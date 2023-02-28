@@ -34,6 +34,7 @@ export default {
   boats_watersports: 'Watersports pack',
   boats_ask: 'Ask for more information!',
 
+  extras: 'Extras',
   watersports_title: 'Level up your experience with watersports!',
   watersports_description: 'Do you want to enjoy the Sea? Looking for something different? We help you to ' +
     'make it the best way it fits you! We work with various companies all around Mallorca. ' +

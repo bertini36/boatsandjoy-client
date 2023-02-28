@@ -20,7 +20,7 @@
       <ul class="pt-3 flex flex-row">
         <li class="ml-8 link"><a :href="base_url + '#home'">{{ $t('home') }}</a></li>
         <li class="ml-8 link"><a :href="base_url + '#boats'">{{ $t('boats') }}</a></li>
-        <li class="ml-8 link"><a :href="base_url + '#watersports'">{{ $t('watersports') }}</a></li>
+        <li class="ml-8 link"><a :href="base_url + '#extras'">{{ $t('extras') }}</a></li>
         <li class="ml-8 "><LanguageSwitch></LanguageSwitch></li>
       </ul>
     </div>
