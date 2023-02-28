@@ -1,15 +1,15 @@
 <template>
   <header id="home" class="flex flex-col h-screen">
     <div class="m-auto">
-      <div class="flex flex-row justify-center pt-20 md:pt-14 md:pt-0">
-        <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-1/4">
+      <div class="flex flex-row justify-center pt-20 md:pt-32 md:pt-0">
+        <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-2/4">
       </div>
 
       <div class="flex flex-row justify-center mt-4">
         <h1 class="text-white text-3xl">{{ $t('slogan') }}</h1>
       </div>
 
-      <div class="mt-6 md:mt-12 flex flex-row justify-center">
+      <div class="mt-6 md:mt-12 flex flex-row justify-center md:h-auto">
        <Calendar></Calendar>
       </div>
 
@@ -17,7 +17,7 @@
         <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
       </div>
 
-      <div class="mt-2 flex flex-row justify-center">
+      <div class="mt-1 pb-10 flex flex-row justify-center">
         <a :href="`/pdf/vouchers.pdf`" target="_blank" class="text-white">
           {{ $t('check_voucher') }}
         </a>
@@ -70,6 +70,8 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height:100%;
+  width:100%;
 }
 button {
   width: 421.41px;
