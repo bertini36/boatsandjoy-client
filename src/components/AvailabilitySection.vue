@@ -2,7 +2,7 @@
   <header id="home" class="flex flex-col h-screen">
     <div class="m-auto">
       <div class="flex flex-row justify-center pt-20 md:pt-14 md:pt-0">
-        <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-2/4">
+        <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-1/4">
       </div>
 
       <div class="flex flex-row justify-center mt-4">
