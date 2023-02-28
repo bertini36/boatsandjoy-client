@@ -1,7 +1,7 @@
 <template>
   <header id="home" class="flex flex-col h-screen">
     <div class="m-auto">
-      <div class="flex flex-row justify-center pt-20 md:pt-auto md:pt-0">
+      <div class="flex flex-row justify-center pt-20 md:pt-10 md:pt-0">
         <img src="../assets/img/big-logo.png" alt="Big logo" class="w-3/4 md:w-2/4">
       </div>
 
