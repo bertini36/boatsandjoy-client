@@ -8,35 +8,6 @@ export default {
   check_availability: 'Consultar disponibilidad',
   check_voucher: 'Consultar bonos',
 
-  boats_title: '¡ALQUILA UN BARCO SIN LICENCIA!',
-  boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste ' +
-    'de Mallorca desde el mar con nuestras cómodas y bonitas barcas.' +
-    ' ¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años.' +
-    'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
-    'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus “dragones”, aves y flora endémica.' +
-    ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo. <br>' +
-    'Comprueba nuestras ofertas en nuestra cuenta de Instagram <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a><br>' +
-    '¡Descuento de residente disponible! *',
-  boats_information_title: 'Información sobre los barcos',
-  boats_basic: 'Básico',
-  boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
-  boats_power: 'Yamaha 15 Cv',
-  boats_location: 'Sant Elm',
-  boats_caution: 'Fianza de 300€',
-  boats_gas: 'Gasolina incluida',
-  boats_equiped_with: 'Incluido',
-  boats_solarium: 'Cama solarium',
-  boats_bimini: 'Toldo bimini',
-  boats_fridge: 'Nevera portátil',
-  boats_bag: 'Bolsa estanca',
-  boats_extras: 'Extras',
-  boats_masks: 'Gafas de buceo',
-  boats_catering: 'Catering',
-  boats_drinks: 'Bebidas y refrescos',
-  boats_alcohol: 'Cavas y Vinos',
-  boats_watersports: 'Paquete náutico',
-  boats_ask: '¡Pregúntanos para más información!',
-
   extras: 'Extras',
   watersports_title: '¡MEJORA TU EXPERIENCIA CON NOSOTROS!',
   watersports_description: '¿Buscas algo diferente? Te ayudamos a organizar tu experiencia donde y cómo quieras.' +
