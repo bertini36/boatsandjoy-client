@@ -39,6 +39,7 @@ export default {
   results_to: 'a',
   results_book: '¡Reserva!',
   results_max_capacity: 'Capacidad máxima',
+  results_included: '<strong>Incluye</strong>: gasolina, toldo bimini, solarium, nevera portátil y bolsa estanca.',
 
   checkout_resident: 'Residente Islas Baleares',
   checkout_legal_advice: 'Acepta el aviso legal',

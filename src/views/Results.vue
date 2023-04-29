@@ -56,6 +56,7 @@
                         {{ $t('results_book') }}
                       </button>
                     </div>
+                    <div class="flex" v-html="$t('results_included')"></div>
                   </div>
                 </div>
               </div>

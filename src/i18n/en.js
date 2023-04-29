@@ -39,6 +39,8 @@ export default {
   results_to: 'to',
   results_book: 'Book now!',
   results_max_capacity: 'Max. capacity',
+  results_included: '<strong>Includes</strong>: gasoline, bimini top, solarium, portable fridge and waterproof bag.',
+
 
   checkout_resident: 'Resident of the Balearic Islands',
   checkout_legal_advice: 'Accept legal advice',
