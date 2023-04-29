@@ -4,9 +4,9 @@ export default {
   watersports: 'Actividades Náuticas',
   english: 'Inglés',
   spanish: 'Castellano',
-  slogan: 'Alquila un barco en Mallorca',
+  slogan: 'Alquiler de barcos sin titulación en Mallorca',
   check_availability: 'Consultar disponibilidad',
-  check_voucher: 'Comprobar bonos',
+  check_voucher: 'Consultar bonos',
 
   boats_title: '¡ALQUILA UN BARCO SIN LICENCIA!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste ' +
