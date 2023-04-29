@@ -40,6 +40,7 @@ export default {
   results_book: '¡Reserva!',
   results_max_capacity: 'Capacidad máxima',
   results_included: '<strong>Incluye</strong>: gasolina, toldo bimini, solarium, nevera portátil y bolsa estanca.',
+  results_deposit: '<strong>Fianza de 250€</strong>',
 
   checkout_resident: 'Residente Islas Baleares',
   checkout_legal_advice: 'Acepta el aviso legal',
@@ -56,7 +57,7 @@ export default {
   checkout_name_error: 'Tienes que escribir tu nombre',
   checkout_telephone_error: 'Tienes que escribir tu teléfono',
   checkout_extra_info: '¡Recuerda que puedes completar tu día con uno de nuestros <a href="/pdf/catering.pdf" target="_blank">menús</a>!<br />' +
-    'Haznos saber en qué servicio extra estás interesado y nos pondremos en contacto contigo.',
+    'Haznos saber en qué servicio extra estás interesado y nos pondremos en contacto contigo. <br> <strong>Kit snorkel +2€</strong>',
   download: 'Descarga',
 
   error_redirecting_to_stripe: 'Ha habido un error redirigiendo a la plataforma de pago',

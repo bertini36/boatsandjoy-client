@@ -57,6 +57,7 @@
                       </button>
                     </div>
                     <div class="flex" v-html="$t('results_included')"></div>
+                    <div class="flex" v-html="$t('results_deposit')"></div>
                   </div>
                 </div>
               </div>

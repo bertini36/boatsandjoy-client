@@ -40,6 +40,7 @@ export default {
   results_book: 'Book now!',
   results_max_capacity: 'Max. capacity',
   results_included: '<strong>Includes</strong>: gasoline, bimini top, solarium, portable fridge and waterproof bag.',
+  results_deposit: '<strong>Deposit of 250€</strong>',
 
 
   checkout_resident: 'Resident of the Balearic Islands',
@@ -57,7 +58,7 @@ export default {
   checkout_name_error: 'You have to specify your name',
   checkout_telephone_error: 'You have to specify your telephone number',
   checkout_extra_info: 'Remember that you can complete your day with our tasty <a href="/pdf/catering.pdf" target="_blank">food-packs</a>!<br />' +
-    'Let us know what extra service are you interested in and we will get in touch with you.',
+    'Let us know what extra service are you interested in and we will get in touch with you. <br> <strong>Snorkel kit +2€</strong>',
   download: 'Download',
 
   error_redirecting_to_stripe: 'There has been an error in the redirection to the payment gateway',
