@@ -152,7 +152,7 @@ export default {
     const getBoatPhoto = (boatName) => {
       const photos = [
         require('../assets/img/bj1.jpeg'),
-        require('../assets/img/bj2.jpeg')
+        require('../assets/img/bj2.jpeg'),
       ];
       if (boatName === 'B&J I') {
         return photos[0];
@@ -162,7 +162,7 @@ export default {
     };
 
     const getMaxCapacity = (boatName) => {
-      if (boatName === 'B&J I') {
+      if (boatName === 'B&J I' || boatName === 'B&J III') {
         return 5;
       } else if (boatName === 'B&J II') {
         return 6;
