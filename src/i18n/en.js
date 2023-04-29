@@ -8,6 +8,36 @@ export default {
   check_availability: 'Check availability',
   check_voucher: 'Check vouchers',
 
+  boats_title: 'RENT A BOAT WITHOUT LICENSE!',
+  boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and ' +
+    'gives you the possibility enjoy the amazing West Mallorcan Coast.' +
+    'Be your own Captain! No license is required. (only +18)' +
+    'You will start from Sant Elm a beautiful little village in the West edge of Mallorca. ' +
+    'Enjoy amazing views, beaches,coves and caves.' +
+    ' Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, ' +
+    'birds and endemic flora or have your time to relax and eat delicious mallorcan food on the Mediterranean. <br>' +
+    'Check our offers in our Instagram account <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a> <br>' +
+    'Resident discount available! *',
+  boats_information_title: 'Boats information',
+  boats_basic: 'Basic',
+  boats_max_capacity: 'Max. capacicy: 5 or 6 people',
+  boats_power: 'Power: 15HP',
+  boats_location: 'Location: Sant Elm',
+  boats_caution: 'Caution: 300€',
+  boats_gas: 'Gas included',
+  boats_equiped_with: 'Included',
+  boats_solarium: 'Solarium',
+  boats_bimini: 'Bimini',
+  boats_fridge: 'Portable fridge',
+  boats_bag: 'Waterproof bag',
+  boats_extras: 'Extras',
+  boats_masks: 'Snorkeling masks',
+  boats_catering: 'Catering',
+  boats_drinks: 'Soft drinks',
+  boats_alcohol: 'Cava & wine',
+  boats_watersports: 'Watersports pack',
+  boats_ask: 'Ask for more information!',
+
   extras: 'Extras',
   watersports_title: 'LEVEL UP YOUR EXPERIENCE WITH US!',
   watersports_description: 'Looking for something different? We help you to make it the best way it fits you!' +
@@ -41,7 +71,6 @@ export default {
   results_max_capacity: 'Max. capacity',
   results_included: '<strong>Includes</strong>: gasoline, bimini top, solarium, portable fridge and waterproof bag.',
   results_deposit: '<strong>Deposit of 250€</strong>',
-
 
   checkout_resident: 'Resident of the Balearic Islands',
   checkout_legal_advice: 'Accept legal advice',
