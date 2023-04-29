@@ -153,11 +153,14 @@ export default {
       const photos = [
         require('../assets/img/bj1.jpeg'),
         require('../assets/img/bj2.jpeg'),
+        require('../assets/img/bj3.jpeg'),
       ];
       if (boatName === 'B&J I') {
         return photos[0];
       } else if (boatName === 'B&J II') {
         return photos[1];
+      } else if (boatName === 'B&J III') {
+        return photos[2];
       }
     };
 
