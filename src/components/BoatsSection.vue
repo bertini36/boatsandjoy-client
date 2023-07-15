@@ -1,5 +1,6 @@
 <template>
-  <div id="boats">
+  HOLAAAA
+  <div id="boats2">
     <article class="py-12 md:pt-20 flex flex-row justify-center">
       <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
         <h3 class="title mb-4">{{ $t('boats_title') }}</h3>
