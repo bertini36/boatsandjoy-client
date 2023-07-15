@@ -15,9 +15,7 @@ export default {
     'You will start from Sant Elm a beautiful little village in the West edge of Mallorca. ' +
     'Enjoy amazing views, beaches,coves and caves.' +
     ' Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, ' +
-    'birds and endemic flora or have your time to relax and eat delicious mallorcan food on the Mediterranean. <br>' +
-    'Check our offers in our Instagram account <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a> <br>' +
-    'Resident discount available! *',
+    'birds and endemic flora or have your time to relax and eat delicious mallorcan food on the Mediterranean.',
   boats_information_title: 'Boats information',
   boats_basic: 'Basic',
   boats_max_capacity: 'Max. capacicy: 5 or 6 people',

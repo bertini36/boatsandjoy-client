@@ -14,9 +14,7 @@ export default {
     ' ¡Sé capitán por un día! No se requiere titulación, tan solo ser mayor de 18 años.' +
     'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
     'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus “dragones”, aves y flora endémica.' +
-    ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo. <br>' +
-    'Comprueba nuestras ofertas en nuestra cuenta de Instagram <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a><br>' +
-    '¡Descuento de residente disponible! *',
+    ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo.',
   boats_information_title: 'Información sobre los barcos',
   boats_basic: 'Básico',
   boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
