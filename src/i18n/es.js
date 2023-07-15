@@ -15,9 +15,7 @@ export default {
     'Zarpa desde Sant Elm y asómbrate con las vistas, las calas y cuevas del sur de la Serra de Tramuntana. ' +
     'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus “dragones”, aves y flora endémica.' +
     ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo.',
-  boats_check_offers:
-    '<strong>Comprueba nuestras ofertas en nuestra cuenta de Instagram <a href="https://www.instagram.com/boatsandjoy/" target="_blank">@boatsandjoy</a><br>' +
-    '¡Descuento de residente disponible!</strong>',
+  boats_check_offers: '<strong>Comprueba nuestras ofertas en nuestra cuenta de Instagram @boatsandjoy</a><br> ¡Descuento de residente disponible!</strong>',
   boats_information_title: 'Información sobre los barcos',
   boats_basic: 'Básico',
   boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
