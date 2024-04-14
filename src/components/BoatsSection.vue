@@ -89,9 +89,9 @@ export default {
 
   setup() {
     const image_urls = [
-      require('../assets/img/boats1.jpg'),
-      require('../assets/img/boats2.jpg'),
-      require('../assets/img/boats3.jpeg')
+      require('../assets/img/boats1.png'),
+      require('../assets/img/boats2.png'),
+      require('../assets/img/boats3.png')
     ];
     const showingModal = ref(false);
     const selectedImageUrl = ref('');
