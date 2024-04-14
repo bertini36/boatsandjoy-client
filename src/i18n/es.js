@@ -33,9 +33,7 @@ export default {
   boats_bag: 'Bolsa estanca',
   boats_extras: 'Extras',
   boats_masks: 'Gafas de buceo',
-  boats_catering: 'Catering',
-  boats_drinks: 'Bebidas y refrescos',
-  boats_alcohol: 'Cavas y Vinos',
+  boats_catering: 'Comida y bebida',
   boats_watersports: 'Paquete náutico',
   boats_ask: '¡Pregúntanos para más información!',
 

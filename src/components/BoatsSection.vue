@@ -54,8 +54,7 @@
                   <ul class="mt-2">
                     <li>{{ $t('boats_masks') }}</li>
                     <li>{{ $t('boats_catering') }}</li>
-                    <li>{{ $t('boats_drinks') }}</li>
-                    <li>{{ $t('boats_alcohol') }}</li>
+
                     <li>{{ $t('boats_watersports') }}</li>
                   </ul>
                 </div>

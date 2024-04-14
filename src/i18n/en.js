@@ -34,9 +34,7 @@ export default {
   boats_bag: 'Waterproof bag',
   boats_extras: 'Extras',
   boats_masks: 'Snorkeling masks',
-  boats_catering: 'Catering',
-  boats_drinks: 'Soft drinks',
-  boats_alcohol: 'Cava & wine',
+  boats_catering: 'Food and drink',
   boats_watersports: 'Watersports pack',
   boats_ask: 'Ask for more information!',
 
