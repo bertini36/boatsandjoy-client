@@ -43,7 +43,7 @@
       <article class="mt-10 pt-12 pb-6 md:pt-10 flex flex-row justify-center">
         <div class="flex flex-col w-full px-4 lg:px-0 lg:w-3/5">
           <h3 class="title mb-4">{{ $t('catering_title') }}</h3>
-          <p class="text-center"><a href="/pdf/catering.pdf" target="_blank">{{ $t('catering_description') }}</a></p>
+          <p class="text-center"><a href="/pdf/catering.png" target="_blank">{{ $t('catering_description') }}</a></p>
         </div>
       </article>
 
