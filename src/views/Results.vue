@@ -56,8 +56,8 @@
                         {{ $t('results_book') }}
                       </button>
                     </div>
-                    <div class="flex" v-html="$t('results_included')"></div>
-                    <div class="flex" v-html="$t('results_deposit')"></div>
+                    <div class="flex text-sm" v-html="$t('results_included')"></div>
+                    <div class="flex text-sm" v-html="$t('results_deposit')"></div>
                   </div>
                 </div>
               </div>

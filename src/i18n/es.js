@@ -69,7 +69,7 @@ export default {
   results_book: '¡Reserva!',
   results_max_capacity: 'Capacidad máxima',
   results_included: '<strong>Incluye</strong>: gasolina, toldo bimini, solarium, nevera portátil y bolsa estanca.',
-  results_deposit: '<strong>Fianza de 250€</strong>',
+  results_deposit: '<strong>Fianza de 300€</strong>',
 
   checkout_resident: 'Residente Islas Baleares',
   checkout_legal_advice: 'Acepta el aviso legal',

@@ -70,7 +70,7 @@ export default {
   results_book: 'Book now!',
   results_max_capacity: 'Max. capacity',
   results_included: '<strong>Includes</strong>: gasoline, bimini top, solarium, portable fridge and waterproof bag.',
-  results_deposit: '<strong>Deposit of 250€</strong>',
+  results_deposit: '<strong>Deposit of 300€</strong>',
 
   checkout_resident: 'Resident of the Balearic Islands',
   checkout_legal_advice: 'Accept legal advice',
