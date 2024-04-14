@@ -17,9 +17,15 @@
         <button class="btn" @click="checkAvailability">{{ $t('check_availability') }}</button>
       </div>
 
-      <div class="mt-1 pb-10 flex flex-row justify-center">
-        <a :href="`/pdf/vouchers.pdf`" target="_blank" class="text-white">
+      <div class="mt-1 flex flex-row justify-center">
+        <a :href="`/pdf/vouchers.png`" target="_blank" class="text-white">
           {{ $t('check_voucher') }}
+        </a>
+      </div>
+
+      <div class="pb-10 flex flex-row justify-center">
+        <a :href="`/pdf/fishing.png`" target="_blank" class="text-white">
+          {{ $t('fishing') }}
         </a>
       </div>
     </div>

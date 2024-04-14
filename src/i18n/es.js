@@ -6,7 +6,8 @@ export default {
   spanish: 'Castellano',
   slogan: 'Alquiler de barcos sin titulación en Mallorca',
   check_availability: 'Consultar disponibilidad',
-  check_voucher: 'Consultar bonos',
+  check_voucher: 'Bonos',
+  fishing: 'Pesca',
 
   boats_title: '¡ALQUILA UN BARCO SIN LICENCIA!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste ' +

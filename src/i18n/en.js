@@ -6,7 +6,8 @@ export default {
   spanish: 'Spanish',
   slogan: 'Rent a boat in Mallorca',
   check_availability: 'Check availability',
-  check_voucher: 'Check vouchers',
+  check_voucher: 'Vouchers',
+  fishing: 'Fishing',
 
   boats_title: 'RENT A BOAT WITHOUT LICENSE!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and ' +
