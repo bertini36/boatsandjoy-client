@@ -18,8 +18,7 @@ export default {
     ' Also have fun snorkeling in Sa Dragonera, a Natural Park known for its lizards, ' +
     'birds and endemic flora or have your time to relax and eat delicious mallorcan food on the Mediterranean.' ,
   boats_check_offers:
-    '<strong>Check our offers in our <a href="https://www.instagram.com/boatsandjoy/" target="_blank">Instagram account</a> <br>' +
-    'Resident discount available!</strong>',
+    '<strong>Check our offers in our <a href="https://www.instagram.com/boatsandjoy/" target="_blank"><u>Instagram account</u></a>',
   boats_information_title: 'Boats information',
   boats_basic: 'Basic',
   boats_max_capacity: 'Max. capacicy: 5 or 6 people',
@@ -58,7 +57,7 @@ export default {
   watersports_windsurf: 'Windsurf',
   watersports_flyboard: 'Flyboard',
 
-  catering_title: 'or asking for something to eat!',
+  catering_title: 'or asking for something to eat or drink!',
   catering_description: 'Click here and check the menu!',
 
   map_title: 'You can find us in Sant Elm!',

@@ -4,7 +4,7 @@ export default {
   watersports: 'Actividades Náuticas',
   english: 'Inglés',
   spanish: 'Castellano',
-  slogan: 'Alquiler de barcos sin titulación en Mallorca',
+  slogan: 'Alquila tu barco en Mallorca',
   check_availability: 'Consultar disponibilidad',
   check_voucher: 'Bonos',
   fishing: 'Pesca',
@@ -17,8 +17,7 @@ export default {
     'Explora el fondo marino en Sa Dragonera, un parque natural conocido por sus “dragones”, aves y flora endémica.' +
     ' O tómatelo con calma y disfruta de la deliciosa comida mallorquina en una de las bellas calas del Mediterráneo.',
   boats_check_offers:
-    '<strong>Comprueba nuestras ofertas en nuestra <a href="https://www.instagram.com/boatsandjoy/" target="_blank">cuenta de Instagram</a><br>' +
-    '¡Descuento de residente disponible!</strong>',
+    '<strong>Comprueba nuestras ofertas en nuestra <a href="https://www.instagram.com/boatsandjoy/" target="_blank"><u>cuenta de Instagram</u></a>',
   boats_information_title: 'Información sobre los barcos',
   boats_basic: 'Básico',
   boats_max_capacity: 'Capacidad máxima: 5 o 6 personas',
@@ -57,7 +56,7 @@ export default {
   watersports_windsurf: 'Windsurf',
   watersports_flyboard: 'Flyboard',
 
-  catering_title: 'o pidiendo algo para comer!',
+  catering_title: 'o pidiendo algo para comer o beber!',
   catering_description: 'Haz click aquí para ver el menú!',
 
   map_title: 'Puedes encontrarnos en Sant Elm',
