@@ -18,13 +18,13 @@
       </div>
 
       <div class="mt-1 flex flex-row justify-center">
-        <a :href="`/pdf/vouchers.png`" target="_blank" class="text-white">
+        <a :href="`/pdf/vouchers.jpeg`" target="_blank" class="text-white">
           {{ $t('check_voucher') }}
         </a>
       </div>
 
       <div class="pb-10 flex flex-row justify-center">
-        <a :href="`/pdf/fishing.png`" target="_blank" class="text-white">
+        <a :href="`/pdf/fishing.jpeg`" target="_blank" class="text-white">
           {{ $t('fishing') }}
         </a>
       </div>
