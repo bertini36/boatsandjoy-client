@@ -32,7 +32,7 @@
                         {{ $t('results_max_capacity') }}: {{ getMaxCapacity(boatAvailability.boat.name) }}
                       </span>
                     </div>
-                    <div v-if="selectedAvailabilityOptions[i] !== ''" class="w-1/4 flex justify-end">
+                    <div v-if="selectedAvailabilityOptions[i] !== '' & selectedAvailabilityOptions[i] !== undefined" class="w-1/4 flex justify-end">
                       <span class="price-circle">
                         {{ selectedAvailabilityOptions[i].price }}€
                       </span>
