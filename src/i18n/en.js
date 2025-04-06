@@ -11,7 +11,7 @@ export default {
 
   boats_title: 'RENT A BOAT WITHOUT LICENSE!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and ' +
-    'gives you the possibility enjoy the amazing West Mallorcan Coast.' +
+    'gives you the possibility enjoy the amazing West Mallorcan Coast. ' +
     'Be your own Captain! No license is required. (only +18)' +
     'You will start from Sant Elm a beautiful little village in the West edge of Mallorca. ' +
     'Enjoy amazing views, beaches,coves and caves.' +
