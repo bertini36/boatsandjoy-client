@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="toggle" class="ml-2 text-xs">{{ $t('spanish') }}</label>
+    <label for="toggle" class="ml-2 text-xs">{{ $t('spanish') }}&nbsp;&nbsp;</label>
     <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
       <input type="checkbox" @click="switchLanguage" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer focus:outline-none"/>
       <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
