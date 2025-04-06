@@ -69,6 +69,7 @@ export default {
   results_max_capacity: 'Capacidad máxima',
   results_included: '<strong>Incluye</strong>: gasolina, toldo bimini, solarium, nevera portátil y bolsa estanca.',
   results_deposit: '<strong>Fianza de 300€</strong>',
+  results_catering: '<a href="/pdf/catering.jpeg" target="_blank">Llevate algo para picar!</a>',
 
   checkout_resident: 'Residente Islas Baleares',
   checkout_legal_advice: 'Acepta el aviso legal',

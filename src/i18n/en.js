@@ -70,6 +70,7 @@ export default {
   results_max_capacity: 'Max. capacity',
   results_included: '<strong>Includes</strong>: gasoline, bimini top, solarium, portable fridge and waterproof bag.',
   results_deposit: '<strong>Deposit of 300€</strong>',
+  results_catering: '<a href="/pdf/catering.jpeg" target="_blank">Take something to eat or drink!</a>',
 
   checkout_resident: 'Resident of the Balearic Islands',
   checkout_legal_advice: 'Accept legal advice',
