@@ -26,8 +26,8 @@ app
   }))
   .use(createStore(store))
   .use(createI18n({
-    locale: 'en',
-    fallbackLocale: 'en',
+    locale: 'es',
+    fallbackLocale: 'es',
     messages: {
       en,
       es
