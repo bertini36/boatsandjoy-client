@@ -29,8 +29,8 @@ app
     locale: 'es',
     fallbackLocale: 'es',
     messages: {
+      es,
       en,
-      es
     }
   }))
   .use(PrimeVue)
