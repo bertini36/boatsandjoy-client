@@ -54,6 +54,12 @@
           <img src="../assets/img/catering3.jpg" alt="Catering photo" class="rounded-sm h-72">
         </div>
       </article>
+
+      <article class="pt-8">
+        <div class="flex flex-row justify-center">
+          ¿Estás planeando tu próximo viaje? Busca en &nbsp;<a href="https://www.kayak.es/flights"><strong>KAYAK</strong></a>.
+        </div>
+      </article>
     </div>
   </div>
 </template>
