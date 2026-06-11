@@ -8,6 +8,8 @@ export default {
   check_availability: 'Check availability',
   check_voucher: 'Vouchers',
   fishing: 'Fishing',
+  eclipse_banner_text: '🌑 Experience the eclipse from the sea',
+  eclipse_banner_cta: 'How to book →',
 
   boats_title: 'RENT A BOAT WITHOUT LICENSE!',
   boats_description: 'Boats and Joy provides you these comfortable and beautiful pleasure boats to rent and ' +

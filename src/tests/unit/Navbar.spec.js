@@ -12,11 +12,11 @@ describe('Navbar component', () => {
 
     const homeLink = screen.getByRole('link', { name: /home/i });
     const boatsLink = screen.getByRole('link', { name: /boats/i });
-    const waterSportsLink = screen.getByRole('link', { name: /watersports/i });
+    const extrasLink = screen.getByRole('link', { name: /extras/i });
 
     expect(homeLink).toBeInTheDocument();
     expect(boatsLink).toBeInTheDocument();
-    expect(waterSportsLink).toBeInTheDocument();
+    expect(extrasLink).toBeInTheDocument();
 
   });
 });

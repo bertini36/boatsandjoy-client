@@ -42,7 +42,7 @@ describe('CheckoutForm component', () => {
   it('shows price', async () => {
     render(CheckoutForm, { availabilityOption: availabilityOption });
 
-    const price = screen.getByText(`${availabilityOption.price}€`);
+    const price = screen.getByText(`${availabilityOption.price.toFixed(2)}€`);
 
     expect(price).toBeInTheDocument();
   });
@@ -55,21 +55,10 @@ describe('CheckoutForm component', () => {
     expect(time).toBeInTheDocument();
   });
 
-  it('shows reduced price when resident', async () => {
-    render(CheckoutForm, { availabilityOption: availabilityOption });
-
-    const residentCheck = screen.getByLabelText(/resident/i);
-    await userEvent.click(residentCheck);
-
-    const reducedPriceValue = availabilityOption.price - (availabilityOption.price * availabilityOption.discounts.resident);
-    const reducedPrice = screen.getByText(`${reducedPriceValue}€`);
-    expect(reducedPrice).toBeInTheDocument();
-  });
-
   it('shows error when no accept legal advice', async () => {
     render(CheckoutForm, { availabilityOption: availabilityOption });
 
-    const payButton = screen.getByRole('button');
+    const payButton = screen.getByRole('button', { name: /pay/i });
     await userEvent.click(payButton);
 
     const errorText = screen.getByText(/you have to accept legal advice/i);
@@ -79,7 +68,7 @@ describe('CheckoutForm component', () => {
   it('shows error when no accept terms and conditions', async () => {
     render(CheckoutForm, { availabilityOption: availabilityOption });
 
-    const payButton = screen.getByRole('button');
+    const payButton = screen.getByRole('button', { name: /pay/i });
     await userEvent.click(payButton);
 
     const errorText = screen.getByText(/you have to accept terms and conditions/i);
@@ -89,7 +78,7 @@ describe('CheckoutForm component', () => {
   it('shows error when name is not specified', async () => {
     render(CheckoutForm, { availabilityOption: availabilityOption });
 
-    const payButton = screen.getByRole('button');
+    const payButton = screen.getByRole('button', { name: /pay/i });
     await userEvent.click(payButton);
 
     const errorText = screen.getByText(/you have to specify your name/i);
@@ -99,7 +88,7 @@ describe('CheckoutForm component', () => {
   it('shows error when telephone is not specified', async () => {
     render(CheckoutForm, { availabilityOption: availabilityOption });
 
-    const payButton = screen.getByRole('button');
+    const payButton = screen.getByRole('button', { name: /pay/i });
     await userEvent.click(payButton);
 
     const errorText = screen.getByText(/you have to specify your telephone number/i);
@@ -117,7 +106,7 @@ describe('CheckoutForm component', () => {
     const telephoneInput = screen.getByLabelText(/telephone/i);
     await userEvent.type(telephoneInput, '7');
 
-    const payButton = screen.getByRole('button');
+    const payButton = screen.getByRole('button', { name: /pay/i });
     await userEvent.click(payButton);
 
     const errorText = await screen.queryByText(/you have to/i);

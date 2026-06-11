@@ -8,6 +8,8 @@ export default {
   check_availability: 'Consultar disponibilidad',
   check_voucher: 'Bonos',
   fishing: 'Pesca',
+  eclipse_banner_text: '🌑 Vive el eclipse desde el mar',
+  eclipse_banner_cta: 'Cómo reservar →',
 
   boats_title: '¡ALQUILA UN BARCO SIN LICENCIA!',
   boats_description: 'Boats and Joy te da la posibilidad de disfrutar de la impresionante costa Oeste ' +
